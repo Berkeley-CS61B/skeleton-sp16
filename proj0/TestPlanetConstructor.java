@@ -1,4 +1,3 @@
-
 /**
  *  Tests the Planet constructor.
  */
@@ -33,7 +32,6 @@ public class TestPlanetConstructor {
      *  @param  label   Label for the 'test' case
      */
     private static void checkStringEquals(String expected, String actual, String label) {
-
         if (expected.equals(actual)) {
             System.out.println("PASS: " + label + ": Expected " + expected + " and you gave " + actual);
         } else {
@@ -42,7 +40,7 @@ public class TestPlanetConstructor {
     }
 
     /**
-     *  Checks Planet constructor to make sure it's setting instance
+     *  Checks Planet constructors to make sure they are setting instance
      *  variables correctly.
      */
     private static void checkPlanetConstructor() {
@@ -66,11 +64,11 @@ public class TestPlanetConstructor {
         checkStringEquals(imgFileName, p.imgFileName, "path to image");
 
         Planet pCopy = new Planet(p);
-        checkEquals(pCopy.xxPos, p.xxPos, "x");
-        checkEquals(pCopy.yyPos, p.yyPos, "y");
-        checkEquals(pCopy.xxVel ,p.xxVel, "xVelocity");
-        checkEquals(pCopy.yyVel, p.yyVel, "yVelocity");
-        checkEquals(pCopy.mass, p.mass, "mass");
-        checkStringEquals(imgFileName, p.imgFileName, "path to image");
+        checkEquals(p.xxPos, pCopy.xxPos, "x");
+        checkEquals(p.yyPos, pCopy.yyPos, "y");
+        checkEquals(p.xxVel, pCopy.xxVel, "xVelocity");
+        checkEquals(p.yyVel, pCopy.yyVel, "yVelocity");
+        checkEquals(p.mass, pCopy.mass, "mass");
+        checkStringEquals(p.imgFileName, pCopy.imgFileName, "path to image");
     }
 }

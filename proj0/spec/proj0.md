@@ -65,7 +65,7 @@ Your instance varaibles must be named exactly as above. Start by adding in two P
 
 <p class="redtext">Note: We have given parameter names which are different than the corresponding instance variable name. If you insist on making the parameter names the same as the instance variable names for aesthetic reasons, make sure to use the "this" keyword appropriately (mentioned only briefly in lecture and not at all in HFJ).</p>
 
-The signature of the second constructor should be:
+The second constructor should take in a Planet object and initialize an identical Planet object (i.e. a copy). The signature of the second constructor should be:
 
     public Planet(Planet p)
 
@@ -304,12 +304,12 @@ Alternately, you can consult the [full documentation for the In class](http://in
 
 We encourage you (and your partner, if applicable) to do your best to figure out this part of the assignment on your own. In the long run, you'll need to gain the skills to independently figure out this sort of thing. However, if you start getting frustrated, don't hestitate to ask for help!
 
-You can test this method using the supplied TestReadRadius. 
+You can test this method using the supplied TestReadRadius.
 #### ReadPlanets
 
 Your next method is readPlanets. Given a file name, it should return an array of Planets corresponding to the planets in the file, e.g. `readPlanets("./data/planets.txt")` should return an array of five planets. You will find the `readInt()`, `readDouble()`, and `readString()` methods in the In class to be useful.
 
-You can test this method using the supplied TestReadPlanets. 
+You can test this method using the supplied TestReadPlanets.
 
 Drawing the Initial Universe State (main)
 ------
