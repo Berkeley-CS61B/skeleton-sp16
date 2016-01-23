@@ -203,7 +203,7 @@ The next two methods that you should write are `calcForceExertedByX` and `calcFo
 
 Write methods `calcNetForceExertedByX` and `calcNetForceExertedByY` that each take in an array of Planets and calculate the net X and net Y force exerted by all planets in that array upon the current Planet. For example, consider the code snippet below:
 
-    Planet allPlanets = {samh, rocinante, aegir};
+    Planet[] allPlanets = {samh, rocinante, aegir};
     samh.calcNetForceExertedByX(allPlanets);
     samh.calcNetForceExertedByY(allPlanets);
 
