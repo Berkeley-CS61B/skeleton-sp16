@@ -25,9 +25,11 @@ Getting the Skeleton Files
 
 Before proceeding, make sure you have completed [lab1](http://cs61b.ug/sp16/materials/lab/lab1/lab1.html), and if you are working on your own computer, that you have completed [lab1b](http://cs61b.ug/sp16/materials/lab/lab1b/lab1b.html) to set up your computer.
 
-To do this, head to the folder containing your copy of your repository. For example, if your login is 'agz', then head to the 'agz' folder (or any subdirectory).
+To do this, head to the folder containing your copy of your repository. For example, if your login is 'agz', then head to the 'agz' folder (or any subdirectory). If you're working with a partner, you should instead clone your partner repository, e.g. `git clone https://github.com/Berkeley-CS61B/proj0-bqd-aba`
 
-Now make sure you have the latest copy of the skeleton files with by using `git pull skeleton master`. Since you already have a copy of the repository you're pulling, this will cause a merge (as described in the lab guide). A text editor will automatically open asking you to provide a message on why you are merging.
+If you're working solo, you should now be in your personal repo folder, e.g. `agz`. If you're working with a partner, your computers should both be in the `bqd-aba` folder that was created when you cloned the repo.
+
+Now we'll make sure you have the latest copy of the skeleton files with by using `git pull skeleton master`. If the folder you're pulling into already has an older copy of the skeleton repo (from lab 1, for example), this will cause a so-called `merge` (see git guide for more details if you want). A text editor will automatically open asking you to provide a message on why you are merging.
 
 Depending on what computer you're using, you will possibly yourself in one of two obtuse text editors:
   - vim
@@ -43,7 +45,11 @@ See [this link](http://stackoverflow.com/questions/11828270/how-to-exit-the-vim-
 
 Once you've successfully merged, you should see a proj0 directory appear with files that match [the skeleton repostiory](https://github.com/Berkeley-CS61B/skeleton-sp16/tree/master/proj0).
 
-If you get some sort of error, STOP and either figure it out by carefully reading the the git guide or seek help at OH or Piazza. You'll potentially save yourself a lot of trouble vs. guess-and-check with git commands.
+Note that if you did not already have a copy of the skeleton repo in your current folder, you will not be asked for a merge message.
+
+If you somehow end up having a merge conflict, consult the [git weird technical failures guide](http://cs61b.ug/sp16/materials/guides/git-wtfs.html).
+
+If you get some sort of error, STOP and either figure it out by carefully reading the the git guide or seek help at OH or Piazza. You'll potentially save yourself a lot of trouble vs. guess-and-check with git commands. If you find yourself trying to use commands you Google like `force push`, don't.
 
 The Planet Class and Its Constructor
 ----------------
