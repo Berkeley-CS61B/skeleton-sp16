@@ -185,7 +185,7 @@ Hint 2: Always try googling before asking questions on Piazza. Knowing how to fi
 
 #### calcForceExertedBy
 
-The next method that you will implement is `calcForceExertedBy`. The `calcForceExertedBy` method takes in a planet, and returns a double describing the force exerted on the given planet by this planet.  You should be calling the `calcDistance` method in this method. For example `samh.calcForceExertedBy(rocinante)` for the numbers in "Double Check Your Understanding" return 1.334 * 10<sup>-9</sup>.
+The next method that you will implement is `calcForceExertedBy`. The `calcForceExertedBy` method takes in a planet, and returns a double describing the force exerted on this planet by the given planet.  You should be calling the `calcDistance` method in this method. For example `samh.calcForceExertedBy(rocinante)` for the numbers in "Double Check Your Understanding" return 1.334 * 10<sup>-9</sup>.
 
 Once you've finished `calcForceExertedBy`, re-compile and run the next unit test.
 
@@ -262,7 +262,7 @@ Here's a diagram of the updated system:
 
 For math/physics experts: You may be tempted to write a more accurate simulation where the force gradually increases over the specified time window. Don't! Your simulation must follow exactly the rules above.
 
-Write a method `update(dt, fX, fY)` and uses the steps above to calculate how much the planet moves in the period of time _dt_.
+Write a method `update(dt, fX, fY)` that uses the steps above to update the planet's position and velocity instance variables (this method does not need to return anything).
 
 Once you're done, recompile and test your method with:
 
