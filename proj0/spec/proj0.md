@@ -477,7 +477,7 @@ When this line of code gets executed, the JVM first creates a new `Dog` object t
 Java will put some default values in each instance variable.  We'll learn more about where these defaults come from (and what `null` means) later this semester.  For now, just remember that there's space for all of the instance variables, but those instance variables haven't been assigned meaningful values yet.  If you ever want to see this in action, you can add some print statements to your constructor:
 
     public Dog(String name, String breed, int age) {
-        System.out.println("_name: " + name + ", _breed: " + breed + ", _age: " + age);
+        System.out.println("_name: " + _name + ", _breed: " + _breed + ", _age: " + _age);
         _name = name;
         _breed = breed;
         _age = age;
@@ -485,7 +485,7 @@ Java will put some default values in each instance variable.  We'll learn more a
 
 If this constructor had been used to create `fido` above, it would have printed:
 
-    "_name: null, _breed: null, _age: 0"
+    _name: null, _breed: null, _age: 0
 
 OK, back to making `fido`.  Now that the JVM has made some "boxes" for `fido`, it calls the `Dog` constructor function that we wrote.  At this point, the constructor executes just like any other function would.  In the first line of the constructor, `_name` is assigned the value `name`, so that `fido` looks like:
 
