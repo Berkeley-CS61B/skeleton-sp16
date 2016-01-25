@@ -336,9 +336,9 @@ Create a `main` method in the NBody class. Write code so that your NBody class p
 
 After your main method has read everything from the files, it's time to get drawing. First, set the scale so that it matches the radius of the universe. Then draw the image `starfield.jpg` as the background. To do these, you'll need to figure out how to use the StdDraw library.
 
-See StdDraw.java in the examples folder for a demonstration of StdDraw. This example, like InDemo, does not perfectly match what you're doing.
+See StdDrawDemo.java in the examples folder for a demonstration of StdDraw. This example, like InDemo, does not perfectly match what you're doing.
 
-In addition, make sure to check out [the StdDraw section of this mini-tutorial](http://introcs.cs.princeton.edu/java/15inout/), and if you're feeling bold, the [full StdDraw ocumentation](http://introcs.cs.princeton.edu/java/stdlib/javadoc/). This will probably take some trial and error. This may seem slightly frustrating, but it's good practice!
+In addition, make sure to check out [the StdDraw section of this mini-tutorial](http://introcs.cs.princeton.edu/java/15inout/), and if you're feeling bold, the [full StdDraw documentation](http://introcs.cs.princeton.edu/java/stdlib/javadoc/). This will probably take some trial and error. This may seem slightly frustrating, but it's good practice!
 
 #### Drawing One Planet
 
