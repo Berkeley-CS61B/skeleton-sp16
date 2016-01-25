@@ -29,9 +29,11 @@ To do this, head to the folder containing your copy of your repository. For exam
 
 If you're working solo, you should now be in your personal repo folder, e.g. `agz`. If you're working with a partner, your computers should both be in the `bqd-aba` folder that was created when you cloned the repo.
 
-Now we'll make sure you have the latest copy of the skeleton files with by using `git pull skeleton master`. If the folder you're pulling into already has an older copy of the skeleton repo (from lab 1, for example), this will cause a so-called `merge` (see git guide for more details if you want). A text editor will automatically open asking you to provide a message on why you are merging.
+Now we'll make sure you have the latest copy of the skeleton files with by using `git pull skeleton master`. If you're using your partner repo, you'll also need to set the remote just like we did in lab1 using the `git remote add skeleton https://github.com/Berkeley-CS61B/skeleton-sp16.git` command.
 
-Depending on what computer you're using, you will possibly yourself in one of two obtuse text editors:
+If the folder you're pulling into already has an older copy of the skeleton repo (from lab 1, for example), this will cause a so-called `merge` (see git guide for more details if you want). A text editor will automatically open asking you to provide a message on why you are merging.
+
+Depending on what computer you're using, you will possibly find yourself in one of two obtuse text editors:
   - vim
   - emacs
 
@@ -435,6 +437,25 @@ Look at the way you're calculating the force exerted on a particular planet in o
 #### Why'd you name the class Planet? The sun isn't a Planet.
 
 You got us. We could have used Body, but we didn't. Maybe next time?
+
+#### What is a constructor? How do I write one?
+
+A constructor is a block of code that runs when a class is instantiated with the <code>new</code> keyword. Constructors serve the purpose of initializing a new object's fields. Consider an example below:
+
+    public class Dog {
+
+        String _name;
+        String _breed;
+        int _age;
+        
+        public Dog(String name, String breed, int age) {
+            _name = name;
+            _breed = breed;
+            _age = age;
+        }
+    }
+
+The <code>Dog</code> class has three non-static fields. Each instance of the <code>Dog</code> class can have a name, a breed, and an age. Our simple constructor, which takes three arguments, initializes these fields for all new <code>Dog</code> objects.
 
 <!--
 (ABANDONED TEXT)
