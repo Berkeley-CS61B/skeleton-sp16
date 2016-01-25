@@ -410,7 +410,7 @@ This isn't all that exciting (which is why we've provided a solution), but we'll
 Submission
 ----------
 
-Submit NBody.java and Planet.java to gradescope. If you pass all the tests, you get all the points. Hoorah! You may submit as many times as you'd like. We'll start restricting the autograder on future projects. The grader will be running by 1/24.
+Submit NBody.java and Planet.java to gradescope. If you pass all the tests, you get all the points. Hoorah! You may submit as many times as you'd like. We'll start restricting the autograder on future projects. The grader will be running by 1/24. Update: Sorry, due to some tecnical issues it'll actually be late 1/25.
 
 Feel free to share your own custom universes on Piazza. Make sure to try out the other examples in the data folder!
 
