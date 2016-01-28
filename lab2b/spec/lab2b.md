@@ -26,7 +26,7 @@ These instructions apply for both initial setup and for future assignments. When
 	
 2. Find and choose your 3-letter repo/directory then press the ok button. Don't worry if yours doesn't have all the assignments; yours will look like this by the end of the course! From here on out, you should be able to simply select next for every screen but to be safe in the face of shenanigans, more screenshots follow. 
 
-<p class="redtext">If you get to a point where you see a message that says No SDK specified, stop at step 8!</p>
+If you get to a point where you see a message that says No SDK specified, stop at step 8!
 
 	![IntelliJ Select Folder](img/select_folder.png)
 	
@@ -65,7 +65,7 @@ To test that your program works, use the sidebar of your workspace to navigate t
 
 You may get an error about "duplicate classes" in your proj0 directory. The problem is that we have copies of StdDraw.java, StdIn.java, and In.java in both the proj0 and proj0/examples folder. This wasn't a problem before because command line compilation using `javac` for proj0 only considered .java files in the folder at the time you called `javac`. However, IntelliJ has a much wider field of view, and treats your entire login folder as one huge project, getting very upset if it sees two classes with the same name.
 
-To fix this error, simply delete StdDraw.java, StdIn.java and In.java from your proj0/examples directory. This means that you won't be able to run the demos from the command line anymore (unless you use IntelliJ to do it).
+To fix this error, simply delete StdDraw.java, StdIn.java and In.java from your proj0/examples directory. This means that you won't be able to run the demos from the command line anymore (unless you use IntelliJ to run them). Project 0 should still work.
 
 <!--To fix this error, open Settings/Preferences (under the File tab or the IntelliJ IDEA tab).  In the Settings/Preferences menu, on the left-side bar, go into Build,Execution,Deployment -> Compiler -> Excludes.  In the Excludes menu, add StdDraw.java, StdOut.java, In.java, and StdAudio.java from your proj0 directory, then hit OK.-->
 
@@ -75,7 +75,10 @@ You'll notice after this, the green play and green bug icons in the upper right 
 
 Embedded Terminal (Optional)
 ----
-For Mac users, this should be set up automatically. Windows users will likely have to put in a little leg work. IntelliJ has the cool feature that you can have a working terminal in the workspace so you don't have to constantly switch between having IntelliJ and your terminal, if that becomes necessary for whatever reason. This setup assumes you are Windows user and you have git bash installed.
+
+IntelliJ has the cool feature that you can have a working terminal in the workspace so you don't have to constantly switch between having IntelliJ and your terminal, if that becomes necessary for whatever reason.
+
+For Mac users, you should be able to skip this setup section. Windows users will likely have to put in a little leg work. This setup assumes you are a Windows user and you have git bash installed.
 
 First, find the preferences/settings tab and select it (Or use Ctrl+alt+s)
 ![Preferences](img/intellij_preferences.png)
