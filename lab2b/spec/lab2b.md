@@ -67,9 +67,9 @@ Sanity Check
 To test that your program works, use the sidebar of your workspace to navigate to the program you wrote in lab1 (Year.java), right click either the java file in the navigation sidebar on the left or on the text editor portion of the IDE and select the run option. 
 	![Test Run](img/test_run.png)
 
-You may get an error about "duplicate classes" in your proj0 directory. The problem is that we have copies of StdDraw.java, StdIn.java, and In.java in both the proj0 and proj0/examples folder. This wasn't a problem before because command line compilation using `javac` for proj0 only considered .java files in the folder at the time you called `javac`. However, IntelliJ has a much wider field of view, and treats your entire login folder as one huge project, getting very upset if it sees two classes with the same name.
+You may get an error about "duplicate classes" in your proj0 directory. The problem is that we have copies of StdDraw.java, StdOut.java, and In.java in both the proj0 and proj0/examples folder. This wasn't a problem before because command line compilation using `javac` for proj0 only considered .java files in the folder at the time you called `javac`. However, IntelliJ has a much wider field of view, and treats your entire login folder as one huge project, getting very upset if it sees two classes with the same name.
 
-To fix this error, simply delete StdDraw.java, StdIn.java and In.java from your proj0/examples directory. This means that you won't be able to run the demos from the command line anymore (unless you use IntelliJ to run them). Project 0 should still work.
+To fix this error, simply delete StdDraw.java, StdOut.java and In.java from your proj0/examples directory. This means that you won't be able to run the demos from the command line anymore (unless you use IntelliJ to run them). Project 0 should still work.
 
 <!--To fix this error, open Settings/Preferences (under the File tab or the IntelliJ IDEA tab).  In the Settings/Preferences menu, on the left-side bar, go into Build,Execution,Deployment -> Compiler -> Excludes.  In the Excludes menu, add StdDraw.java, StdOut.java, In.java, and StdAudio.java from your proj0 directory, then hit OK.-->
 
