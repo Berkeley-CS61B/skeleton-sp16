@@ -5,6 +5,7 @@ Pre-lab
 -------------------------------
 
 - Run `git pull skeleton master` in your repo. You should get a `lab2/` folder.
+- If you already did lab2b before today, make sure to repeat steps 1-8 to reimport your project after pulling from the skeleton.
 - [Lab 2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html)
 
 Introduction
@@ -28,7 +29,8 @@ Debugger Basics
 `cd` into the the DebugPractice directory located in the lab2 directory. You'll notice a few colorfully named classes. You won't have to modify any of the code here; your purpose is to successfully finish each debugging exercise by collecting all the "treasures" by performing increasingly complex debugging gymnastics.
 
 ### Stroll Through the Park
-Our first exercise introduces us to our core tools, the `breakpoint` and the `step over` button. In the left-hand Project view, right click on the `StrollThroughThePark` file (like you did to Years.java in lab 2b) and this time select the `Debug` option.
+
+Our first exercise introduces us to our core tools, the `breakpoint` and the `step over` button. In the left-hand Project view, right click on the `StrollThroughThePark` file (like you did to Years.java in lab 2b) and this time select the `Debug` option. If the Debug option doesn't appear, it's because you didn't re-import your project (see steps 1-8 of lab2b).
 
 ![Right Click Debug](img/1_right_click.png)
 
@@ -162,7 +164,7 @@ Look at the recursive version - try to reason why this is non-destructive. If yo
 
 Now look at `squarelistIterative()`. The iterative version of a non-destructive method is often quite a bit messier than the recursive version, since it takes some careful pointer action to create a new `IntList`, build it up, and return it. Try to understand what this code is doing, but don't stress if it doesn't all make sense right away.
 
-Finally, look at the test method `testDSquareList` in `IntListTest.java`.  Notice that this test checks whether or not `dSquareList` is destructive.
+Finally, look at the test method `testDSquareList` in `IntListTest.java`.  Notice that this test checks whether or not `dSquareList` is destructive. Note: You should run these tests using IntelliJ, not the terminal.
 
 ### Implementing Destructive vs NonDestructive Methods
 
@@ -174,7 +176,7 @@ The only difference between these two methods is that `dcatenate` modifies the o
 
 To complete the lab:
 
- - Now fill in one of `dcatenate()` or `catenate()`, and run them against our tests. Revise your code until it passes our tests.
+ - Now fill in one of `dcatenate()` or `catenate()`, and run them against our tests. Revise your code until it passes our tests. Note: You should run these tests using IntelliJ, not the terminal.
  - Repeat for the method you haven't yet completed. (We recommend you do one first and finish it before you start the next, because then you'll be able to take advantage of the similar logic)
 
 `IntList` problems can be tricky to think about, and there are always several approaches which can work. Don't be afraid to pull out pen and paper or go to the whiteboard and work out some examples! If you get stuck, drawing out the pointers can probably stimulate you back onto the path of progress. And, as always, the debugger is a great option!
