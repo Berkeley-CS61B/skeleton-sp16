@@ -432,14 +432,19 @@ If you decide to implement anything extra, you should make another copy of your 
 Frequently Asked Questions
 ----------------
 
+#### I'm passing all the local tests, but failing even easy tests like testReadRadius in the autograder.
+
+Make sure you're actaully using the string argument that testReadRadius takes as input. Your code should work for ANY valid data file, not just planets.txt.
+
+#### The test demands 133.5, and I'm giving 133.49, but it still fails!
+Sorry, our sanity check tests have flaws. But you should ensure that your value for `G` is 6.67 * 10<sup>-11</sup> N-m<sup>2</sup> / kg<sup>2</sup> exactly, and not anything else (don't make it more accurate).
+
 #### When I run the simulation, my planets start rotating, but then quickly accelerate and disappear off of the bottom left of the screen.
 
-Look at the way you're calculating the force exerted on a particular planet in one time step.  Make sure that the force doesn't include forces that were exerted in past time steps.
+- Look at the way you're calculating the force exerted on a particular planet in one time step.  Make sure that the force doesn't include forces that were exerted in past time steps.
 
-#### When I run the simulation, my planets start rotating, but then quickly accelerate and disappear of of the bottom left of the screen.
-
-Make sure you did not use <code>Math.abs(...)</code> when calculating <code>calcForceExertedByX(...)</code> and
-<code>calcForceExertedByY(...)</code>.
+- Make sure you did not use <code>Math.abs(...)</code> when calculating <code>calcForceExertedByX(...)</code> and
+<code>calcForceExertedByY(...)</code>. Also ensure that you are using a `double` to keep track of summed forces (not `int`)!
 
 #### Why'd you name the class Planet? The sun isn't a Planet.
 
@@ -468,7 +473,7 @@ The <code>Dog</code> class has three non-static fields. Each instance of the <co
 
 Let's walk through an example of how a constructor works.  Suppose you use the `Dog` constructor above to create a new `Dog`:
 
-	Dog fido = new Dog("Fido", "Poodle", 1);
+    Dog fido = new Dog("Fido", "Poodle", 1);
 
 When this line of code gets executed, the JVM first creates a new `Dog` object that's empty.  In essence, the JVM is creating a "box" for the `Dog`, and that box is big enough to hold a box for each of the `Dog`'s declared instance variables.  This all happens before the constructor is executed.  At this point, here's how you can think about what our new fluffy friend `fido` looks like (note that this is a simplification! We'll learn about a more correct view of this when we learn about Objects and pointers later this semester):
 
@@ -497,9 +502,9 @@ When the constructor completes, `fido` looks like:
 
 Now, suppose you want to create a new `Dog` constructor that handles cross-breeding.  You want the new constructor to accept a name, an age, and two breeds, and create a new `Dog` that is a mixture of the two breeds.  Your first guess for how to make this constructor might look something like this:
 
-	public Dog(String name, String breed1, String breed2, int age) {
-	    Dog dog = new Dog(name, breed1 + breed2, age);
-	}
+    public Dog(String name, String breed1, String breed2, int age) {
+        Dog dog = new Dog(name, breed1 + breed2, age);
+    }
 
 However, if you try to create a new `Dog` using this constructor:
 
@@ -517,9 +522,9 @@ But then when the 4-argument constructor got called, it created a second `Dog` a
 
 Here's a cross-breed constructor that works in the way we'd like:
 
-	public Dog(String name, String breed1, String breed2, int age) {
-	    Dog(name, breed1 + breed2, age);
-	}
+    public Dog(String name, String breed1, String breed2, int age) {
+        Dog(name, breed1 + breed2, age);
+    }
 
 Here, we're calling the old 3-argument constructor on `this`; rather than creating a new `Dog`, we're using the 3-argument constructor to fill in all of the instance variables on this dog.  After calling this new constructor to create `tommy`, `tommy` will correctly be initialized to:
 
