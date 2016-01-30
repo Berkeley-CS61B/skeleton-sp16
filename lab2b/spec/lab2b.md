@@ -23,7 +23,7 @@ IntelliJ is an IDE (Interactive Development Environment). It's like a text edito
 
 These instructions apply for both initial setup and for future assignments. When you run `git pull skeleton master` to retrieve a new assignment and you notice that you have a new assignment directory (next week, you'll have lab3/) simply run through these steps again from 1 to 8. This will likely involve pressing next for all steps and, if IntelliJ asks you to overwrite various housekeeping files (such as .iml files) because they already exist, respond "Yes" or "Overwite" to those popup windows. This is so IntelliJ can automatically mark the new directories for your assignment to work with IntelliJ for you as opposed to you manually marking directories as source folders and/or modules.
 
-Begin the setup process by starting up IntelliJ. If you're on one of the lab computers, use the command `/share/instww/bin/idea.sh` command in a terminal window to start IntelliJ. Then follow the steps below.
+Begin the setup process by starting up IntelliJ. If you're on one of the lab computers, use the command `/share/instwws/bin/idea.sh` command in a terminal window to start IntelliJ. Then follow the steps below.
 
 1. Upon opening IntelliJ, click on the "import project" option.
 	![IntelliJ Start Menu](img/intellij_start_menu.png)
