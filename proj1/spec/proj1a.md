@@ -3,12 +3,14 @@
 
 Unlike the previous project, this project is broken into three parts. This is to keep you on the right track. Each part will be due separately. You must have the same partner (if applicable) for all three parts.
 
+This project is brand new. Please let us know on Piazza if you spot any bugs or issues.
+
 Introduction
 ------------
 
 In project 1, we will build implementations of a "Double Ended Queue" using both lists and arrays. We will later learn how to write our own tests for those data structures, and finally we will use those data structures to solve a small real world problem. 
 
-Project 1a is the implementation of the data structures.
+Project 1a is the implementation of the data structures. In this part of the project you will create exactly two Java files: `LinkedListDeque.java` and `ArrayDeque.java`, with public methods listed below.
 
 Unlike project 0, we will provide relatively little scaffolding. In other words, we'll say what you should do, but not how.
 
@@ -49,12 +51,9 @@ The double ended queue is very similar to the SList and AList classes that we've
  * `public void printDeque()`: Prints the items in the Deque from first to last, separated by a space.  
  * `public Item removeFirst()`: Removes and returns the item at the front of the Deque. If no such item exists, returns null.
  * `public Item removeLast()`: Removes and returns the item at the back of the Deque. If no such item exists, returns null.
- * `public Item get(int index)`: Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. Must not alter the deque! Must be implemented using iteration.
+ * `public Item get(int index)`: Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. Must not alter the deque! 
 
-
-Your code for both implementations must obey this API exactly!
-
-(Video example)
+Your code must for both implementations (`LinkedListDeque.java` and `ArrayDeque.java`) must include all of these public methods, in addition to any listed below in the section for the respective implementations. 
 
 ### Linked List Deque
 #### 
@@ -73,7 +72,7 @@ In addition to the methods listed above, you should also include:
  * `public LinkedListDeque()`: Creates an empty linked list deque.
  * `public Item getRecursive(int index)`: Same as get, but uses recursion.
 
-While this may sound simple, there are many design issues to consider, and you may find the implementation more challenging than you'd expect. Make sure to consult the lecture on doubly linked lists, particularly the slides on sentinel nodes: [two sentinel topology](https://docs.google.com/presentation/d/1CqIFP2SPvgJvKKXCmzpRt6e57FYFsjK_Y7vVq0zRFuQ/edit#slide=id.g829fe3f43_0_291) [circular sentinel topology](https://docs.google.com/presentation/d/1CqIFP2SPvgJvKKXCmzpRt6e57FYFsjK_Y7vVq0zRFuQ/edit#slide=id.g829fe3f43_0_376). I prefer the circular approach. **You are not allowed to use Java's LinkedList data structure in your implementation**. 
+While this may sound simple, there are many design issues to consider, and you may find the implementation more challenging than you'd expect. Make sure to consult the lecture on doubly linked lists, particularly the slides on sentinel nodes: [two sentinel topology](https://docs.google.com/presentation/d/1CqIFP2SPvgJvKKXCmzpRt6e57FYFsjK_Y7vVq0zRFuQ/edit#slide=id.g829fe3f43_0_291) [circular sentinel topology](https://docs.google.com/presentation/d/1CqIFP2SPvgJvKKXCmzpRt6e57FYFsjK_Y7vVq0zRFuQ/edit#slide=id.g829fe3f43_0_376). I prefer the circular approach. **You are not allowed to use Java's LinkedList data structure (or any data structure from java.util) in your implementation**. 
 
 ### Array Deque
 #### 
@@ -88,7 +87,7 @@ As your second of two Deque implementations, you'll build the ArrayDeque class. 
 
 Furthermore, this Deque must use arrays as the core data structure.
 
-We strongly recommend that you treat your array as circular for this exercise. In other words, if your front pointer is at position zero, and you `addFirst`, the front pointer should loop back around to the end of the array (so the new front item in the deque will be the last item in the underlying array). This will result in far fewer headaches than non-circular approaches.
+We strongly recommend that you treat your array as circular for this exercise. In other words, if your front pointer is at position zero, and you `addFirst`, the front pointer should loop back around to the end of the array (so the new front item in the deque will be the last item in the underlying array). This will result in far fewer headaches than non-circular approaches. You will find the modulus % operator useful.
 
 The signature of the constructor should be `public ArrayDeque()`. That is, you need only worry about initializing empty ArrayDeques.
 
