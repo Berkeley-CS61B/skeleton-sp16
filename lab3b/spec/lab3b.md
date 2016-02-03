@@ -33,7 +33,7 @@ A. Windows Setup
 
 2.  Create a CLASSPATH environment variable pointing to the lib folder.  As we did in Lab 1b, we will do this by updating our environment variables.
 
-    1. **Windows 8/8.1:** Launch the Start Screen by pressing Windows, and type 'Environment Variables'.  Select "Edit the system environment variables".
+    1. **Windows 10/8/8.1:** Launch the Start Screen by pressing Windows, and type 'Environment Variables'.  Select "Edit the system environment variables".
 
         ![Windows 8.1 Search](img/start_menu.png)
 
