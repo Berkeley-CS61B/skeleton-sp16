@@ -13,21 +13,23 @@ Introduction
 
 Starting with lab3, you'll need to have your computer setup to use the Spring 2016 Java libraries.
 
-To download the files, all you need to do is pull from the skeleton repository using `git pull skeleton master`. You should see a directory appear in your directory called javalib containing the following files (if you've pulled recently, you should already have this):
+To download the files, all you need to do is pull from the skeleton repository using `git pull skeleton master`. At the time of this writing (2/3/16), your javalib directory should contain the following files:
 
+ - 61b_checks.xml
  - algs4.jar
  - checkstyle-5.9-all.jar
  - hamcrest-core-1.3.jar
  - jh61b.jar
  - junit-4.12.jar
+ - reflections-0.9.9-RC1-uberjar.jar
  - stdlib-package.jar
  - stdlib.jar
- - reflections-0.9.9-RC1-uberjar.jar
+ - style61b.py
 
 A. Windows Setup
 ----
 
-1. Pull from the skeleton repo and verify that you've received a lib folder containing the jar files listed above.
+1. Pull from the skeleton repo and verify that you've received a lib folder containing the files listed above.
 
 2.  Create a CLASSPATH environment variable pointing to the lib folder.  As we did in Lab 1b, we will do this by updating our environment variables.
 
