@@ -49,7 +49,6 @@ From here, you have two choices of how to proceed. If you're planning on working
 Running JUnit Tests in IntelliJ (or another IDE)
 --------------------------------
 
-<<<<<<< 0dda7dc4abe535f05c06142285732f1efd5d6669
 Open up IntelliJ. You'll need to reimport your project before the Run/Debug buttons will appear for
 lab 3 code. Repeat the steps from [lab 2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html) and
 you should be good to go.
