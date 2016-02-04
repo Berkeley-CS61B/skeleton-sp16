@@ -82,8 +82,8 @@ After fixing the bug, rerun the test, and you should get a nice glorious green b
 Running JUnit Tests from a Terminal
 --------------------------------
 
-Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
-=======
+*Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
+
 Open up IntelliJ. You'll need to reimport your project before the Run/Debug buttons will appear for lab 3 code. Repeat the steps from [lab2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html) and you should be good to go.
 
 Open up lab/arithmetic/ArithmeticTest.java in IntelliJ, and right click (a.k.a. two finger click on Macs) and under the run menu you should see two options, as shown below:
