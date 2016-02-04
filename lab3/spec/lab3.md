@@ -1,7 +1,7 @@
 ~ number: 3
 ~ title: Unit Testing with JUnit, Debugging
 
-This lab is in beta and will be officially released very late the evening of 2/3. Due to its late release, attendance is not required. Please report any errors directly to Josh: hug@cs.berkeley.edu
+Due to the late release, attendance for this lab is not required. Please report any errors directly to Josh: hug@cs.berkeley.edu
 
 Pre-lab
 -------------------------------
@@ -17,9 +17,9 @@ In this lab, you will learn about Unit Testing, JUnit, the 61B style checker, an
 [JUnit](http://junit.org/) is a Unit Testing Framework for Java.
 
 ####What is Unit Testing?
-Unit Testing is the best way to rigorously test each method of your code and ultimately ensure that you have a working project.
+Unit Testing is a great way to rigorously test each method of your code and ultimately ensure that you have a working project.
 The “Unit” part of Unit Testing comes from the idea that you can break your program down into units, or the smallest testable part of an application.
-Therefore, Unit Testing enforces good code structure (each method should only do “One Thing”), and allows you to consider all of the edge cases for each method and test for them individually.  In this class, you will be using JUnit to create and run tests on your code to ensure its correctness.  And when JUnit tests fail, you have an excellent starting point for debugging.
+Therefore, Unit Testing enforces good code structure (each method should only do “One Thing”), and allows you to consider all of the edge cases for each method and test for them individually.  In this class, you will be using JUnit to create and run tests on your code to ensure its correctness.  And when JUnit tests fail, you will have an excellent starting point for debugging.
 
 ####JUnit Syntax
 JUnit provides some special functionality on top of what you can normally do in java.
@@ -27,7 +27,7 @@ JUnit provides some special functionality on top of what you can normally do in 
 Ultimately, JUnit provides a testing framework, so you can test your code without stressing about details (formatting and printing of error messages, counting failures and succsses, etc.).
 
 
-So what is different about a JUnit java file?  Go ahead and navigate to the Arithmetic directory and open `ArithmeticTest.java` in your favorite text editor (if you're using it, don't open IntelliJ just yet).
+So what is different about a JUnit java file?  Go ahead and navigate to the Arithmetic directory and open `ArithmeticTest.java` in your favorite text editor (don't open IntelliJ just yet).
 
 The first thing you'll notice are the imports at the top.  These imports are what give you easy access to the JUnit methods and functionality that you'll need to run JUnit tests.
 
@@ -53,15 +53,15 @@ Open up IntelliJ. You'll need to reimport your project before the Run/Debug butt
 lab 3 code. Repeat the steps from [lab 2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html) and
 you should be good to go.
 
-Open up lab/arithmetic/ArithmeticTest.java in IntelliJ, and right click (a.k.a. two finger click on
+Open up lab3/arithmetic/ArithmeticTest.java in IntelliJ, and right click (a.k.a. two finger click on
 Macs) and under the run menu you should see two options, as shown below:
 
 ![Run Options](img/runOptions.png)
 
 We recommend the option that simply says "ArithmeticTest" instead of the one that says
-"ArithmeticTest....main". Effectively the option is between whether or not you want "ArithmeticTest....main" to be in charge of running all the tests and printing out all the formatting, or if you'd prefer to let IntelliJ do the printing and formatting of results.
+"ArithmeticTest....main". Effectively the option is between whether you want "ArithmeticTest....main" or IntelliJ to be in charge of displaying the test results.
 
-After running the tests, you should see something like:
+If you pick "ArithmeticTest" (without main) and run the tests, you should see something like:
 
     java.lang.AssertionErrror:
     Expected :11
@@ -79,36 +79,8 @@ debugger to step through the code until you reach the bug.
 After fixing the bug, rerun the test, and you should get a nice glorious green bar. Enjoy the rush.
 
 
-Running JUnit Tests from a Terminal
---------------------------------
 
-*Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
-
-Open up IntelliJ. You'll need to reimport your project before the Run/Debug buttons will appear for lab 3 code. Repeat the steps from [lab2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html) and you should be good to go.
-
-Open up lab/arithmetic/ArithmeticTest.java in IntelliJ, and right click (a.k.a. two finger click on Macs) and under the run menu you should see two options, as shown below:
-
-![Run Options](img/runOptions.png)
-
-We recommend you pick the option that simply says "ArithmeticTest" instead of the one that says "ArithmeticTest....main". Effectively the option is between whether or not you want "ArithmeticTest....main" to be in charge of running all the tests and printing out all the formatting, or if you'd prefer to let IntelliJ do the printing and formatting of results.
-
-After running the tests, you should see something like:
-
-    java.lang.AssertionError: 
-    Expected :11
-    Actual   :30
-     <Click to see difference>
-
-        at org.junit.Assert.failNotEquals(Assert.java:834)
-        at ArithmeticTest.testSum(ArithmeticTest.java:25)
-
-This is saying that the test on line 25 of `ArithmeticTest.java` failed. Try clicking on the `ArithmeticTest.java:25` and IntelliJ will take you straight to the failed test.
-
-Now fix the bug, either by inspecting `Arithmetic.java` and finding the bug, or using the IntelliJ debugger to step through the code until you reach the bug.
-
-After fixing the bug, rerun the test, and you should get a nice glorious green bar. Enjoy the rush.
-
-<a name="arithmetic_terminal"></a> Running JUnit Tests from a Terminal
+<a name="running-junit-tests-from-a-terminal"></a> Running JUnit Tests from a Terminal
 --------------------------------
 
 *Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
