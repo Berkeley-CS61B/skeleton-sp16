@@ -71,7 +71,11 @@ If you pick "ArithmeticTest" (without main) and run the tests, you should see so
         at org.junit.Assert.failNotEquals(Assert.java.834)
         at ArithmeticTest.testSum(AritmeticTest.java:25)
 
-This is saying that the test on line 25 of ArithmeticTest.java failed. Try clicking on the `ArithmeticTest.java:25` and IntelliJ will take you straight to the failed test.
+This is saying that the test on line 25 of ArithmeticTest.java failed. You'll see that even though `testSum` included many `assert` statements, you only saw the first failure (even though all of the later asserts would have failed as well!)
+
+This is because JUnit tests are short-circuiting – as soon as one of the asserts in a method fails, it will output the failure and move on to the next test.
+
+Try clicking on the `ArithmeticTest.java:25` and IntelliJ will take you straight to the failed test.
 
 Now fix the bug, either by inspecting Arithmetic.java and finding the bug, or using the IntelliJ
 debugger to step through the code until you reach the bug.
@@ -85,13 +89,15 @@ After fixing the bug, rerun the test, and you should get a nice glorious green b
 
 *Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
 
-If you're running tests from the command line, the main method in your JUnit testing file will do the work of starting up all the tests.
+Rather than write your own main method that manually invokes every test (e.g. `testSum` and `testProduct`), we'll use the trick from Lecture 7 where our main method simply calls a `runTests` method that is able to automatically identify and execute all test methods annotated with the `"@Test` symbol.
 
-All of your JUnit test files should have a main method that looks like the example below. The class specified as an argument to the TestRunner should have the same name as the running file, e.g. for a test class called SomeTest.java, you'd have:
+In 61B, all JUnit tests files should have a main method that calls `jh61b.junit.TestRunner.runTests`, with an argument equal to the name of the class. For example, if your JUnit test file is called ArithmeticTest.java, your main should simply be:
 
-    jh61b.junit.TestRunner.runTests(SomeTest.class);
+    jh61b.junit.TestRunner.runTests(ArithmeticTest.class);
 
-You don't need to memorize this syntax, just know that this code snippet will run all of the methods which are preceded by @Test, i.e. the line above will run all tests in `SomeTest` when put in the `main` method of your test program.
+This line is invoking the `runTests(Class c)`method of a class called `TestRunner` in a library called `jh61b.junit`.
+
+You don't need to know how this mysterious TestRunner class works (but see the [lecture 7 lectureCode](https://github.com/Berkeley-CS61B/lectureCode-sp16/tree/master/lec7/extra) if you're curious). Just know that this function will run all of the methods which are preceded by `@Test` in the specified file, and will output everything in a nice format.
 
 Let's try it out. Go to the lab3/arithmetic folder, and try running the small test provided:
 
@@ -117,11 +123,11 @@ This will run all of the tests in ArithmeticTest.java and give you back a JUnit 
 
 As you can see above the `testProduct` test passed with flying colors. However, the `testSum` class failed miserably, apparently calculating 30 when it should have computed 11.
 
-Open up `ArithmeticTest.java` and take a look around. Comparing against the output above, you'll see that even though `testSum` included many `assert` statements, you only saw the first failure (even though you know that all of the asserts would have failed!)
+Open up `ArithmeticTest.java` and take a look around. Comparing against the output above, you'll see that even though `testSum` included many `assert` statements, you only saw the first failure (even though all of the later asserts would have failed as well!)
 
 This is because JUnit tests are short-circuiting – as soon as one of the asserts in a method fails, it will output the failure and move on to the next test.
 
-Try modifying `ArithmeticTest` so that it shows only failed test results (by changing the mode argument from "all" to "failed"). Re-run and you'll see only failed tests. We recommend that you run your test files from "failed" mode, as this will allow you to focus on what needs doing, rather than celebrating what has already been done. Debugging is a hard life.
+Try modifying `ArithmeticTest` so that it shows only failed test results (by changing the mode argument from "all" to "failed"). Re-run and you'll see only failed tests. We recommend that you run your test files in "failed" mode, as this will allow you to focus on what needs doing, rather than celebrating what has already been done. Debugging is a hard life.
 
 Now it's time to look to see why `testSum` failed. Look at `testSum` to understand what its testing for, and then make the appropriate change in `Arithmetic.java`.
 
@@ -143,7 +149,7 @@ If you've fixed the bug, it should look like this:
 
 Since you're running your code from the command line, you're going to need to use print statement debugging (as opposed to the cool debugger you hopefully saw in lab 2). Any code that is printed during a test will be output as part of the results message for a given test. Try adding print statements and see how the output changes.
 
-If you're interested in learning to use a command line debugger for Java, you can try out Paul Hilfinger's gjdb tool. We will not provide official support for this tool, but you can find labs that outline its use in the Spring 2015 edition of this course. You can find gjdb.jar in the Spring 2015 skeleton files.
+Extra for Experts: If you're interested in learning to use a command line debugger for Java, you can try out Paul Hilfinger's gjdb tool. See this [video from Spring 2015](https://www.youtube.com/watch?v=ihMUS-MhNwA) for a demo of this tool. Due to very low adoption rates in previous semesters, we will not provide official support for this tool, but lab1d and lab3 from Spring 2015 explain how to use it. The directions from Spring 2015 should still work (but let Josh know if they don't). 
 
 Intlists
 --------------------------------
@@ -154,7 +160,7 @@ As with last week's lab, we're going to take advantage of the list method of the
 
     IntList myList = IntList.list(0, 1, 2, 3);
 
-Which will create the IntList 0 -> 1 -> 2 -> 3 -> null
+Which will create the IntList `0 -> 1 -> 2 -> 3 -> null`
 
 ###Test a Reverse Method
 
@@ -162,7 +168,7 @@ Copy your IntList.java that you created for lab2 into the lab3/IntList folder. I
 
 We'll showcase the idea of "test-driven development" for this exercise, where we write a unit test even before we write the new method.
 
-Add a new test to IntListTest.java that tests the .reverse(), which you can assume has the following definition:
+Add a new test to IntListTest.java that tests the `.reverse()` method, which you can assume has the following definition:
 
     /**
      * Returns the reverse of the given IntList.
@@ -174,7 +180,7 @@ Add a new test to IntListTest.java that tests the .reverse(), which you can assu
 Your test should test at least the following:
  - That the method handles null lists properly.
  - That the function returns a reversed list.
- - That the function is destructive.
+ - That the function is destructive. (This is a bit of a silly test, but I have a good reason!)
 
 ###Writing a Reverse Method
 
@@ -186,11 +192,11 @@ When you feel like your test is probably in good shape, try compiling IntListTes
 
 This error is a great thing! It means that the compiler is actually finding our test.
 
-Now copy and paste a dummy version of the reverse method into IntList.java. Your dummy version might simply return null.
+Now copy and paste a dummy version of the reverse method into IntList.java. Your dummy version might simply return null. Your only goal here is to get IntList.java to compile.
 
 If you're running IntListTest from the command line, you'll need to add a main method before proceeding. See ArithmeticTest.java for an example.
 
-Try compiling `IntListTest` again, and this time your test should compile. Run the test using `java IntListTest` or IntelliJ, and the test should fail. This is great! We've now reached the "red" phase of the TDD cycle.
+Try compiling `IntListTest.java` again, and this time your test should compile. Run the test using `java IntListTest` or IntelliJ, and the test should fail. This is great! We've now reached the "red" phase of the TDD cycle.
 
 Write a reverse method, and rerun the tests until it passes. If you're stuck (this is a tricky problem with a very clever solution), see the week 3 discussion solutions.
 
@@ -205,23 +211,23 @@ Some people find the rush of TDD addictive. You basically set up a little game f
 A Debugging Mystery
 --------------------------------
 
-Another important skill to learn is how to exhaustively debug. When done properly, debugging should allow you to rapidly narrow down where a bug might be located, even when you are debugging code you don't fully understand yourself.
+Another important skill to learn is how to exhaustively debug. When done properly, debugging should allow you to rapidly narrow down where a bug might be located, even when you are debugging code you don't fully understand.
 
 Your company, Flik Enterprises, has released a fine software library called Flik.java that is able to determine whether two Integers are the same or not.
 
 You receive an email from someone named "Horrible Steve" who describes a problem they're having with your library:
 
-"Dear Flik Enterprises,
+    "Dear Flik Enterprises,
 
-Your library is very bad. See the attached code. It should print out 500 but actually it's printing out 128.
+    Your library is very bad. See the attached code. It should print out 500 but actually it's printing out 128.
 
-(attachment: HorribleSteve.java)"
+    (attachment: HorribleSteve.java)"
 
 Using any combination of the following techniques, figure out whether the bug is in Horrible Steve's code or in Flik enterprise's library:
  - Writing JUnit tests for the Flik library.
  - Using the IntelliJ debugger.
  - Using print statements.
- - Refactoring (this means changing the syntax without changing the functionality) Horrible Steve's code.
+ - Refactoring Horrible Steve's code. Refactoring means changing the syntax without changing the functionality. This may be hard to do since HS's code uses lots of weird stuff.
 
 HorribleSteve.java and Flik.java both use syntax we haven't covered in class. We do not expect you to fix the bug or even understand it once you have found it. Instead, your job is simply to find the bug.
 
