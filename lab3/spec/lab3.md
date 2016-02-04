@@ -44,7 +44,7 @@ These methods follow this format:
 
 When you create JUnit test files, you should precede each test method with a `@Test` annotation, and can have one or more `assertEquals` or `assertTrue` methods (provided by the JUnit library). ** All tests must be non-static. ** This may seem weird since your tests don't use instance variables and you probably won't instantiate the class. However, this is how the designers of JUnit decided tests should be written, so we'll go with it.
 
-From here, you have two choices of how to proceed. If you're planning on working in IntelliJ, read on. If you're planning on running your code from a terminal, skip to the [this](#running-junit-tests-from-a-terminal) section.
+From here, you have two choices of how to proceed. If you're planning on working in IntelliJ, read on. If you're planning on running your code from a terminal, skip to [this section](#running-junit-tests-from-a-terminal).
 
 Running JUnit Tests in IntelliJ (or another IDE)
 --------------------------------
@@ -111,7 +111,7 @@ After fixing the bug, rerun the test, and you should get a nice glorious green b
 <a name="arithmetic_terminal"></a> Running JUnit Tests from a Terminal
 --------------------------------
 
-Whether you're on your own computer or a lab machine, you will need to complete [lab3b](../lab3b/lab3b.html) before JUnit test compilation will work!
+*Whether you're on your own computer or a lab machine, you will need to complete [lab 3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
 
 If you're running tests from the command line, the main method in your JUnit testing file will do the work of starting up all the tests.
 
