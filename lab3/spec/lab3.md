@@ -6,8 +6,9 @@ Due to the late release, attendance for this lab is not required. Please report 
 Pre-lab
 -------------------------------
 
-
-[Lab 3B: Installing JUnit](http://cs61b.ug/sp16/materials/lab/lab3b/lab3b.html): Classpath setup.
+- [Lab 3B: Installing JUnit](http://cs61b.ug/sp16/materials/lab/lab3b/lab3b.html): Classpath setup.
+ 
+- After pulling skeleton, copy your IntList.java from lab2 into the lab3/IntList folder.
 
 Introduction
 --------------------------------
@@ -198,7 +199,7 @@ If you're running IntListTest from the command line, you'll need to add a main m
 
 Try compiling `IntListTest.java` again, and this time your test should compile. Run the test using `java IntListTest` or IntelliJ, and the test should fail. This is great! We've now reached the "red" phase of the TDD cycle.
 
-Write a reverse method, and rerun the tests until it passes. If you're stuck (this is a tricky problem with a very clever solution), see the week 3 discussion solutions.
+Write a reverse method, and rerun the tests until it passes. If you're stuck (this is a tricky problem with a very clever solution), see the week 3 discussion solutions. Note that a correct reverse is not required for full credit on this week's lab (it's an ungraded test in the AG), so if you're really stuck and need to work on project 1, do that first, and then come back and complete this exercise.
 
 Protip: If you want to have your tests timeout after a certain amount of time (to prevent infinite loops), you can declare your test like this:
 
