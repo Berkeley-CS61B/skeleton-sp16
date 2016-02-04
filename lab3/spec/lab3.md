@@ -1,7 +1,7 @@
 ~ number: 3
 ~ title: Unit Testing with JUnit, Debugging
 
-This lab is in beta and will be officially released the evening of 2/3. Due to its late release, attendance is not required. Please report any errors directly to Josh: hug@cs.berkeley.edu
+This lab is in beta and will be officially released very late the evening of 2/3. Due to its late release, attendance is not required. Please report any errors directly to Josh: hug@cs.berkeley.edu
 
 Navigation
 ----------------
@@ -16,7 +16,7 @@ Navigation
 <a name="pre-lab"></a> Pre-lab
 -------------------------------
 
-Lab 3B: Classpath setup.
+[Lab 3B](http://cs61b.ug/sp16/materials/lab/lab3b/lab3b.html): Classpath setup.
 
 <a name="introduction"></a> Introduction
 --------------------------------
@@ -35,8 +35,9 @@ JUnit provides some special functionality on top of what you can normally do in 
 
 Ultimately, JUnit provides a testing framework, so you can test your code without stressing about details (formatting and printing of error messages, counting failures and succsses, etc.).
 
-So what is different about a JUnit java file?  Go ahead and navigate to the Arithmetic directory and open `ArithmeticTest.java`.
-The first thing you'll notice are the imports at the top.  These imports are what give you access to the JUnit methods and functionality that you'll need to run JUnit tests.
+So what is different about a JUnit java file?  Go ahead and navigate to the Arithmetic directory and open `ArithmeticTest.java` in your favorite text editor (if you're using it, don't open IntelliJ just yet).
+
+The first thing you'll notice are the imports at the top.  These imports are what give you easy access to the JUnit methods and functionality that you'll need to run JUnit tests.
 Next, you'll see that there are two methods in `ArithmeticTest.java`: `testProduct` and `testSum`
 These methods follow this format:
 
@@ -55,21 +56,34 @@ From here, you have two choices of how to proceed. If you're planning on working
 <a name="arithmetic_intellij"></a> Running JUnit Tests in IntelliJ (or another IDE)
 --------------------------------
 
-Open up lab/arithmetic/ArithmeticTest.java.
+Open up IntelliJ. You'll need to reimport your project before the Run/Debug buttons will appear for lab 3 code. Repeat the steps from [lab2b](http://cs61b.ug/sp16/materials/lab/lab2b/lab2b.html) and you should be good to go.
 
-Run the tests in IntelliJ.
+Open up lab/arithmetic/ArithmeticTest.java in IntelliJ, and right click (a.k.a. two finger click on Macs) and under the run menu you should see two options, as shown below:
 
-Main doesn't run. That's used for command line invocation. Go fix bug.
+![Run Options](img/runOptions.png)
 
-(need screenshots and exposition, but it's pretty intuitive. maybe discuss breakpoints)
+We recommend you pick the option that simply says "ArithmeticTest" instead of the one that says "ArithmeticTest....main". Effectively the option is between whether or not you want "ArithmeticTest....main" to be in charge of running all the tests and printing out all the formatting, or if you'd prefer to let IntelliJ do the printing and formatting of results.
+
+After running the tests, you should see something like:
+
+    java.lang.AssertionError: 
+    Expected :11
+    Actual   :30
+     <Click to see difference>
+
+        at org.junit.Assert.failNotEquals(Assert.java:834)
+        at ArithmeticTest.testSum(ArithmeticTest.java:25)
+
+This is saying that the test on line 25 of `ArithmeticTest.java` failed. Try clicking on the `ArithmeticTest.java:25` and IntelliJ will take you straight to the failed test.
+
+Now fix the bug, either by inspecting `Arithmetic.java` and finding the bug, or using the IntelliJ debugger to step through the code until you reach the bug.
+
+After fixing the bug, rerun the test, and you should get a nice glorious green bar. Enjoy the rush.
 
 <a name="arithmetic_terminal"></a> Running JUnit Tests from a Terminal
 --------------------------------
 
-*If you are using your own computer, you will need to complete [lab3b](../lab3b/lab3b.html) before JUnit test compilation will work.*
-
-TODO: Add the right path to the student accounts!
-
+Whether you're on your own computer or a lab machine, you will need to complete [lab3b](../lab3b/lab3b.html) before JUnit test compilation will work!
 
 If you're running tests from the command line, the main method in your JUnit testing file will do the work of starting up all the tests. 
 
@@ -207,7 +221,7 @@ Using any combination of the following techniques, figure out whether the bug is
  - Using print statements.
  - Refactoring (this means changing the syntax without changing the functionality) Horrible Steve's code.
 
-Horrible Steve's code uses syntax we haven't covered in class. 
+HorribleSteve.java and Flik.java both use syntax we haven't covered in class. We do not expect you to fix the bug or even understand it once you have found it. Instead, your job is simply to find the bug.
 
 Tip: JUnit provides methods `assertTrue(boolean)` and `assertTrue(String, boolean)` that you might find helpful.
 
@@ -228,7 +242,12 @@ When you pass the style check, the output should look like:
 <a name="Deques"></a> Deque Unit Tests
 --------------------------------
 
-In project 1B (to be released 2/5), you'll be required to write JUnit tests for your Deque classes. If you have extra time in lab, start writing some tests for `LinkedListDeque` and `ArrayDeque` as a warmup
+In project 1B (to be released 2/5), you'll be required to write JUnit tests for your Deque classes. If you have extra time in lab, start writing some tests for `LinkedListDeque` and `ArrayDeque` as a warmup.
+
+<a name="Submission"></a> Submission
+--------------------------------
+
+Submit your Arithmetic.java, IntListTest.java, and IntList.java method to gradescope. 
 
 <a name="recap"></a> Recap
 -------------------------------
