@@ -78,11 +78,15 @@ Tips
 
 - Start with ArrayDeque. A bug will be easier to find.
 
-- assertEquals will not work the way you'd hope with Deques. For example assertEquals(deque1, deque2) will not return true if all the items are the same. You'll need to write your own comparison method if you want to compare entire decks.
+- assertEquals will not work the way you'd hope with Deques. For example assertEquals(deque1, deque2) will not return true if all the items are the same. You'll need to write your own comparison method if you want to compare entire deques.
+
+- *It's probably not a good idea to write a Deque comparison function*. Suppose you write a `compareDeques(studentDeque, solutionDeque)` method that returns false. Even if this function returns false, that doesn't give you an operation that causes a failure. It's much easier to test the output of single operations (e.g. student.removeFirst() vs. solution.removeFirst()).
 
 - The StdRandom class is the easiest way to generate random numbers. See [the official documentation](http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdRandom.html) for a list of methods.
 
 - There's no need to do any exception catching or throwing on this assignment (we haven't learned this in 61B yet). 
+
+- Build your failure sequence as you perform operations. 
 
 Frequently Asked Questions
 ----------------
