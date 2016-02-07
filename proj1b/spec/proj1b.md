@@ -98,3 +98,11 @@ Well, that's embarassing. Rather than fix this, we'll leave this bug in to encou
 #### How would I write a test for printDeque()?
 
 It would be rather involved, and our autograder autograder isn't quite smart enough to be able to read your output anyway. Stick with the other methods. If you're curious, google "redirect standard output".
+
+#### I'm getting a "reference to assertEquals is ambiguous" error.
+
+Always try searching the web for mysterious error messages. Recall that self-sufficiency as a programmer is a major goal of 61B. I _think_ the first hit on Google should be enough, but certainly post to Piazza if you're still stuck.
+
+#### The autograder is complaining about my failure sequences.
+
+As you might imagine, the autograder for project 1B is a weirdly complex beast, as it is has to autograde autograder output. To keep things simple *the String argument to a failing assert must contain a failure sequence and ONLY a failure sequence*, and *all tests must fail due to a failing assert*. There should be no failures due to null pointer exceptions. The String argument to your assert statement must contain no extraneous information.
