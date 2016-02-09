@@ -23,6 +23,12 @@ if '*.jar' in classpath:
 if '*' not in classpath:
 	print("Your classpath does not contain a * character. This indicates something is wrong. Check the directions again.")
 
+if ' ' in classpath:
+  print("Your classpath contains a space. Make sure you didn't accidentally add an extra space when you set the classpath.  If one of the directory names in your classpath has a space in the name, we highly recommend changing the name to eliminate the space.")
+
+if "%CS61B_LIB%" in classpath:
+  print("Warning: your classpath contains %CS61B_LIB%.  %CS61B_LIB% should have been expanded to the directory name that you set when you set CS61B_LIB as an environment variable.  Make sure you've correctly set CS61B_LIB as an environment variable.")
+
 print("This means that when you run Java from the command line, it will look in the *ed folders for java libraries (which have a .jar extension). This program will now inspect all of those folders.\n")
 
 jarfile = 'junit-4.12.jar'
