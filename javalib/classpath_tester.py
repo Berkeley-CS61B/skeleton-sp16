@@ -3,6 +3,7 @@
 import os
 import sys
 
+
 if 'CLASSPATH' not in os.environ:
 	print('Your classpath environment variable is not set. See the directions. If you have already seen them, try starting a new terminal window. If that still doesn''t work, please post to Piazza, providing detailed information about what you tried. Include your OS. Screenshots would be nice.')
 	sys.exit()
@@ -10,6 +11,8 @@ if 'CLASSPATH' not in os.environ:
 classpath = os.environ['CLASSPATH']
 
 print("Your classpath is: " + classpath + "\n")
+
+folders = classpath.split(os.pathsep) 
 
 if '~' in classpath:
 	print("Your classpath contains a ~. It should not. Replace this character with the full path to the folder in question.")
@@ -34,9 +37,14 @@ for folder in folders:
 	if len(folder) == 0:
 		continue
 
+	if folder[-1] != '*':
+		print("\n==> Skipping non-starred folder: " + folder)
+		continue
+
+
 	if folder[-1] == '*':
 		folder = folder[:-1]
-		print('\n==> Inspecting: ' + folder)
+		print('\n==> Inspecting starred folder: ' + folder)
 
 		if os.path.isfile(os.path.join(folder, '*')):
 			print("\tWARNING: The folder contains a file named *\n\tPlease remove this file.")
