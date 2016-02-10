@@ -21,7 +21,7 @@ public class GenerateFailureSequenceCheckerLLD {
         PrintStream oldStream = System.out;
 
         /* From http://stackoverflow.com/questions/8708342/redirect-console-output-to-string-in-java */
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        /*ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream captured = new PrintStream(baos);
         System.setOut(captured);
         System.out.flush();
@@ -61,7 +61,7 @@ public class GenerateFailureSequenceCheckerLLD {
         out.println("    }");
         out.println("}");
         out.close();
-
+        */
 
     }
 } 
