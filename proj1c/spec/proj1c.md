@@ -23,7 +23,9 @@ Unlike projects 1a and 1b, this mini-project is highly-scaffolded in order to ma
 Getting the Skeleton Files
 ----------------
 
-As with previous assignments, pull the skeleton using the command `git pull skeleton master`. If you're using IntelliJ make sure to reimport the project.  
+As with previous assignments, pull the skeleton using the command `git pull skeleton master`. 
+
+If you're using IntelliJ make sure to reimport the project.
 
 For this assignment, you'll be working with Deques. You are welcome to use your LinkedListDeque, your ArrayDeque, or the provided LinkedListDequeSolution.java. If you're not sure if your solution to project 1a is correct, feel free to use LinkedListDequeSolution.java instead.
 
@@ -49,7 +51,7 @@ Create a class Palindrome, and implement the two methods shown below:
 
 The `wordToDeque` method should be straightforward. You will simply build a Deque where the characters in the deque appear in the same order as in the word.
 
-The `isPalindrome` method should return true if the given word is a palindrome, and false otherwise. A palindrome is defined as a word that is the same whether it is read forwards or backwards. For example "a", "racecar", and "noon" are all palindromes. "horse", "rancor", and "aaaaab" are not palindromes.
+The `isPalindrome` method should return true if the given word is a palindrome, and false otherwise. A palindrome is defined as a word that is the same whether it is read forwards or backwards. For example "a", "racecar", and "noon" are all palindromes. "horse", "rancor", and "aaaaab" are not palindromes. *Any word of length 1 or 0 is a palindrome.*
 
 Tip: Search the web to see how to get the ith character in a String.
 
@@ -87,6 +89,8 @@ However, the two calls below should return false:
     	obo.equalChars('a', 'e')
     	obo.equalChars('z', 'a')
 
+A palindrome is a word that is the same when read forwards and backwards. To allow for odd length palindromes, we do not check the middle character for equality with itself. So "flake" is an off-by-1 palindrome, even though 'a' is not one character off from itself.
+
 Tip: Make sure to include `@Override` when implementing equalChars. While it has no effect on the function of your program, it's a good habit for the reasons detailed in lecture.
 
 Tip: To calculate the difference between two chars, simply compute their difference. For example `'d' - 'a'` would return `-3`. 
@@ -101,10 +105,10 @@ In this final phase of the project, you will implement a class OffByN, which sho
  - OffByN(int N)
  - equalChars(char x, char y)
 
-The OffBYN constructor should return an object whose `equalChars` method returns true for characters that are off by N. For example the call to equal chars below should return 5, since a and f are off by 5 letters.
+The OffBYN constructor should return an object whose `equalChars` method returns true for characters that are off by N. For example the call to equal chars below should return true, since a and f are off by 5 letters.
 
-	offby5 = new OffByN(5);
-	offBy5.equalChars('a', 'f')
+    	OffByN offby5 = new OffByN(5);
+    	offBy5.equalChars('a', 'f')
 
 Just-for-fun: Try modifying PalindromeFinder so that it outputs a list of offByN palindromes for the N of your choosing.
 
@@ -113,12 +117,16 @@ Just-for-more-fun: For what N are there the most palindromes in English? What is
 Phase 4 (extra credit):
 -----------------
 
-TBA 2/9/2016
+Pull from skeleton, which will create a proj1d directory.
+
+Fill out the [Project 1 Survey](https://docs.google.com/forms/d/1XkbvM0iCRZReEP51htX7WTGAebXo9CqeC5pEJptbxKg/viewform). You will be given a secret word.
+
+Add this secret word to MagicWord1D.java in the proj1d directory, and submit to the Project 1d (extra credit) autograder.
 
 Submission
 ----------------
 
-Submit `Deque.java`, `Palindrome.java`, `OffByN.java` and any supporting files you require, including `ArrayDeque.java` and `LinkedListDeque.java` or 'LinkedListDequeSolution.java`. Do not submit .class files.
+Submit `Deque.java`, `Palindrome.java`, `OffByOne.java`, `OffByN.java` and any supporting files you require, including `ArrayDeque.java` and `LinkedListDeque.java` or `LinkedListDequeSolution.java`. Do not submit .class files.
 
 Tips
 ----------------
@@ -126,4 +134,11 @@ None yet.
 
 Frequently Asked Questions
 ----------------
-None yet.
+
+#### LinkedListDequeSolution won't compile.
+
+Make sure your class definition is `public class LinkedListDequeSolution<Item> extends LinkedList<Item> implements Deque<Item>`.
+
+#### My implementation of LinkedListDeque or ArrayDeque won't compile.
+
+Make sure your class definition ends with `implements Deque<Item>`.
