@@ -50,6 +50,6 @@ else:
 
 files_to_check = set(sys.argv[1:]).difference(skipfiles)
 
-system_command = 'java -jar ' + checkstyle_jar_path +  ' -c ' + checkstyle_rules_path + " " + " ".join(files_to_check)
+system_command = 'java -jar "' + checkstyle_jar_path +  '" -c "' + checkstyle_rules_path + '" ' + " ".join(files_to_check)
 print("Running command: " + system_command)
 os.system(system_command)
