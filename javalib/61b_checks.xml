@@ -197,6 +197,7 @@
         <module name="Indentation">
           <property name="basicOffset" value="4"/>
           <property name="braceAdjustment" value="0"/>
+          <property name="lineWrappingIndentation" value="8"/>
         </module>
 
         <!-- Miscellaneous other checks.                   -->
