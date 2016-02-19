@@ -20,25 +20,28 @@ public class CopyFile {
 
         try {
             FileReader reader = new FileReader(inputFilename);
-            // It's good practice to read files using a buffered reader.  A buffered reader reads big chunks of the file
-            // from the disk, and then buffers them in memory.  Otherwise, if you read one character at a time from
-            // the file using FileReader, each character read causes a separate read from disk.  You'll learn more about
-            // this if you take more CS classes, but for now, take our word for it!
+            // It's good practice to read files using a buffered reader.  A buffered reader reads
+            // big chunks of the file from the disk, and then buffers them in memory.  Otherwise,
+            // if you read one character at a time from the file using FileReader, each character
+            // read causes a separate read from disk.  You'll learn more about this if you take more
+            // CS classes, but for now, take our word for it!
             BufferedReader bufferedReader = new BufferedReader(reader);
 
-            // Create a FileWriter to write to outputFilename. FileWriter will overwrite any data already in
-            // outputFilename.
+            // Create a FileWriter to write to outputFilename. FileWriter will overwrite any data
+            // already in outputFilename.
             FileWriter writer = new FileWriter(outputFilename);
 
             int intRead = -1;
-            // Keep reading from the file input read() returns -1, which means the end of the file was reached.
+            // Keep reading from the file input read() returns -1, which means the end of the file
+            // was reached.
             while ((intRead = bufferedReader.read()) != -1) {
                 // The integer read can be cast to a char, because we're assuming ASCII.
                 char charRead = (char) intRead;
                 writer.write(charRead);
             }
 
-            System.out.println("Successfully copied file " + inputFilename + " to " + outputFilename);
+            System.out.println("Successfully copied file " + inputFilename + " to "
+                    + outputFilename);
 
             // Close the reader and writer.
             bufferedReader.close();

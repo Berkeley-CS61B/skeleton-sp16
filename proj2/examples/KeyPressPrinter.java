@@ -1,21 +1,11 @@
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * A JavaFX application that displays the letter the user has typed most recently, with a box
@@ -23,6 +13,9 @@ import java.util.List;
  * using the up and down arrows.
  */
 public class KeyPressPrinter extends Application {
+
+    private static final int WINDOW_WIDTH = 20;
+    private static final int WINDOW_HEIGHT = 20;
 
     /** An EventHandler to handle keys that get pressed. */
     private class KeyEventHandler implements EventHandler<KeyEvent> {
@@ -41,9 +34,12 @@ public class KeyPressPrinter extends Application {
                     System.out.println("==> The character typed has zero length.");
                 } else if (characterTyped.length() == 1) {
                     char typed = characterTyped.charAt(0);
-                    System.out.println("==> The typed character was: " + characterTyped + ", which has numerical value: " + (int) typed);
+                    System.out.println("==> The typed character was: " + characterTyped
+                            + ", which has numerical value: " + (int) typed);
                 } else {
-                    System.out.println("==> The character typed has length greater than 1. Strange! It was: " + characterTyped);
+                    System.out.println(
+                            "==> The character typed has length greater than 1. Strange! It was: "
+                            + characterTyped);
                 }
                 keyEvent.consume();
 
@@ -53,15 +49,6 @@ public class KeyPressPrinter extends Application {
                 // KeyCode).
                 KeyCode code = keyEvent.getCode();
                 System.out.println("==> The key pressed had code: " + code);
-                /*
-                if (code == KeyCode.UP) {
-                   System.out.println("     Up arrow was pressed!");
-                } else if (code == KeyCode.DOWN) {
-                   System.out.println("     Down arrow was pressed!");
-                } else if (code == KeyCode.BACK_SPACE) {
-                   System.out.println("     Backspace was pressed!");
-                }
-                */
             }
         }
     }
@@ -72,9 +59,7 @@ public class KeyPressPrinter extends Application {
         Group root = new Group();
         // The Scene represents the window: its height and width will be the height and width
         // of the window displayed.
-        int windowWidth = 20;
-        int windowHeight = 20;
-        Scene scene = new Scene(root, windowWidth, windowHeight, Color.WHITE);
+        Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, Color.WHITE);
 
         // To get information about what keys the user is pressing, create an EventHandler.
         // EventHandler subclasses must override the "handle" function, which will be called

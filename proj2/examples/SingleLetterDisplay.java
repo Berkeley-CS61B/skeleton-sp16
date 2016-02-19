@@ -23,6 +23,9 @@ import javafx.util.Duration;
 public class SingleLetterDisplay extends Application {
     private final Rectangle textBoundingBox;
 
+    private static final int WINDOW_WIDTH = 500;
+    private static final int WINDOW_HEIGHT = 500;
+
     public SingleLetterDisplay() {
         // Create a rectangle to surround the text that gets displayed.  Initialize it with a size
         // of 0, since there isn't any text yet.
@@ -34,13 +37,17 @@ public class SingleLetterDisplay extends Application {
         int textCenterX;
         int textCenterY;
 
+        private static final int STARTING_TEXT_POSITION_X = 250;
+        private static final int STARTING_TEXT_POSITION_Y = 250;
+        private static final int STARTING_FONT_SIZE = 20;
+
         /** The Text to display on the screen. */
-        public Text displayText = new Text(250, 250, "");
-        public int fontSize = 20;
+        private Text displayText = new Text(STARTING_TEXT_POSITION_X, STARTING_TEXT_POSITION_Y, "");
+        private int fontSize = STARTING_FONT_SIZE;
 
         private String fontName = "Verdana";
 
-        public KeyEventHandler(final Group root, int windowWidth, int windowHeight) {
+        KeyEventHandler(final Group root, int windowWidth, int windowHeight) {
             textCenterX = windowWidth / 2;
             textCenterY = windowHeight / 2;
 
@@ -52,7 +59,7 @@ public class SingleLetterDisplay extends Application {
             // opposed to the top of a letter like "e"), which makes calculating positions much
             // simpler!
             displayText.setTextOrigin(VPos.TOP);
-            displayText.setFont(Font.font (fontName, fontSize));
+            displayText.setFont(Font.font(fontName, fontSize));
             root.getChildren().add(displayText);
         }
 
@@ -64,8 +71,8 @@ public class SingleLetterDisplay extends Application {
                 // capitalization.
                 String characterTyped = keyEvent.getCharacter();
                 if (characterTyped.length() > 0 && characterTyped.charAt(0) != 8) {
-                    // Ignore control keys, which have non-zero length, as well as the backspace key, which is
-                    // represented as a character of value = 8 on Windows.
+                    // Ignore control keys, which have non-zero length, as well as the backspace
+                    // key, which is represented as a character of value = 8 on Windows.
                     displayText.setText(characterTyped);
                     keyEvent.consume();
                 }
@@ -124,7 +131,7 @@ public class SingleLetterDisplay extends Application {
                 {Color.LIGHTPINK, Color.ORANGE, Color.YELLOW,
                         Color.GREEN, Color.LIGHTBLUE, Color.PURPLE};
 
-        public RectangleBlinkEventHandler() {
+        RectangleBlinkEventHandler() {
             // Set the color to be the first color in the list.
             changeColor();
         }
@@ -159,15 +166,13 @@ public class SingleLetterDisplay extends Application {
         Group root = new Group();
         // The Scene represents the window: its height and width will be the height and width
         // of the window displayed.
-        int windowWidth = 500;
-        int windowHeight = 500;
-        Scene scene = new Scene(root, windowWidth, windowHeight, Color.WHITE);
+        Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, Color.WHITE);
 
         // To get information about what keys the user is pressing, create an EventHandler.
         // EventHandler subclasses must override the "handle" function, which will be called
         // by javafx.
         EventHandler<KeyEvent> keyEventHandler =
-                new KeyEventHandler(root, windowWidth, windowHeight);
+                new KeyEventHandler(root, WINDOW_WIDTH, WINDOW_HEIGHT);
         // Register the event handler to be called for all KEY_PRESSED and KEY_TYPED events.
         scene.setOnKeyTyped(keyEventHandler);
         scene.setOnKeyPressed(keyEventHandler);
