@@ -1,7 +1,4 @@
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
@@ -9,16 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 /**
- * A JavaFX application that displays the letter the user has typed most recently, with a box
- * around it.  The box changes color every second, and the user can change the size of the letter
- * using the up and down arrows.
+ * A JavaFX application that displays the letter the user has typed most recently in the center of the window. Pressing
+ * the up and down arrows causes the font size to increase and decrease, respectively.
  */
 public class SingleLetterDisplaySimple extends Application {
 
@@ -120,7 +114,7 @@ public class SingleLetterDisplaySimple extends Application {
         scene.setOnKeyTyped(keyEventHandler);
         scene.setOnKeyPressed(keyEventHandler);
 
-        primaryStage.setTitle("Single Letter Display");
+        primaryStage.setTitle("Single Letter Display Simple");
 
         // This is boilerplate, necessary to setup the window where things are displayed.
         primaryStage.setScene(scene);

@@ -1,8 +1,12 @@
-This folder contains examples that you might find useful for this project. These include:
- - SingleLetterDisplay.java
+This folder contains examples that you might find useful for this project. These include (listed roughly in the order that we anticipate they will be useful to you):
  - SingleLetterDisplaySimple.java
+ - SingleLetterDisplay.java
  - KeyPressPrinter.java
+ - ControlKeyPrinter.java
+ - MouseClickPositionPrinter.java
+ - CopyFile.java
  - ScrollBarExample.java
+ - PathDrawer.java
 
 SingleLetterDisplaySimple
 --------------------
@@ -19,7 +23,27 @@ KeyPressPrinter
 
 Creates a GUI window that is not used for drawing, but instead just for collecting and printing KeyEvents. KeyEvents are a bit counterintuitive. We highly recommend that you attempt to diagnose any KeyEvent confusion using this program, as opposed to one of the clients above or your editor.
 
+ControlKeyPrinter
+--------------------
+
+Creates a GUI window that is not used for drawing, but instead just for collecting and printing KeyEvents.  In particular, this file prints out a message anytime the user presses Control+a or Control+z.
+
+MouseClickPositionPrinter
+--------------------
+
+Creates a GUI window, and whenever the user clicks the mouse, prints the position of the mouse click.
+
+CopyFile
+--------------------
+
+Copys text from one file to another.  Illustrates how to use Java's classes for reading and writing files.
+
 ScrollBarExample
 --------------------
 
 Provides an example of how to use scrollbars.
+
+PathDrawer
+--------------------
+
+Creates a GUI window that draws the path taken whenever the mouse was dragged.
