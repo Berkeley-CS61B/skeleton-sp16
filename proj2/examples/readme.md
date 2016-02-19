@@ -5,6 +5,7 @@ This folder contains examples that you might find useful for this project. These
  - ControlKeyPrinter.java
  - MouseClickPositionPrinter.java
  - CopyFile.java
+ - ResizeAllen.java
  - ScrollBarExample.java
  - PathDrawer.java
 
@@ -37,6 +38,11 @@ CopyFile
 --------------------
 
 Copys text from one file to another.  Illustrates how to use Java's classes for reading and writing files.
+
+ResizeAllen
+--------------------
+
+Illustrates how to determine when the window has been resized.
 
 ScrollBarExample
 --------------------
