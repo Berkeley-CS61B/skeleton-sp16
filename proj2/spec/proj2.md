@@ -1,5 +1,5 @@
 ~ number: 2
-~ title: Text Editor, version 1.0
+~ title: Editor, version 1.0
 
 Table of Contents
 -------------------
