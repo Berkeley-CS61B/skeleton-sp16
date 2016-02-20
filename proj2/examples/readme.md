@@ -10,6 +10,8 @@ This folder contains examples that you might find useful for this project. These
  - PathDrawer.java
  - ClipboardExample.java
 
+The example_files folder also contains two example files that may be useful: one that uses Linux-style newline characters (a "\n" represents a newline) and one that uses Windows-style newlines ("\r\n" denotes a newline).  Both of these files should look the same when opened by your editor.
+
 SingleLetterDisplaySimple
 --------------------
 

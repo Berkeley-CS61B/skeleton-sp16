@@ -164,7 +164,7 @@ To detect if the user has pressed the "return" or "enter" key, check if the char
 
 When you're writing a file, you should never write "\r"; instead, you should use "\n" for all newlines (this is the UNIX style of handling newlines).
 
-When you're reading a file, you should treat "\n" as a newline, and you should also treat "\r\n" as a single newline.  You can assume that anytime you see a "\r" in a file you're reading, it will be followed by a "\n".  Windows operating systems use "\r\n" to represent a newline character, which is why we're asking you to handle this second kind of newline character (this will also make it easier for you to test your editor if you're on Windows, because you can create a file with a different program and then open it with your editor).
+When you're reading a file, you should treat "\n" as a newline, and you should also treat "\r\n" as a single newline.  You can assume that anytime you see a "\r" in a file you're reading, it will be followed by a "\n".  Windows operating systems use "\r\n" to represent a newline character, which is why we're asking you to handle this second kind of newline character (this will also make it easier for you to test your editor if you're on Windows, because you can create a file with a different program and then open it with your editor).  We've included two example files in the `examples/example_files` directory to help you test these two different types of newlines (these two files should appear the same when opened in your editor).
 
 ### Cursor
 
