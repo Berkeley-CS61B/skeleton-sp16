@@ -23,7 +23,7 @@ Table of Contents
   * [Optional Beautification](#optional-beautification)
 * [Gold points](#gold-points)
   * [Selection (3 points)](#selection-3-points)
-  * [Copy / Paste (2 points)](#copy--paste-2-points)
+  * [Copy / Paste (2 points)](#Copy--paste-2-points)
 * [Frequently Asked Questions](#frequently-asked-questions)
 * [Acknowledgements](#acknowledgements)
 
@@ -348,6 +348,10 @@ Undo and redo should work for pasting: if the user pastes some text into the doc
 
 Frequently Asked Questions
 -----------------
+
+#### Why do you require that inserting new text into the data structure takes constant time, even though it's ok to re-render the whole document (which takes time proportional to the length of the file) after each insertion?
+
+Writing your underlying data structure such that insertion and deletion take constant time makes it possible to write efficient insert and delete functionality, where the time for those methods is proportional to the amount of text that changed position on the screen.  However, implementing rendering such that the time is proportional to the amount of text that changes position is tricky and requires considering numerous edge cases.  As a result, efficient rendering is not required for this assignment.
 
 #### Does my editor need to support any non-text keys not mentioned in the spec (e.g., the tab key)?
 
