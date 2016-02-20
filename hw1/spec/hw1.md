@@ -130,7 +130,7 @@ In practice, in can be a little unclear when to use an interface and when to use
 
 In practice, large Java libraries often have a hierarchy of interfaces, which are extended by abstract classes that provided default implementations for some methods, and which are in turn ultimately implemented by concrete classes.  A good example is the Collection interface:  It extends Iterable (which is its superinterface), and is implemented by many subinterfaces (i.e. List, Set, Map), which in turn have their own abstract implementations (AbstractList, AbstractSet AbstractMap).  However, for smaller programs, the hierarchy is often stubbier, sometimes starting with an abstract class. For example, we could have just started with `AbstractBoundedQueue` at the top of the hierarchy and skipped having a `BoundedQueue` interface altogether. 
 
-<a name="array"></a>  Task 3:  ArrayRingBuffer
+Task 3: ArrayRingBuffer
 --------------------------------
 
 The `ArrayRingBuffer` class will do all the real work by extending `AbstractBoundedQueue`. That means we can happily inherit `capacity()`, `fillCount()`, `isEmpty()`, and `isFull()` without having to override these, but we'll need to override all of the the abstract methods. In this part, you'll fill out `ArrayRingBuffer.java`. You'll need to rename the file from `ArrayRingBuffer.java.skeleton` to `ArrayRingBuffer.java`.
@@ -178,7 +178,7 @@ Once you've fleshed out the TODOs, make sure `ArrayRingBuffer` compiles before m
 
 For homeworks and labs (but not projects), you're welcome to share test code. Feel free to share your tests for this HW on Piazza.
 
-<a name="string"></a>  Task 4:  Finishing up the Core of the Package
+Task 4: GuitarString
 --------------------------------
 
 Finally, we want to flesh out `GuitarString`, which uses an `ArrayRingBuffer` to replicate the sound of a plucked string. We'll be using the Karplus-Strong algorithm, which is quite easy to implement with a BoundedQueue.
@@ -230,7 +230,7 @@ The two primary components that make the Karplus-Strong algorithm work are the r
  - The ring buffer feedback mechanism. The ring buffer models the medium (a string tied down at both ends) in which the energy travels back and forth. The length of the ring buffer determines the fundamental frequency of the resulting sound. Sonically, the feedback mechanism reinforces only the fundamental frequency and its harmonics (frequencies at integer multiples of the fundamental). The energy decay factor (.996 in this case) models the slight dissipation in energy as the wave makes a round trip through the string.
  - The averaging operation. The averaging operation serves as a gentle low-pass filter (which removes higher frequencies while allowing lower frequencies to pass, hence the name). Because it is in the path of the feedback, this has the effect of gradually attenuating the higher harmonics while keeping the lower ones, which corresponds closely with how a plucked guitar string sounds.
 
-<a name="iteration"></a>  Task 5:  Iteration and Exceptions
+Task 5: Iteration and Exceptions
 --------------------------------
 
 As an exercise in making your data structures more industrial strength, we'll add the ability to iterate through a BoundedQueue and also ensure that it throws exceptions when given invalid inputs. We'll cover these topics on Monday 2/22.
