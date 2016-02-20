@@ -5,13 +5,13 @@ Table of Contents
 ----------------
 
 - [Introduction](#introduction)
-- [Task 1: BoundedQueue](#interface)
-- [Task 2: AbstractBoundedQueue](#abstract)
-- [Task 3: ArrayRingBuffer](#array)
-- [Task 4: GuitarString](#string)
-- [Task 5: Iteration and Exceptions](#iteration)
+- [Task 1: BoundedQueue](#BoundedQueue)
+- [Task 2: AbstractBoundedQueue](#AbstractBoundedQueue)
+- [Task 3: ArrayRingBuffer](#ArrayRingBuffer)
+- [Task 4: GuitarString](#GuitarString)
+- [Task 5: Iteration and Exceptions](#IterationExceptions)
 
-<a name="introduction"></a> Introduction
+Introduction
 --------------------------------
 In this homework, you will learn how to write and use packages, as well as get some hands-on practice with interfaces and abstract classes. We'll also get an opportunity to implement a simple data structure as well as an algorithm that is easy to implement given that data structure. Finally we'll add support for iteration and exceptions  (which we'll cover on Monday) to our data structure.
 
@@ -30,7 +30,7 @@ We've provided you with skeleton code for `ArrayRingBuffer` and `GuitarString`, 
 
 Note: While it'd probably be better design to make only the GuitarString class public (since people using synthesizers don't really care about AbstractBoundedQueues), we'll be leaving all of our classes public for this HW for testing convenience.
 
-<a name="interface"></a>  Task 1:  Creating an Interface
+Task 1: BoundedQueue
 --------------------------------
 
 #### Review: What is an Interface?  Why would you want one?
@@ -79,7 +79,7 @@ Before moving on, ensure that  `BoundedQueue` compiles: `javac BoundedQueue.java
 
 If you're stuck, see [the List61B interface](https://github.com/Berkeley-CS61B/lectureCode-sp16/blob/2e6e4a74530bd66952bb11f8f00edfdbeddbd9a2/lec8/hugCode/List61B.java) for an example of an interface declaration with generics.
 
-<a name="abstract"></a>  Task 2:  Creating an Abstract Class
+Task 2: AbstractBoundedQueue
 --------------------------------
 
 #### Review: What is an Abstract Class?  Why would you want one?
