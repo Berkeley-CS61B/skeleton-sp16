@@ -113,7 +113,7 @@ Create a new abstract class in a .java file called `AbstractBoundedQueue.java` t
     public abstract void enqueue(T x);
     public abstract Iterator<T> iterator();
 
-Note that `peek`, `dequeue`, `enqueue`, and `iterator` are inherited from BoundedQueue, so you do not need to declare these explicitly.
+Note that `isEmpty`, `isFull`, `peek`, `dequeue`, `enqueue`, and `iterator` are inherited from BoundedQueue, so you do not need to declare these explicitly. The mysterious `protected` keyword above is something we'll talk about in lecture on 2/26. It just means that only subclasses of `AbstractBoundedQueue` can access this variable.
 
 If you're having trouble compiling your `AbstractBoundedQueue.java` file from teh command line, because the compiler can't find `BoundedQueue.class`, try compiling with:
 
