@@ -203,7 +203,7 @@ Once you're relatively comfortable that GuitarString should be working, try comp
 
 When you run `GuitarHeroLite`, it will open a Standard Draw window. Click on the window, and press "a" or "c".  These should play two different guitar string sounds for you. This is just the sound of a double dequeuing repeatedly. It is like magic.
 
-<a name="string"></a> Some More for the So-Inclined
+Just For Fun: Building a 37 Key Synthesizer
 --------------------------------
 
 Write a program GuitarHero that is similar to GuitarHeroLite, but supports a total of 37 notes on the chromatic scale from 110Hz to 880Hz. Use the following 37 keys to represent the keyboard, from lowest note to highest note:
@@ -214,7 +214,7 @@ This keyboard arrangement imitates a piano keyboard: The "white keys" are on the
 
 The ith character of the string keyboard corresponds to a frequency of 440 × 2^(i - 24) / 12, so that the character 'q' is 110Hz, 'i' is 220Hz, 'v' is 440Hz, and ' ' is 880Hz. Don't even think of including 37 individual GuitarString variables or a 37-way if statement! Instead, create an array of 37 GuitarString objects and use keyboard.indexOf(key) to figure out which key was typed. Make sure your program does not crash if a key is pressed that does not correspond to one of your 37 notes.
 
-<a name="string"></a> Even More
+Even More Fun
 --------------------------------
 
  - Harp strings: Flipping the sign of the new value before enqueueing it in tic() will change the sound from guitar-like to harp-like. You may want to play with the decay factors to improve the realism, and adjust the buffer sizes by a factor of two since the natural resonance frequency is cut in half by the tic() change.
@@ -223,7 +223,7 @@ The ith character of the string keyboard corresponds to a frequency of 440 × 2^
  - Pianos come with a damper pedal which can be used to make the strings stationary. You can implement this by, on iterations where a certain key (such as Shift) is held down, changing the decay factor.
  - While we have used equal temperament, the ear finds it more pleasing when musical intervals follow the small fractions in the just intonation system. For example, when a musician uses a brass instrument to play a perfect fifth harmonically, the ratio of frequencies is 3/2 = 1.5 rather than 27/12 ∼ 1.498. Write a program where each successive pair of notes has just intonation.
 
-Why it works
+Why It Works
 -----
 The two primary components that make the Karplus-Strong algorithm work are the ring buffer feedback mechanism and the averaging operation.
 
