@@ -23,7 +23,7 @@ Table of Contents
   * [Optional Beautification](#optional-beautification)
 * [Gold points](#gold-points)
   * [Selection (3 points)](#selection-3-points)
-  * [Copy / Paste (2 points)](#Copy--paste-2-points)
+  * [Copy / Paste (2 points)](#copy--paste-2-points)
 * [Frequently Asked Questions](#frequently-asked-questions)
 * [Acknowledgements](#acknowledgements)
 
@@ -124,9 +124,7 @@ __TIP:__ One way to control when output is printed is to create a `Print` class 
 
 ### Data structures and time requirements
 
-One of the most important parts of this project is determining what data structure to use to hold the text in the document.  Inserting new text into your data structure should take constant time, regardless of where in the document the text is inserted.  Deleting text should similarly take constant time.  It's ok if rendering the document to the screen takes time proportional to the length of the file (e.g., you many need to re-render the entire document if a character is inserted early in the file that causes all of the line wrapping to shift); in fact, we recommend taking an approach where you re-render the entire document after each insertion or deletion.  If you're curious why we require insertion of new text to be constant time, while allowing rendering to be slower, checkout the [FAQ](#frequently-asked-questions).
-
-Moving the cursor should take time proportional to the number of characters in the line where the new cursor position is located.  Moving the cursor should not take time proportional to the length of the file (so, for example, you should not need to look at all of the characters in the file to determine the new cursor position).
+One of the most important decisions you'll make in this project is what data structure to use. Each operation in your editor should be at most linear time (i.e., should take time at most proportional to the number of characters in the document).  An "operation" could be adding a character that the user has typed,  deleting a character, clicking at a location in the file to move the cursor, pressing an arrow key, moving the scroll bar, opening an entire file, etc.
 
 If you read about text editors online, there are many nifty data structures (gap buffers! balanced trees! etc.) that can be used to efficiently represent text for a text editor.  For the purposes of this assignment, you do not need to use any such sophisticated data structures.  With appropriate use of the data structures we've learned about so far in this class, you can satisfy the requirements described above.
 
@@ -350,10 +348,6 @@ Undo and redo should work for pasting: if the user pastes some text into the doc
 
 Frequently Asked Questions
 -----------------
-
-#### Why do you require that inserting new text into the data structure takes constant time, even though it's ok to re-render the whole document (which takes time proportional to the length of the file) after each insertion?
-
-Writing your underlying data structure such that insertion and deletion take constant time makes it possible to write efficient insert and delete functionality, where the time for those methods is proportional to the amount of text that changed position on the screen.  However, implementing rendering such that the time is proportional to the amount of text that changes position is tricky and requires considering numerous edge cases.  As a result, efficient rendering is not required for this assignment.
 
 #### Does my editor need to support any non-text keys not mentioned in the spec (e.g., the tab key)?
 
