@@ -124,11 +124,29 @@ __TIP:__ One way to control when output is printed is to create a `Print` class 
 
 ### Data structures and time requirements
 
-One of the most important decisions you'll make in this project is what data structure to use. Each operation in your editor should be at most linear time (i.e., should take time at most proportional to the number of characters in the document).  An "operation" could be adding a character that the user has typed,  deleting a character, clicking at a location in the file to move the cursor, pressing an arrow key, moving the scroll bar, opening an entire file, etc.
+One of the most important decisions you'll make in this project is what data structures to use. As you think about how to efficiently implement the functionality required by this project, we'd like you to consider two things separately:
 
-If you read about text editors online, there are many nifty data structures (gap buffers! balanced trees! etc.) that can be used to efficiently represent text for a text editor.  For the purposes of this assignment, you do not need to use any such sophisticated data structures.  With appropriate use of the data structures we've learned about so far in this class, you can satisfy the requirements described above.
+##### Storing the contents of the document
+
+First, consider how to store the contents of your document.  Here, we mean the information about what characters are in the document (either because the user added them to the document, or because they were in the original file that was opened).  You can think of this as being all of the information that's needed to save the text.  This data should be stored in a data structure such that characters can be added to or deleted from the current cursor position in constant time (even if the cursor is somewhere in the middle of the document).
 
 __TIP:__ As in project 1a, sentinel nodes will make your life much easier!
+
+##### Storing rendering information
+
+You'll also need to store information about how the text is displayed on the screen.  This may include data like where each character is placed on the screen, where word wraps occur, etc. None of this data is needed to save the file; it's only needed to display the contents of the file to the user.
+
+Updates to these data structure(s) can take linear time (i.e., the time can be proportional to the number of characters in the document).  In fact, we recommend an approach where you recompute all of the rendering information after each operation.  This makes word wrap much easier, because it's easier to determine where word wraps occur if you start from the beginning of the file.
+
+Moving the cursor (e.g., with a mouse click) should take time proportional to the number of characters in the line where the new cursor position is located. Moving the cursor should not take time proportional to the length of the file (so, for example, you should not need to look at all of the characters in the file to determine the new cursor position).
+
+##### Why?
+
+You may be wondering why we require one part of operations like inserting a new character to be constant time (updating the data structure storing the character data), while the other part of inserting a new character is allowed to take linear time (re-rendering the document).  We'd like you to implement some things efficiently to give you some practice thinking about efficiency.  Your efficient data structure for storing character data paves the way for optimizations to rendering; however, these optimizations are tricky, so we're not requiring them in this assignment.  If you're interested, think about how you might do rendering more efficiently!
+
+##### Non-requirements
+
+If you read about text editors online, there are many nifty data structures (gap buffers! balanced trees! etc.) that can be used to efficiently represent text for a text editor.  For the purposes of this assignment, you do not need to use any such sophisticated data structures.  With appropriate use of the data structures we've learned about so far in this class, you can satisfy the requirements described above.
 
 ### Shortcut keys
 
