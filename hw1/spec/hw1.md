@@ -113,9 +113,11 @@ Create a new abstract class in a .java file called `AbstractBoundedQueue.java` t
     public abstract void enqueue(T x);
     public abstract Iterator<T> iterator();
 
-Note that `isEmpty`, `isFull`, `peek`, `dequeue`, `enqueue`, and `iterator` are inherited from BoundedQueue, so you do not need to declare these explicitly. The mysterious `protected` keyword above is something we'll talk about in lecture on 2/26. It just means that only subclasses of `AbstractBoundedQueue` can access this variable.
+Note that `isEmpty`, `isFull`, `peek`, `dequeue`, `enqueue`, and `iterator` are inherited from BoundedQueue, so *you should not to declare these explicitly in your AbstractBoundedQueue.java* file. The mysterious `protected` keyword above is something we'll talk about in lecture on 2/26. It just means that only subclasses of `AbstractBoundedQueue` can access this variable.
 
-If you're having trouble compiling your `AbstractBoundedQueue.java` file from teh command line, because the compiler can't find `BoundedQueue.class`, try compiling with:
+The purpose of `AbstractBoundedQueue` will be to simply provide a protected `fillCount` and `capacity` variable that all subclasses will inherit, as well as so called "getter" methods `capacity()` and `fillCount()` that return `capacity` and `fillCount`, respectively. This saves a tiny amount of work for future implementations like `ArrayRingBuffer.java` (see next section).
+
+If you're having trouble compiling your `AbstractBoundedQueue.java` file from the command line, because the compiler can't find `BoundedQueue.class`, try compiling with:
 
     javac BoundedQueue.java AbstractBoundedQueue.java
 
