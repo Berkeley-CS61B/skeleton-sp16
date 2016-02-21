@@ -214,6 +214,8 @@ This keyboard arrangement imitates a piano keyboard: The "white keys" are on the
 
 The ith character of the string keyboard corresponds to a frequency of 440 × 2^(i - 24) / 12, so that the character 'q' is 110Hz, 'i' is 220Hz, 'v' is 440Hz, and ' ' is 880Hz. Don't even think of including 37 individual GuitarString variables or a 37-way if statement! Instead, create an array of 37 GuitarString objects and use keyboard.indexOf(key) to figure out which key was typed. Make sure your program does not crash if a key is pressed that does not correspond to one of your 37 notes.
 
+This part of the assignment is not graded.
+
 Even More Fun
 --------------------------------
 
@@ -222,6 +224,8 @@ Even More Fun
  - Guitars play each note on one of 6 physical strings. To simulate this you can divide your GuitarString instances into 6 groups, and when a string is plucked, zero out all other strings in that group.
  - Pianos come with a damper pedal which can be used to make the strings stationary. You can implement this by, on iterations where a certain key (such as Shift) is held down, changing the decay factor.
  - While we have used equal temperament, the ear finds it more pleasing when musical intervals follow the small fractions in the just intonation system. For example, when a musician uses a brass instrument to play a perfect fifth harmonically, the ratio of frequencies is 3/2 = 1.5 rather than 27/12 ∼ 1.498. Write a program where each successive pair of notes has just intonation.
+
+This part of the assignment is not graded.
 
 Why It Works
 -----
@@ -270,5 +274,18 @@ For example, suppose we want to write a method that takes an integer argument, a
 
 An example of code using exceptions can be found in the demo folder (you'll need to ```git pull skeleton master```).
 -->
+
+Frequently Asked Questions
+----------------
+
+#### I'm getting a "class file contains wrong class" error.
+
+Make sure all your Java files have the right package declaration at the top. Also make sure that anything that is part of the synthesizer package is in the synthesizer folder.
+
+#### I'm getting a message that I did not override an abstract method, but I am!
+
+Chances are you have a typo. You should always use the @Override tag when overriding methods so that the compiler will find any such typos.
+
+
 
 Credits: RingBuffer figures from [wikipedia](http://en.wikipedia.org/wiki/Circular_buffer). This assignment adapted from [Kevin Wayne's Guitar Heroine](http://nifty.stanford.edu/2012/wayne-guitar-heroine/) assignment.
