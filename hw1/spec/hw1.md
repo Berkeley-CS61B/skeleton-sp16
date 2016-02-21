@@ -135,18 +135,18 @@ Task 3: ArrayRingBuffer
 
 The `ArrayRingBuffer` class will do all the real work by extending `AbstractBoundedQueue`. That means we can happily inherit `capacity()`, `fillCount()`, `isEmpty()`, and `isFull()` without having to override these, but we'll need to override all of the the abstract methods. In this part, you'll fill out `ArrayRingBuffer.java`. You'll need to rename the file from `ArrayRingBuffer.java.skeleton` to `ArrayRingBuffer.java`.
 
-A naive array implementation of a BoundedQueue would store the newest item at position 0, the second newest item in position 1, and so forth. This is an inefficient approach, as we see in the example below, where the comments show entries 0, 1, 2, and 3 of the array respectively. We assume that the array is initialized to all zeros.
+A naive array implementation of a BoundedQueue would store the newest item at position 0, the second newest item in position 1, and so forth. This is an inefficient approach, as we see in the example below, where the comments show entries 0, 1, 2, and 3 of the array respectively. We assume that the array is initially all nulls.
 
     BoundedQueue x = new NaiveArrayBoundedQueue(4);
-    x.enqueue(33.1) // 33.1    0    0    0
-    x.enqueue(44.8) // 33.1 44.8    0    0
-    x.enqueue(62.3) // 33.1 44.8 62.3    0
+    x.enqueue(33.1) // 33.1 null null  null
+    x.enqueue(44.8) // 33.1 44.8 null  null
+    x.enqueue(62.3) // 33.1 44.8 62.3  null
     x.enqueue(-3.4) // 33.1 44.8 62.3 -3.4
-    x.dequeue()     // 44.8 62.3 -3.4    0 (returns 33.1)
+    x.dequeue()     // 44.8 62.3 -3.4  null (returns 33.1)
 
 Note that in this setup, the call to `dequeue` is very slow as it requires moving every single item to the left. For larger arrays this would result in unacceptable performance.
 
-The ArrayRingBuffer will improve this runtime substantially by using the 'ring buffer' data structure. A ring buffer first starts empty and of some predefined length. For example, this is a 7-element buffer:
+The ArrayRingBuffer will improve this runtime substantially by using the 'ring buffer' data structure, similar to the circular array from project 1a. A ring buffer first starts empty and of some predefined length. For example, this is a 7-element buffer:
 
 ![empty buffer](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Circular_buffer_-_empty.svg/500px-Circular_buffer_-_empty.svg.png)
 
@@ -286,6 +286,8 @@ Make sure all your Java files have the right package declaration at the top. Als
 
 Chances are you have a typo. You should always use the @Override tag when overriding methods so that the compiler will find any such typos.
 
+#### I'm getting ... in AbstractBoundedQueue and ... in BoundedQueue have the same erasure, yet neither overrides the other.
 
+Make sure your classes are defined as `AbstractBoundedQueue<T> extends BoundedQueue<T>` (or whatever type parameter you used instead of T).
 
 Credits: RingBuffer figures from [wikipedia](http://en.wikipedia.org/wiki/Circular_buffer). This assignment adapted from [Kevin Wayne's Guitar Heroine](http://nifty.stanford.edu/2012/wayne-guitar-heroine/) assignment.
