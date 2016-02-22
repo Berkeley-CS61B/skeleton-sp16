@@ -23,37 +23,36 @@ public class TestGuitarString {
         }
     }*/
 
+/*
+    @Test
     public void testTic() {
-        GuitarString s = new GuitarString(4);
-        // Dequeue all the zeros that go into a GuitarString by default.
-        s.dequeue();
-        s.dequeue();
-        s.dequeue();
-        s.dequeue();
+        // Create a GuitarString of frequency 11025, which
+        // is an ArrayRingBuffer of length 4. 
+        GuitarString s = new GuitarString(11025);
+        s.pluck();
 
-        // add custom values instead of plucking so we know what is in the GuitarString.
-        s.enqueue(0.1);
-        s.enqueue(0.2);
-        s.enqueue(0.3);
-        s.enqueue(0.4);
+        // Record the front four values, ticcing as we go.
+        double s1 = s.sample();
+        s.tic();
+        double s2 = s.sample();
+        s.tic(); 
+        double s3 = s.sample();
+        s.tic();
+        double s4 = s.sample();
 
-        // GuitarString should be [0.1, 0.2, 0.3, 0.4] 
-        // So check that front value is actaully 0.1, using tolerance of 0.001.
-        // See JUnit documentation for a description of how tolerances work
-        // for assertEquals(double, double)
-        assertEquals(0.1, s.sample(), 0.001);
-
+        // If we tic once more, it should be equal to 0.996*0.5*(s1 + s2)
         s.tic();
 
-        // After tic, GuitarString should be [0.2, 0.3, 0.4, 0.1494]
-        assertEquals(0.2, s.sample(), 0.001);
+        double s5 = s.sample();
+        double expected = 0.996 * 0.5 * (s1 + s2);
 
-        // Dequeue the 0.2, 0.3, 0.4 so we can get at the good stuff. 
-        s.dequeue();
-        s.dequeue();
-        s.dequeue();
-        assertEquals(0.1494, s.sample(), 0.001);
+        // Check that new sample is correct, using tolerance of 0.001.
+        // See JUnit documentation for a description of how tolerances work
+        // for assertEquals(double, double)
+        assertEquals(expected, s5, 0.001);
+
     }
+*/
 
     /** Calls tests for GuitarString. */
     public static void main(String[] args) {
