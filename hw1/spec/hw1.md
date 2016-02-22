@@ -198,7 +198,7 @@ You can play a double value with the StdAudio.play() method. For example StdAudi
 
 Rename `GuitarString.java.skeleton` to `GuitarString.java`. Complete 'GuitarString.java' so that it implements the Karplus-Strong algorithm. 
 
-The provided `TestGuitarString` class provides a sample test `testPluckTheAString` that attempts to play an A-note on a guitar string. You should hear an A-note when you run this test. If you don't, you should consider writing finer grained tests that inspect quantiative behavior of the the class. 
+The provided `TestGuitarString` class provides a sample test `testPluckTheAString` that attempts to play an A-note on a guitar string. You should hear an A-note when you run this test. If you don't, you should try the `testTic` method and debug from there. Consider adding a `print` or `toString` method to `GuitarString.java` that will help you see what's going on between tics.
 
 Once you're relatively comfortable that GuitarString should be working, try compiling and running 'GuitarHeroLite'. It will provide an interface, allowing the user to interactively play sounds using the `synthesizer` package's `GuitarString` class.
 
