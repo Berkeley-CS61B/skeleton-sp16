@@ -73,7 +73,7 @@ For example, given an empty `BoundedQueue<Double>` of capacity 4, the state of t
 Of course, your `BoundedQueue.java` file won't actually do anything (since it's an interface), but it will define the contract that any `BoundedQueue` must follow.
 
 Make sure to decare this interface as part of the `synthesizer` package.  The syntax for declaring yourself to be part of a package is `package <packagename>;`.  For example, if you are part of
-the `animal` package, the top of your file should have a `package animal;` line.
+the `animal` package, the top of your file should have a `package animal;` line. Your package name should just be `synthesizer`, nothing else. 
 
 Before moving on, ensure that  `BoundedQueue` compiles: `javac BoundedQueue.java`. 
 
@@ -174,7 +174,7 @@ We recommend you maintain one integer instance variable `first` that stores the 
 
 In the last section of this homework, we'll implement our `ArrayRingBuffer` to throw a run-time exception if the client attempts to `enqueue()` into a full buffer or call `dequeue()` or `peek()` on an empty buffer. We'll be covering exceptions on Monday, so hold off until then (or read ahead in HFJ or online).
 
-Once you've fleshed out the TODOs, make sure `ArrayRingBuffer` compiles before moving on. Optionally, you can add tests to the `TestArrayRingBuffer` class (either before or after your write `ArrayRingBuffer`). `TestArrayRingBuffer.java` will not be graded. To run TestArrayRingBuffer you'll need to run the following command from your hw1 folder as described in this [common package gotchas slide]().
+Once you've fleshed out the TODOs, make sure `ArrayRingBuffer` compiles before moving on. Optionally, you can add tests to the `TestArrayRingBuffer` class (either before or after your write `ArrayRingBuffer`). `TestArrayRingBuffer.java` will not be graded. To run TestArrayRingBuffer you'll need to run the following command from your hw1 folder as described in this [common package gotchas slide](https://docs.google.com/presentation/d/1CKlh3Yh_NYn-5NMkqES1qfAeTkPe9t8bS3UOqqh6qAY/edit#slide=id.g7a41441c3_1155).
 
     java synthesizer.TestArrayRingBuffer
 
