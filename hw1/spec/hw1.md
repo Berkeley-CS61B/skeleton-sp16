@@ -277,6 +277,11 @@ For example, suppose we want to write a method that takes an integer argument, a
 An example of code using exceptions can be found in the demo folder (you'll need to ```git pull skeleton master```).
 -->
 
+Submission
+--------------------------------
+
+To submit this assignment, you must upload a .zip file containing your synthesizer folder. More detailed instructions coming later if you run into issues.
+
 Frequently Asked Questions
 ----------------
 
