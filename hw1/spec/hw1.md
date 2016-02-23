@@ -303,7 +303,7 @@ Chances are you have a typo. You should always use the @Override tag when overri
 
 #### I'm getting ... in AbstractBoundedQueue and ... in BoundedQueue have the same erasure, yet neither overrides the other.
 
-Make sure your classes are defined as `AbstractBoundedQueue<T> extends BoundedQueue<T>` (or whatever type parameter you used instead of T).
+Make sure your classes are defined as `AbstractBoundedQueue<T> implements BoundedQueue<T>` (or whatever type parameter you used instead of T).
 
 #### When I try to run the provided tests I get "No runnable methods".
 
