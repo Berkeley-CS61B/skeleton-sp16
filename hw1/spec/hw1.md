@@ -300,4 +300,8 @@ Chances are you have a typo. You should always use the @Override tag when overri
 
 Make sure your classes are defined as `AbstractBoundedQueue<T> extends BoundedQueue<T>` (or whatever type parameter you used instead of T).
 
+#### When I try to run the provided tests I get "No runnable methods".
+
+Make sure you've uncommented the tests, including the `@Test` annotation.
+
 Credits: RingBuffer figures from [wikipedia](http://en.wikipedia.org/wiki/Circular_buffer). This assignment adapted from [Kevin Wayne's Guitar Heroine](http://nifty.stanford.edu/2012/wayne-guitar-heroine/) assignment.
