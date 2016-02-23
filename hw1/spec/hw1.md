@@ -11,6 +11,11 @@ Table of Contents
 - [Task 4: GuitarString](#GuitarString)
 - [Task 5: Iteration and Exceptions](#IterationExceptions)
 
+Getting the Skeleton Files
+--------------------------------
+
+Just the usual `git pull skeleton master`.
+
 Introduction
 --------------------------------
 In this homework, you will learn how to write and use packages, as well as get some hands-on practice with interfaces and abstract classes. We'll also get an opportunity to implement a simple data structure as well as an algorithm that is easy to implement given that data structure. Finally we'll add support for iteration and exceptions  (which we'll cover on Monday) to our data structure.
