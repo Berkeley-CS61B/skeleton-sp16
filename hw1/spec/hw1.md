@@ -22,7 +22,7 @@ For this assignment, we'll create a synthesizer package intended for use by prog
 The synthesizer package has four components:
 
 - `BoundedQueue`, an interface which declares all the methods that must be implemented by any class that implements `BoundedQueue`.
-- `AbstractBoundedQueue`, an abstract class which implements `AbstractBoundedQueue`, capturing the redundancies between methods in `BoundedQueue`.
+- `AbstractBoundedQueue`, an abstract class which implements `BoundedQueue`, capturing the redundancies between methods in `BoundedQueue`.
 - `ArrayRingBuffer`, a class which extends `AbstractBoundedQueue` and uses an array as the actual implementation of the `BoundedQueue`.
 - `GuitarString`, which uses an `ArrayRingBuffer<Double>` to implement the [Karplus-Strong algorithm](http://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis) to synthesize a guitar string sound.
 
@@ -250,7 +250,7 @@ Consider your AbstractBoundedQueue. You don't need to change anything in this cl
 
 #### ArrayRingBuffer
 
-Now finally add the required `iterator()` method to `ArrayRingBuffer`. You'll need to define a private class that implements the `Iterator` interface. See lecture 14 for an example.
+Now finally add the required `iterator()` method to `ArrayRingBuffer`. You'll need to define a private class that implements the `Iterator` interface. See lecture 14 for an example: <a href="https://github.com/Berkeley-CS61B/lectureCode-sp16/blob/master/lec14/hugCode/ArrayMap.java">github</a> <a href="https://docs.google.com/presentation/d/1_kI2wXIQqbkMC2-ug03VQeskVMg_kjd1ySy8ocIoxNc/edit">slides</a>.
 
 #### Exceptions
 
@@ -284,9 +284,13 @@ To submit this assignment, you must upload a .zip file containing your synthesiz
 Frequently Asked Questions
 ----------------
 
+#### My AbstractBoundedQueue won't compile because BoundedQueue isn't found.
+
+Look more closely at the AbstractBoundedQueue section of this assignment page for tips.
+
 #### I'm getting a "class file contains wrong class" error.
 
-Make sure all your Java files have the right package declaration at the top. Also make sure that anything that is part of the synthesizer package is in the synthesizer folder.
+Make sure all of your Java files have the right package declaration at the top. Also make sure that anything that is part of the synthesizer package is in the synthesizer folder.
 
 #### I'm getting a message that I did not override an abstract method, but I am!
 
