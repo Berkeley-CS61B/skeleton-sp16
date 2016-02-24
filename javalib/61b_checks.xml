@@ -166,10 +166,10 @@
           <property name="ignoreConstructorParameter" value="true"/>
           <property name="ignoreSetter" value="true"/>
         </module>
-        <module name="MagicNumber">
+        <!--<module name="MagicNumber">
           <property name="ignoreNumbers"
                     value="-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 26, 100, 1000, 0.5, -0.5, 0.25, -0.25"/>
-        </module>
+        </module>-->
         <module name="MissingSwitchDefault"/>
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
@@ -197,7 +197,6 @@
         <module name="Indentation">
           <property name="basicOffset" value="4"/>
           <property name="braceAdjustment" value="0"/>
-          <property name="lineWrappingIndentation" value="8"/>
         </module>
 
         <!-- Miscellaneous other checks.                   -->
