@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,7 +20,14 @@ public class CopyFile {
         String outputFilename = args[1];
 
         try {
-            FileReader reader = new FileReader(inputFilename);
+            File inputFile = new File(inputFilename);
+            // Check to make sure that the input file exists!
+            if (!inputFile.exists()) {
+                System.out.println("Unable to copy because file with name " + inputFilename
+                    + " does not exist");
+                return;
+            }
+            FileReader reader = new FileReader(inputFile);
             // It's good practice to read files using a buffered reader.  A buffered reader reads
             // big chunks of the file from the disk, and then buffers them in memory.  Otherwise,
             // if you read one character at a time from the file using FileReader, each character

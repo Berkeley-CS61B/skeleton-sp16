@@ -1,6 +1,21 @@
 ~ number: 2
 ~ title: Editor, version 1.0
 
+Change Log
+-----------------------------
+
+This section describes major changes that have been made to the spec since it was released.
+
+##### February 23
+
+* Added a requirement that shortcut+p prints the current cursor position, and removed the "cursor" option for the 2nd command line argument.
+* Updated `CopyFile.java` example to show how to check if a file exists before attempting to read from it.
+* Added a hint for how to display the cursor.
+
+##### February 21
+
+Clarified description of time requirements to explicitly separate the timing requirements for storing document data from the timing requirements for rendering.
+
 Table of Contents
 -------------------
 
@@ -67,6 +82,7 @@ Your text editor should support the following features. Most of these features a
 * **Vertical scrolling** Your text editor should have a vertical scroll bar on the right side of the editor that allows the user to vertically navigate through the file.  Moving the scroll bar should change the positioning of the file (but not the cursor position), and if the cursor is moved (e.g., using the arrow keys) so that it's not visible, the scroll bar and window position should be updated so that the cursor is visible.
 * **Undo and redo** Pressing shortcut+z should undo the most recent action (either inserting a character or removing a character), and pressing shortcut+y should redo.  Your editor should be able to undo up to 100 actions, but no more.
 * **Changing font size** Pressing shortcut+"+" (the shortcut key and the "+" key at the same time) should increase the font size by 4 points and pressing shortcut+"-" should decrease the font size by 4 points.
+* **Printing the current position** To facilitate grading, pressing shortcut+p should print the top left coordinate of the current cursor position.
 
 If you're unsure what some of these features mean, we suggest experimenting with Notepad, Microsoft Word, Google Docs, or TextEdit.  Those text editors all use a flashing vertical cursor, implement line wrap, react to arrow keys, scroll vertically, and accept mouse input in the way we expect you to for this assignment. Note that up/down arrows are a bit more sophisticated in some editors than what we require in this assignment (see spec above). 
 
@@ -105,21 +121,8 @@ Your `Editor` program should accept one required command line argument represent
 
  * If the second command line argument is blank, your program should not print any output.
  * If the second command line argument is "debug", you can print any output you like to facilitate debugging.
- * If the second command line argument is "cursor", you should print the top left coordinate of the current cursor position when the editor first opens and after any user input (e.g., after the user inserts text, after the user moves the cursor, etc.).  The cursor position should be printed in the format "x, y" where the x and y positions describe the cursor position relative to the top left corner of the window (note that the y position may be negative when the cursor is above the window and out of view).  For example, suppose you open the file, type a letter that is 7 pixels wide, type a second letter that is 4 pixels wide, move the cursor by pressing the left arrow once, and then delete the letter at the cursor (so delete the first letter you typed).  Your program should print:
 
-    <pre><code>
-    $ java Editor myFile cursor
-    5, 0
-    12, 0
-    16, 0
-    12, 0
-    5, 0 </pre></code>
-    
-The cursor position should be printed as an integer because the cursor should always be at an integer, as described in [Font and spacing](#font-and-spacing).
-
-The coordinates of the cursor that you print should be relative to the window.  For example, if the cursor is at the beginning of the first line of visible text, the position printed should be "5, 0", even if there's more text above that isn't visible. We will be using your printed cursor positions for grading.
-
-__TIP:__ One way to control when output is printed is to create a `Print` class with a static `print(String toPrint, boolean isCursorPosition)` method.  The `print` method can check which command line argument is set and either print or do nothing accordingly.  For example, if the second command line argument is blank, the `print` method would do nothing.
+__TIP:__ One way to control when output is printed is to create a `Print` class with a static `print(String toPrint)` method.  The `print` method can check which command line argument is set (e.g., using a static variable) and either print or do nothing accordingly. 
 
 ### Data structures and time requirements
 
@@ -185,6 +188,8 @@ When you're reading a file, you should treat "\n" as a newline, and you should a
 
 The cursor should be shown as a vertical line with width 1 pixel and height equal to the height of each letter (see the figure above).  The cursor should blink for a period of 0.5 seconds: it should be black for 0.5 seconds, then disappear for 0.5 seconds, and so on.  The cursor should always be shown after a letter; for example, in the "Hug" example above, if the cursor were after the "u", it would cover the first vertical line of pixels in "g" (and not the last vertical line of "u").
 
+__TIP:__ If you can't figure out how to display the cursor, take a look at `SingleLetterDisplay.java`.  Think about whether there's anything in that example that would be useful for making a blinking cursor!
+
 ##### What happens when the cursor is between lines?
 
 One tricky part is handling where to place the cursor when the cursor is at the end of a line.  If you experiment with Google Docs, you'll notice that when the cursor's logical position is in between two lines, it is sometimes displayed at the end of the earlier line, but other times it is displayed at the beginning of the later line.  For example, consider the text below:
@@ -219,6 +224,19 @@ When pressing the up and down arrows, you do **not** need to maintain a notion o
 ##### Moving the cursor with a mouse click
 
 When the cursor is moved as a result a mouse click, the cursor's new vertical position should be on the line corresponding to the vertical position of the mouse click.  If the mouse click is below the end of the file or above the beginning of the file, the new vertical position should be the last line or the first line, respectively.  The cursor's horizontal position should be the closest position to the x-coordinate of the mouse click.  Keep in mind that this means that clicking on a letter may cause the cursor to appear before _or_ after the letter, depending on whether the mouse position was closer to the left or right side of the letter!
+
+##### Printing the Cursor Position
+
+To facilitate grading, when the user presses shortcut+p, you should print the top left coordinate of the current cursor position.  The cursor position should be printed in the format "x, y" where the x and y positions describe the cursor position relative to the top left corner of the window (note that the y position may be negative when the cursor is above the window and out of view).  The cursor position should be followed by a newline.  For example, suppose you open the file, type a letter that is 7 pixels wide, type a second letter that is 4 pixels wide, press shortcut+p, move the cursor by pressing the left arrow once, and then press control+p again, your program should print:
+
+    <pre><code>
+    16, 0
+    12, 0
+    </pre></code>
+    
+The cursor position should be printed as an integer because the cursor should always be at an integer, as described in [Font and spacing](#font-and-spacing).
+
+The coordinates of the cursor that you print should be relative to the window.  For example, if the cursor is at the beginning of the first line of visible text, the position printed should be "5, 0", even if there's more text above that isn't visible. We will be using your printed cursor positions for grading.
 
 ##### Non-requirements
 
@@ -271,7 +289,7 @@ __TIP:__ Implementing word wrap is easiest if you do it from the very beginning 
 
 ### Open and Save 
 
-As mentioned in the [command line arguments section](#command-line-arguments), the first command line argument passed to `Editor` must be the name of a file to edit, and this argument is required.  If that file already exists, `Editor` should open it and display its contents (with the starting cursor position at the beginning of the file); otherwise, `Editor` should begin with an empty file.  Presing shortcut+s should save the text in your editor to the given file, replacing any existing text in the file.  If you encounter an exception when opening or writing to the file (e.g., because the user gave a filename that is a directory name), your editor should exit and print an error message that includes the filename (for example, "Unable to open file nameThatIsADirectory").  You'll learn about exceptions in lecture on 2/22, so you may want to wait to implement this feature until then.
+As mentioned in the [command line arguments section](#command-line-arguments), the first command line argument passed to `Editor` must be the name of a file to edit, and this argument is required.  If that file already exists, `Editor` should open it and display its contents (with the starting cursor position at the beginning of the file); otherwise, `Editor` should begin with an empty file.  Presing shortcut+s should save the text in your editor to the given file, replacing any existing text in the file.  If you encounter an exception when opening or writing to the file (e.g., because the user gave the name of a directory as the first command line argument), your editor should exit and print an error message that includes the filename (for example, "Unable to open file nameThatIsADirectory").  Beware that if you attempt to read from a file that doesn't exist, Java will throw a `FileNotFoundException`, which is the same kind of exception you'll get if you try to read from a directory. Check out `CopyFile.java` for an example of how to determine if a file exists before attempting to read from it.
 
 Opening a file should take time proportional to the length of the file, not to the length of the file squared.  As a reference point, in our example text editor, opening a file with about 2000 characters took less than one second.  If your editor takes, for example, a little over a second for a similarly sized file, that is fine, but it should not take a lot more than a second (e.g., it should not take 30 seconds).
 
