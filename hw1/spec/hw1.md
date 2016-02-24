@@ -309,4 +309,17 @@ Make sure your classes are defined as `AbstractBoundedQueue<T> implements Bounde
 
 Make sure you've uncommented the tests, including the `@Test` annotation.
 
+#### I'm failing the nested iteration test. What does this mean?
+
+Consider what happens when you run the following:
+
+    int[] someInts = new int[]{1, 2, 3};
+    for (int x : someInts) {
+        for (int y: someInts) {
+            System.out.println("x: " + x +  ", y:" + y);
+        }
+    }
+
+And think about how your code is not doing what is listed above.
+
 Credits: RingBuffer figures from [wikipedia](http://en.wikipedia.org/wiki/Circular_buffer). This assignment adapted from [Kevin Wayne's Guitar Heroine](http://nifty.stanford.edu/2012/wayne-guitar-heroine/) assignment.
