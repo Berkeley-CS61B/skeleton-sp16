@@ -227,7 +227,7 @@ When the cursor is moved as a result a mouse click, the cursor's new vertical po
 
 ##### Printing the Cursor Position
 
-To facilitate grading, when the user presses shortcut+p, you should print the top left coordinate of the current cursor position.  The cursor position should be printed in the format "x, y" where the x and y positions describe the cursor position relative to the top left corner of the window (note that the y position may be negative when the cursor is above the window and out of view).  The cursor position should be followed by a newline.  For example, suppose you open the file, type a letter that is 7 pixels wide, type a second letter that is 4 pixels wide, press shortcut+p, move the cursor by pressing the left arrow once, and then press control+p again, your program should print:
+To facilitate grading, when the user presses shortcut+p, you should print the top left coordinate of the current cursor position.  The cursor position should be printed in the format "x, y" where the x and y positions describe the cursor position relative to the top left corner of the window (note that the y position may be negative when the cursor is above the window and out of view).  The cursor position should be followed by a newline.  For example, suppose you open the file, type a letter that is 7 pixels wide, type a second letter that is 4 pixels wide, press shortcut+p, move the cursor by pressing the left arrow once, and then press shortcut+p again, your program should print:
 
     <pre><code>
     16, 0
