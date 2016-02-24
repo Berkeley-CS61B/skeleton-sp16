@@ -322,4 +322,8 @@ Consider what happens when you run the following:
 
 And think about how your code is not doing what is listed above.
 
+#### When I try to compile my code, it says type K#1 is not compatible with type K#2, or something similar.
+
+If you're defining an inner class, make sure it does not redeclare a new generic type parameter, e.g. the first `<Z>` given in `private class MapWizard<Z> implements Iterator<Z>{` should not be there!
+
 Credits: RingBuffer figures from [wikipedia](http://en.wikipedia.org/wiki/Circular_buffer). This assignment adapted from [Kevin Wayne's Guitar Heroine](http://nifty.stanford.edu/2012/wayne-guitar-heroine/) assignment.
