@@ -140,7 +140,7 @@ You'll also need to store information about how the text is displayed on the scr
 
 Updates to these data structure(s) can take linear time (i.e., the time can be proportional to the number of characters in the document).  In fact, we recommend an approach where you recompute all of the rendering information after each operation.  This makes word wrap much easier, because it's easier to determine where word wraps occur if you start from the beginning of the file.
 
-Moving the cursor (e.g., with a mouse click) should take time proportional to the number of characters in the line where the new cursor position is located. Moving the cursor should not take time proportional to the length of the file (so, for example, you should not need to look at all of the characters in the file to determine the new cursor position).
+Moving the cursor (e.g., with a mouse click) should take time constant time. However, since each line has a constant length (since the window can only be so wide), this means your runtime may be proportional to the number of characters in the line where the new cursor position is located. Moving the cursor should not take time proportional to the length of the file (so, for example, you should not need to look at all of the characters in the file to determine the new cursor position).
 
 ##### Why?
 
