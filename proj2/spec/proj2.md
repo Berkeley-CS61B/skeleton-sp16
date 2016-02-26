@@ -6,6 +6,11 @@ Change Log
 
 This section describes major changes that have been made to the spec since it was released.
 
+##### February 25
+
+* Added a clarification to the runtimes: Using arrow keys or clicking should be resolved in constant time: but the length of each line is a constant, since the window can only be so wide.
+* Added links to Project 2 slide and video.
+
 ##### February 23
 
 * Added a requirement that shortcut+p prints the current cursor position, and removed the "cursor" option for the 2nd command line argument.
@@ -61,6 +66,11 @@ This is a brand new project, so bear with us as we work out kinks!  There is a c
 
 If you run into problems, be sure to check out the [FAQ](#frequently-asked-questions) section before posting to Piazza.  We'll keep this section updated as questions arise during the assignment.
 
+For some additional tips on the project, see:
+ - Project 2 Design Guide Video: [Link](https://youtu.be/MEOv98EFMqA)
+ - Project 2 Slides (video content and more): [Link](https://docs.google.com/presentation/d/15NGQTbiQWq0PgSIpleuAGMDo-QFdER4A-2GX0_59D2A/edit#slide=id.g11b3bd1314_0_6)
+ - Project 2 Design Analyis Worksheet (make a copy): [Link](https://docs.google.com/document/d/17IsU4plqtkbvxoF5f_uc7UMhxkaJ3TpxzaY67vh75fQ/edit)
+ - Example Project 2 Design Analysis Worksheet, using String as data structure: [Link](https://docs.google.com/document/d/17PUw2EffgyU5_zQHZ8GV52EhS3NPwUyghFfX6EmJiS4/edit)
 
 Overview
 ------------------
@@ -145,6 +155,8 @@ Moving the cursor (e.g., with a mouse click) should take time constant time. How
 ##### Why?
 
 You may be wondering why we require one part of operations like inserting a new character to be constant time (updating the data structure storing the character data), while the other part of inserting a new character is allowed to take linear time (re-rendering the document).  We'd like you to implement some things efficiently to give you some practice thinking about efficiency.  Your efficient data structure for storing character data paves the way for optimizations to rendering; however, these optimizations are tricky, so we're not requiring them in this assignment.  If you're interested, think about how you might do rendering more efficiently!
+
+A hidden side-effect of this constraint is that it prevents you from attempting designs that are overally complicated.
 
 ##### Non-requirements
 
