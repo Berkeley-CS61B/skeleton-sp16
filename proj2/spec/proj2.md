@@ -461,7 +461,7 @@ However, you can also change the attributes of the existing `Node`.  For example
     biggerFunnerGrowingRectangle.setWidth(30);
     biggerFunnerGrowingRectangle.setHeight(30);
     
-The call `getChildren().add(biggerFunnerGrowingRectangle)` added a pointer to `biggerFunnerGrowingRectangle` to the children, so changing properties of `biggerFunnerGrowingRectangle` means that the `Rectangle` shown on the screen will change accordingly.
+And voila, you will see a rectangle with a width and height of 30! The call `getChildren().add(biggerFunnerGrowingRectangle)` added a pointer to `biggerFunnerGrowingRectangle` to the children, so changing properties of `biggerFunnerGrowingRectangle` means that the `Rectangle` shown on the screen will change accordingly (JavaFX will always display all nodes reachable from root, using the current properties of those nodes).  When we say that rendering should take linear time, we mean that updating all of the JavaFX objects (e.g., their positions, the font size, etc.) should take linear time.
 
 #### I want to add something as a child of `root` but I can't get access to `root` in the location where I want it!
 
