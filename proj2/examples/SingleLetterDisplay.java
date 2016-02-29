@@ -71,7 +71,7 @@ public class SingleLetterDisplay extends Application {
                 // capitalization.
                 String characterTyped = keyEvent.getCharacter();
                 if (characterTyped.length() > 0 && characterTyped.charAt(0) != 8) {
-                    // Ignore control keys, which have non-zero length, as well as the backspace
+                    // Ignore control keys, which have zero length, as well as the backspace
                     // key, which is represented as a character of value = 8 on Windows.
                     displayText.setText(characterTyped);
                     keyEvent.consume();
