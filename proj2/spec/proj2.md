@@ -474,15 +474,15 @@ And voila, you will see a rectangle with a width and height of 30! The call `get
 
 You can remove Nodes from the screen with the `remove` function.  For example, suppose you have added the letters "H", "u", and "g" to the screen, and then want to remove the "u".  You could do that as follows:
 
-	Text letterOnLeft = new Text("H");
-	root.getChildren().add(letterOnLeft);
-	Text letterInMiddle = new Text("u");
-	root.getChildren().add(letterInMiddle);
-	Text letterOnRight = new Text("g");
-	root.getChildren().add(letterOnRight);
-	
-	// ... sometime later, delete the middle letter.
-	root.getChildren().remove(letterInMiddle);
+    Text letterOnLeft = new Text("H");
+    root.getChildren().add(letterOnLeft);
+    Text letterInMiddle = new Text("u");
+    root.getChildren().add(letterInMiddle);
+    Text letterOnRight = new Text("g");
+    root.getChildren().add(letterOnRight);
+    
+    // ... sometime later, delete the middle letter.
+    root.getChildren().remove(letterInMiddle);
 	
 You should *not* remove things by clearing all of the children of root and re-adding them each time, for example, with code like this:
 
