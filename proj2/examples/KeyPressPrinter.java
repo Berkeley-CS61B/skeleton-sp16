@@ -30,12 +30,10 @@ public class KeyPressPrinter extends Application {
                 // the KEY_TYPED event, javafx handles the "Shift" key and associated
                 // capitalization.
                 String characterTyped = keyEvent.getCharacter();
-                System.out.println("********" + characterTyped.length() + characterTyped);
                 if (characterTyped.length() == 0) {
                     System.out.println("==> The character typed has zero length.");
                 } else if (characterTyped.length() == 1) {
                     char typed = characterTyped.charAt(0);
-                    System.out.println("hihihi");
                     System.out.println("==> The typed character was: " + characterTyped
                             + ", which has numerical value: " + (int) typed);
                 } else {
