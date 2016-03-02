@@ -429,7 +429,7 @@ To get the autograder, pull from skeleton using `git pull skeleton master`. To r
 
     $ java editorTester.AGInitialCursorTest
 
-Completing these tests by 3/2/16 will yield 0.2 bonus points per test. Information about how to get these points will be coming soon.
+Completing these tests by 3/2/16 at 11:59 PM will yield 0.2 bonus points per test. Information about how to get these points will be coming soon.
 
 <!--This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
 
