@@ -417,27 +417,24 @@ Undo and redo should work for pasting: if the user pastes some text into the doc
 Extra Credit Autograder
 -----------------
 
-TBA
-<!--
-Very late on 3/1/2016, a 1-point extra credit autograder will be released that tests that your printed cursor position is correct under the following circumstances:
- - At program startup.
- - After typing text that fits on one line.
- - After typing text and backspacing.
- - After typing text and using left and right arrow keys.
- - After typing text that involves newlines.
+Very late on the night of 3/1/2016, a 1-point extra credit autograder was that tests that your printed cursor position is correct under the following circumstances:
+ - At program startup (AGInitialCursorTest).
+ - After typing text that fits on one line (AGSimpleTextTest).
+ - After typing text and backspacing (AGBackspaceTest).
+ - After typing text and using left and right arrow keys (AGArrowKeyTest).
+ - After typing text that involves newlines (AGNewlineTest).
 
-The basics autograder will not involve word wrap. 
+To get the autograder, pull from skeleton using `git pull skeleton master`. To run one of the five autograders, use a command like:
 
-To get the autograder, pull from skeleton, and run the editorTester.EditorTester class as follows: 
+ $ java editorTester.AGInitialCursorTest
 
- $ java editorTester.EditorTester
+Information about how to submit your code will be coming soon.
 
-This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
+<!--This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
 
  $ java editorTester.AGArrowKeyTest
 
-This will be due 3/2/2016 at 11:59 PM. 
--->
+This will be due 3/2/2016 at 11:59 PM. -->
 
 Submissions
 -----------------
