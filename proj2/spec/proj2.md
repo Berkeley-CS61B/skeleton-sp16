@@ -6,6 +6,10 @@ Change Log
 
 This section describes major changes that have been made to the spec since it was released.
 
+##### March 1
+
+* Added another Video on data structure selection and analysis.
+
 ##### February 29
 
 * Added FAQ about removing nodes
@@ -80,6 +84,10 @@ For some additional tips on the project, see:
  - Project 2 Slides (video content and more): [Link](https://docs.google.com/presentation/d/15NGQTbiQWq0PgSIpleuAGMDo-QFdER4A-2GX0_59D2A/edit#slide=id.g11b3bd1314_0_6)
  - Project 2 Design Analyis Worksheet (make a copy): [Link](https://docs.google.com/document/d/17IsU4plqtkbvxoF5f_uc7UMhxkaJ3TpxzaY67vh75fQ/edit)
  - Example Project 2 Design Analysis Worksheet, using String as data structure: [Link](https://docs.google.com/document/d/17PUw2EffgyU5_zQHZ8GV52EhS3NPwUyghFfX6EmJiS4/edit)
+
+3/1/2016. For even more tips, see:
+ - Project 2 Video #2, More on Data Structures: [Link](https://youtu.be/K5nsYVF96HY)
+ - Project 2 Design Analysis Worksheet, using FastLinkedList as data structure: [Link](https://docs.google.com/document/d/1eIuf-7Lznfjq6Vccu-JnmIr8uWXdK1r3ufq2d5o6mII/edit)
 
 Overview
 ------------------
@@ -406,6 +414,36 @@ Add copy/paste functionality to your editor: when the user presses shortcut+c, a
 
 Undo and redo should work for pasting: if the user pastes some text into the document, and then presses shortcut+z, all of the pasted text should be removed.
 
+Extra Credit Autograder
+-----------------
+
+TBA
+<!--
+Very late on 3/1/2016, a 1-point extra credit autograder will be released that tests that your printed cursor position is correct under the following circumstances:
+ - At program startup.
+ - After typing text that fits on one line.
+ - After typing text and backspacing.
+ - After typing text and using left and right arrow keys.
+ - After typing text that involves newlines.
+
+The basics autograder will not involve word wrap. 
+
+To get the autograder, pull from skeleton, and run the editorTester.EditorTester class as follows: 
+
+ $ java editorTester.EditorTester
+
+This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
+
+ $ java editorTester.AGArrowKeyTest
+
+This will be due 3/2/2016 at 11:59 PM. 
+-->
+
+Submissions
+-----------------
+
+TBA. The final autograder will be fairly minimal, with significant testing done manually by graders.
+
 Frequently Asked Questions
 -----------------
 
@@ -483,7 +521,7 @@ You can remove Nodes from the screen with the `remove` function.  For example, s
     
     // ... sometime later, delete the middle letter.
     root.getChildren().remove(letterInMiddle);
-	
+  
 You should *not* remove things by clearing all of the children of root and re-adding them each time, for example, with code like this:
 
     // Do not do this!
