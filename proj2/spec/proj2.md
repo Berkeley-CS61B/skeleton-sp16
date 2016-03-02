@@ -8,7 +8,8 @@ This section describes major changes that have been made to the spec since it wa
 
 ##### March 1
 
-* Added another Video on data structure selection and analysis.
+* Added another video on data structure selection and analysis.
+* Added basics autograder.
 
 ##### February 29
 
@@ -417,18 +418,18 @@ Undo and redo should work for pasting: if the user pastes some text into the doc
 Extra Credit Autograder
 -----------------
 
-Very late on the night of 3/1/2016, a 1-point extra credit autograder was that tests that your printed cursor position is correct under the following circumstances:
+A basic autograder is available that tests that your printed cursor position is correct under the following circumstances:
  - At program startup (AGInitialCursorTest).
  - After typing text that fits on one line (AGSimpleTextTest).
  - After typing text and backspacing (AGBackspaceTest).
  - After typing text and using left and right arrow keys (AGArrowKeyTest).
  - After typing text that involves newlines (AGNewlineTest).
 
-To get the autograder, pull from skeleton using `git pull skeleton master`. To run one of the five autograders, use a command like:
+To get the autograder, pull from skeleton using `git pull skeleton master`. To run one of the five autograder tests, just run the class file, e.g.:
 
- $ java editorTester.AGInitialCursorTest
+    $ java editorTester.AGInitialCursorTest
 
-Information about how to submit your code will be coming soon.
+Completing these tests by 3/2/16 will yield 0.2 bonus points per test. Information about how to get these points will be coming soon.
 
 <!--This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
 
