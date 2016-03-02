@@ -429,6 +429,12 @@ To get the autograder, pull from skeleton using `git pull skeleton master`. To r
 
     $ java editorTester.AGInitialCursorTest
 
+These tests will only work correctly if:
+ - Your code prints the current cursor position when shortcut+p is pressed.
+ - Your code does not print anything else to the screen other than the cursor position.
+
+Of course, you're welcome to print anything you'd like so long as you specify "debug" as the second command line argument. Our test files will not use this argument, so such print statements will not interfere with the grader.
+
 Completing these tests by 3/2/16 at 11:59 PM will yield 0.2 bonus points per test. Information about how to get these points will be coming soon.
 
 <!--This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
