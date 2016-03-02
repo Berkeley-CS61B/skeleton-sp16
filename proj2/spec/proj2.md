@@ -431,7 +431,7 @@ To get the autograder, pull from skeleton using `git pull skeleton master`. To r
 
 These tests will only work correctly if:
  - Your code prints the current cursor position when shortcut+p is pressed.
- - Your code does not print anything else to the screen other than the cursor position.
+ - Your code does not print anything else to the screen, other than the cursor position when shortcut+p is pressed.
 
 Of course, you're welcome to print anything you'd like so long as you specify "debug" as the second command line argument. Our test files will not use this argument, so such print statements will not interfere with the grader.
 
