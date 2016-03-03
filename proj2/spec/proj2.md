@@ -449,6 +449,8 @@ Run this for each of the five tests, and if you pass all of them you'll generate
 
 Simply upload these to gradescope for credit. *Warning: Do not provide tokens for other students in the class.* If we happen to catch you, this will be considered a failing grade in the course, as per our course plagiarism policy.
 
+5:00 PM: At present the test will only work if you submit all 5 tokens, but I'll be fixing this very soon.
+
 Tokens are due 3/2/2016 at 11:59 PM, barring any infrastructural issues that I am unable to fix due to travel. 
 
 Submissions
