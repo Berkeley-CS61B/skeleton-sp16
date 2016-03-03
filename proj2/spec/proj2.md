@@ -435,13 +435,23 @@ These tests will only work correctly if:
 
 Of course, you're welcome to print anything you'd like so long as you specify "debug" as the second command line argument. Our test files will not use this argument, so such print statements will not interfere with the grader.
 
-Completing these tests by 3/2/16 at 11:59 PM will yield 0.2 bonus points per test. Information about how to get these points will be coming soon.
+Completing these tests by 3/2/16 at 11:59 PM will yield 0.2 bonus points per test. 
 
-<!--This will generate a file called AGResults.java. Submit this file to Gradescope for points. You can run individual tests as follows:
+####Submission for Basic Autograder
 
- $ java editorTester.AGArrowKeyTest
+To get credit for passing the tests, run the editorTester tests with the optional command line argument "gradescope". For example:
 
-This will be due 3/2/2016 at 11:59 PM. -->
+    $ java editorTester.AGInitialCursorTest gradescope
+
+You will be prompted to enter your gradescope email address. If you are not prompted, repull from skeleton since you have the old version of the autograder. Enter it exactly like your account from gradescope. If your test is successful, a file called TokenAGInitialCursorTest.java will be generated.
+
+Run this for each of the five tests, and if you pass all of them you'll generate 5 distinct tokens.
+
+Simply upload these to gradescope for credit. *Warning: Do not provide tokens for other students in the class.* If we happen to catch you, this will be considered a failing grade in the course, as per our course plagiarism policy.
+
+5:00 PM: At present the test will only work if you submit all 5 tokens, but I'll be fixing this very soon.
+
+Tokens are due 3/2/2016 at 11:59 PM, barring any infrastructural issues that I am unable to fix due to travel. 
 
 Submissions
 -----------------
