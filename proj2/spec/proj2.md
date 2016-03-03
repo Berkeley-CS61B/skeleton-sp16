@@ -137,7 +137,7 @@ Much of the functionality you'll implement in this project will be initiated by 
 
 Every time a key is pressed, a `KEY_PRESSED` event will be generated.  The `KEY_PRESSED` events often duplicate the `KEY_TYPED` events.  For example, in the example we gave above where the user presses shift and the "a" key, JavaFX generates three events: one `KEY_PRESSED` event for the shift key, one `KEY_PRESSED` event for the "a" key, and one `KEY_TYPED` event with a character of "A".  These `KEY_PRESSED` events aren't very useful for normal text input, because they don't handle capitalization; however, they are useful for control keys, because each `KEY_PRESSED` event has an associated `KeyCode` that's useful for finding out about special keys (e.g., the code will be `KeyCode.BACK_SPACE` for the backspace key). If you're unsure about how `KeyEvent`s work, make sure to see the `KeyPressPrinter.java` example.
 
-There are a few JavaFX classes that you **may not** use as part of this project.  You should only display text using the `Text` class; you cannot use the `TextFlow`, `TextArea`, `TextInputControl`, or `HTMLEditor` classes (these classes provide functionality to render text that you should implement yourself!).
+There are a few JavaFX classes that you **may not** use as part of this project.  You should only display text using the `Text` class, and you should be determining where to place text (and how to word wrap) yourself.  You cannot use the `TextFlow`, `FlowPane`, `TextArea`, `TextInputControl`, or `HTMLEditor`.  If in doubt about whether you can use a particular class or function, ask on Piazza.
 
 ### Window size and margins
 
