@@ -469,7 +469,7 @@ Frequently Asked Questions
 
 No, you do not need to support any additional key presses beyond the ones mentioned in the spec.
 
-### What about the delete key, which deletes the character in front of the cursor on some operating systems?
+#### What about the delete key, which deletes the character in front of the cursor on some operating systems?
 
 You do not need to handle this special delete functionality; you only need to handle the backspace key (which removes the character behind the cursor).
 
@@ -657,6 +657,36 @@ The second call will throw an error, because JavaFX recognizes that t1 is alread
 
     Text t2 = new Text("my new text");
     root.getChildren().add(t2);
+    
+#### Pressing command+equals (or command+minus) causes three events to happen, so my font increases (or decreases) by 12 rather than 4. What's going on?
+
+This seems to be a bug issue with the way some keyboards / operating systems interact with JavaFX.  Try running `KeyPressPrinter` to see what happens when you press shortcut and the offending key (some folks have had this problem with the equals/plus key, and others have had this problem with the minus key). For example, if you're having this problem with equals, run `KeyPressPrinter` and press shortcut+equals.  If you see output that looks like:
+
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = , code = COMMAND, metaDown, shortcutDown]
+    ==> The key pressed had code: COMMAND
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = =, code = EQUALS, metaDown, shortcutDown]
+    ==> The key pressed had code: EQUALS
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_TYPED, consumed = false, character = =, text = , code = UNDEFINED, metaDown, shortcutDown]
+    ==> The typed character was: =, which has numerical value: 61
+    
+Then your keyboard is working correctly, and there's an issue in your code that you should debug.  This output has one `KEY_PRESSED` event for when the command key was first pressed, a second `KEY_PRESSED` event for when the equals key was pressed (note that `shortcutDown` is set in the key event, meaning the command key was also down), and a final `KEY_TYPED` event for the "=" key, which should be ignored in your editor because `shortcutDown` is set.
+
+On the other hand, if the output looks like:
+
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = , code = COMMAND, metaDown, shortcutDown]
+    ==> The key pressed had code: COMMAND
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = =, code = EQUALS, metaDown, shortcutDown]
+    ==> The key pressed had code: EQUALS
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_TYPED, consumed = false, character = =, text = , code = UNDEFINED, metaDown, shortcutDown]
+    ==> The typed character was: =, which has numerical value: 61    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = =, code = EQUALS, metaDown, shortcutDown]
+    ==> The key pressed had code: EQUALS
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_TYPED, consumed = false, character = =, text = , code = UNDEFINED, metaDown, shortcutDown]
+    ==> The typed character was: =, which has numerical value: 61    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_PRESSED, consumed = false, character =  , text = =, code = EQUALS, metaDown, shortcutDown]
+    ==> The key pressed had code: EQUALS
+    KeyEvent [source = javafx.scene.Scene@1eb33d6f, target = javafx.scene.Scene@1eb33d6f, eventType = KEY_TYPED, consumed = false, character = =, text = , code = UNDEFINED, metaDown, shortcutDown]
+    ==> The typed character was: =, which has numerical value: 61
+    
+then you have the keyboard bug issue.  In this output, the key pressed and key typed events for the equals key are duplicated three time.  If this happens to you, then don't worry about the font-increasing-by-three (or decreasing by three) issue; this is an issue specific to your machine that won't occur when we grade your assignment.
 
 Acknowledgements
 ------------
