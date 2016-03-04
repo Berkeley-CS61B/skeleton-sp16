@@ -341,7 +341,7 @@ __TIP:__ Implement save and open as early as possible! These make it much easier
 
 Your editor should include a scroll bar on the right side of the screen that can be used to scroll through a document that doesn't all fit on the screen at once.  When the scroll bar is at the top position, the top line of text should be at the top of the screen; when the scroll bar is at the bottom position, the bottom line of text should be at the bottom of the screen. You do not need to implement optimizations to avoid rendering text that is not currently visible on the screen.
 
-__TIP:__ If you're struggling with the scroll bar, after reading the writeup below, take a look at [this page](cs61b.ug/sp16/materials/proj/proj2/proj2-scroll-bar-tips.html) for some extra tips on how it works.
+__TIP:__ If you're struggling with the scroll bar, after reading the writeup below, take a look at [this page](proj2-scroll-bar-tips.html) for some extra tips on how it works.
 
 ##### The scroll bar and the cursor
 
