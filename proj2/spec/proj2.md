@@ -6,6 +6,10 @@ Change Log
 
 This section describes major changes that have been made to the spec since it was released.
 
+##### March 3
+
+* Added an extra page with some tips about how to use JavaFX's `ScrollBar` class, linked from the [scroll bar section](#scroll-bar).
+
 ##### March 1
 
 * Added another video on data structure selection and analysis.
@@ -42,7 +46,7 @@ Table of Contents
 * [Overview](#overview)
 * [Getting the Skeleton Files](#getting-the-skeleton-files)
 * [Detailed Spec](#detailed-spec)
-  * [JavaFX](#javafx)
+  * [JavaFX and KeyEvents](#javafx-and-keyevents)
   * [Window size and margins](#window-size-and-margins)
   * [Command line arguments](#command-line-arguments)
   * [Data structures and time requirements](#data-structures-and-time-requirements)
@@ -336,6 +340,8 @@ __TIP:__ Implement save and open as early as possible! These make it much easier
 ### Scroll bar
 
 Your editor should include a scroll bar on the right side of the screen that can be used to scroll through a document that doesn't all fit on the screen at once.  When the scroll bar is at the top position, the top line of text should be at the top of the screen; when the scroll bar is at the bottom position, the bottom line of text should be at the bottom of the screen. You do not need to implement optimizations to avoid rendering text that is not currently visible on the screen.
+
+__TIP:__ If you're struggling with the scroll bar, after reading the writeup below, take a look at [this page](cs61b.ug/sp16/materials/proj/proj2/proj2-scroll-bar-tips.html) for some extra tips on how it works.
 
 ##### The scroll bar and the cursor
 
