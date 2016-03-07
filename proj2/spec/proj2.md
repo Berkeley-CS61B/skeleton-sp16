@@ -6,6 +6,10 @@ Change Log
 
 This section describes major changes that have been made to the spec since it was released.
 
+##### March 6
+
+* Updated information about grading (to link to Piazza).
+
 ##### March 3
 
 * Added an extra page with some tips about how to use JavaFX's `ScrollBar` class, linked from the [scroll bar section](#scroll-bar).
@@ -466,7 +470,7 @@ Tokens are due 3/2/2016 at 11:59 PM, barring any infrastructural issues that I a
 Submissions
 -----------------
 
-TBA. The final autograder will be fairly minimal, with significant testing done manually by graders.
+For information about submitting your assignment, see [this Piazza post](https://piazza.com/class/iiklg7j9ggf2vl?cid=3647).  For a rough point breakdown and information about how your project will be graded, see [this Piazza post](https://piazza.com/class/iiklg7j9ggf2vl?cid=3448).
 
 Frequently Asked Questions
 -----------------
