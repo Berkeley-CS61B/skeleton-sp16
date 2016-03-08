@@ -22,6 +22,8 @@ The following resources might prove useful:
 
 Your BSTMap should also add an additional method `printInOrder()` (not given in the **Map61B** interface) that prints out your **BSTMap** in order of increasing Key. You will find this helpful for testing your implementation!
 
+You can test your implementation using the `TestBSTMap` class in the `lab8tester` package. 
+
 2: So... How Fast Is It?
 ======
 
