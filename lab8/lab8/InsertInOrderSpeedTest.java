@@ -27,17 +27,6 @@ public class InsertInOrderSpeedTest {
         String repeat = "y";
         do {
             System.out.print("\nEnter # strings to insert into ULLMap: ");
-<<<<<<< HEAD
-            timeInOrderMap61B(new ULLMap<String, Integer>(),
-                              i.waitForPositiveInt(input));
-       
-            System.out.print("\nEnter # strings to insert into BSTMap: ");
-            timeInOrderMap61B(new BSTMap<String,Integer>(),
-                              i.waitForPositiveInt(input));
-    
-            System.out.print("\nEnter # strings to insert into Java's TreeMap: ");
-            timeInOrderTreeMap(new TreeMap<String, Integer>(),
-=======
             timeInOrderMap61B(new ULLMap<String, Integer>(), 
                               i.waitForPositiveInt(input));
        
@@ -47,7 +36,6 @@ public class InsertInOrderSpeedTest {
     
             System.out.print("\nEnter # strings to insert into Java's TreeMap: ");
             timeInOrderTreeMap(new TreeMap<String, Integer>(), 
->>>>>>> beta deployment
                               i.waitForPositiveInt(input));                        
 
             System.out.print("\nWould you like to try more timed-tests? (y/n): ");
@@ -72,11 +60,7 @@ public class InsertInOrderSpeedTest {
     
     /** Returns time needed to put N strings into TreeMap in increasing order.
      */
-<<<<<<< HEAD
-    public static double insertInOrder(TreeMap<String,Integer> ts, int N) {
-=======
     public static double insertInOrder(TreeMap<String, Integer> ts, int N) {
->>>>>>> beta deployment
         Stopwatch sw = new Stopwatch();
         String s = "cat";
         for (int i = 0; i < N; i++) {
@@ -91,14 +75,6 @@ public class InsertInOrderSpeedTest {
         Prints time of the N insert calls, otherwise
         Prints a nice message about the error
     */
-<<<<<<< HEAD
-    public static void timeInOrderMap61B(Map61B<String,Integer> map, int N) {        
-            try {
-                double mapTime = insertInOrder(map, N);
-                System.out.printf(map.getClass() + ": %.2f sec\n", mapTime);
-            } catch (StackOverflowError e) { printInfoOnStackOverflow(N); }
-              catch (Exception e) { e.printStackTrace(); }
-=======
     public static void timeInOrderMap61B(Map61B<String, Integer> map, int N) {        
         try {
             double mapTime = insertInOrder(map, N);
@@ -108,7 +84,6 @@ public class InsertInOrderSpeedTest {
         } catch (RuntimeException e) { 
             e.printStackTrace(); 
         }
->>>>>>> beta deployment
     }
 
     /*
@@ -116,14 +91,6 @@ public class InsertInOrderSpeedTest {
         Prints time of the N insert calls, otherwise
         Prints a nice message about the error
     */
-<<<<<<< HEAD
-    public static void timeInOrderTreeMap(TreeMap<String,Integer> treeMap, int N) {        
-            try {
-                double javaTime = insertInOrder(treeMap, N);
-                System.out.printf("Java's Built-in TreeMap: %.2f sec\n", javaTime);
-            } catch (StackOverflowError e) { printInfoOnStackOverflow(N); }
-              catch (Exception e) { e.printStackTrace(); }
-=======
     public static void timeInOrderTreeMap(TreeMap<String, Integer> treeMap, int N) {        
         try {
             double javaTime = insertInOrder(treeMap, N);
@@ -133,7 +100,6 @@ public class InsertInOrderSpeedTest {
         } catch (RuntimeException e) { 
             e.printStackTrace(); 
         }
->>>>>>> beta deployment
     }
 
     /* ------------------------------- Private methods ------------------------------- */
@@ -143,12 +109,6 @@ public class InsertInOrderSpeedTest {
         Prints the error with corresponding N and L
     */
     private static void printInfoOnStackOverflow(int N) {
-<<<<<<< HEAD
-         System.out.println("--Stack Overflow -- couldn't add " + N + " strings.");
-    }
-}
-=======
         System.out.println("--Stack Overflow -- couldn't add " + N + " strings.");
     }
 }
->>>>>>> beta deployment

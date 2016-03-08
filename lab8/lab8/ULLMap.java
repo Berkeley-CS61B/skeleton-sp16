@@ -11,11 +11,6 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
 
     /** Returns the value corresponding to KEY or null if no such value exists. */
     public V get(K key) {
-<<<<<<< HEAD
-        if (list == null) return null;
-        Entry lookup = list.get(key);
-        if (lookup == null) return null;
-=======
         if (list == null) {
             return null;
         }
@@ -23,7 +18,6 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
         if (lookup == null) {
             return null;
         }
->>>>>>> beta deployment
         return lookup.val;
     }
 
@@ -44,16 +38,11 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
     public void put(K key, V val) {
         if (list != null) {
             Entry lookup = list.get(key);
-<<<<<<< HEAD
-            if (lookup == null) list = new Entry(key, val, list);
-            else lookup.val = val;
-=======
             if (lookup == null) {
                 list = new Entry(key, val, list);
             } else {
                 lookup.val = val;
             }
->>>>>>> beta deployment
         } else {
             list = new Entry(key, val, list);
             size = size + 1;
@@ -63,13 +52,9 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
     /** Returns true if and only if this dictionary contains KEY as the
      *  key of some key-value pair. */
     public boolean containsKey(K key) {
-<<<<<<< HEAD
-        if (list == null) return false;
-=======
         if (list == null) {
             return false;
         }
->>>>>>> beta deployment
         return list.get(key) != null;
     }
 
@@ -97,17 +82,12 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
         /** Returns the Entry in this linked list of key-value pairs whose key
          *  is equal to KEY, or null if no such Entry exists. */
         Entry get(K k) {
-<<<<<<< HEAD
-            if (k != null && k.equals(key)) return this;
-            if (next == null) return null;
-=======
             if (k != null && k.equals(key)) {
                 return this;
             }
             if (next == null) {
                 return null;
             }
->>>>>>> beta deployment
             return next.get(key);
         }
 
@@ -162,8 +142,4 @@ public class ULLMap<K, V>  implements Map61B<K, V> {
         throw new UnsupportedOperationException();
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> beta deployment
