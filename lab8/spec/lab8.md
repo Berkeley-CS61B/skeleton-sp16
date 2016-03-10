@@ -53,7 +53,7 @@ Given `B`, a **BSTMap** with `N` key-value pairs, and `(K, V)`, a random key-val
 
 Unless otherwise stated, "big-Oh" bounds (e.g. `O(N)`) and "big-Theta" bounds (e.g. &Theta;(`N`)) refer to the **number of comparisons** in the given method call(s). 
 
-Questions:
+For questions 1-7, state whether the statement is true or false. For question 8, give a runtime bound.
 
 1. `B.put(K, V)` &isin; O(log(`N`)).
 2. `B.put(K, V)` &isin; &Theta;(log(`N`)).
