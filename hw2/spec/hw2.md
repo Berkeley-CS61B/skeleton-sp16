@@ -20,7 +20,9 @@ Introduction
 --------------------------------
 In this program, we'll write a program to estimate the value of the percolation threshold via [Monte Carlo simulation](https://en.wikipedia.org/wiki/Monte_Carlo_method).
 
-**Introductory Video.** I made an intro video for this assignment while I was at Princeton. You might find it useful: [Link](https://www.youtube.com/watch?v=o60oHXesOuA). The video doesn't quite match our assignment perfectly, but it's close. I'm hoping to put together and updated version for our course soon.
+**Introductory Video.** I made an intro video for this assignment while I was at Princeton. You might find it useful: [Link](https://www.youtube.com/watch?v=o60oHXesOuA). The video doesn't quite match our assignment perfectly, but it's close. I'm hoping to put together and updated version for our course soon. 
+
+**HW2 Slides.** Slides for this HW can be found [here](https://docs.google.com/presentation/d/1AV5v-gTSIi5xUwtm-FtkReUmuTA3Mqry1eGjje7OgQo/edit?usp=sharing). Because this is a HW and not a project, I give spoilers for how to approach the HW. You may ignore them if you'd like a bigger challenge.
 
 **Percolation.** Given a composite systems comprised of randomly distributed insulating and metallic materials: what fraction of the materials need to be metallic so that the composite system is an electrical conductor? Given a porous landscape with water on the surface (or oil below), under what conditions will the water be able to drain through to the bottom (or the oil to gush through to the surface)? Scientists have defined an abstract process known as percolation to model such situations.
 
