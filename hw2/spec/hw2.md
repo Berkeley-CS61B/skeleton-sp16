@@ -20,7 +20,7 @@ Introduction
 --------------------------------
 In this program, we'll write a program to estimate the value of the percolation threshold via [Monte Carlo simulation](https://en.wikipedia.org/wiki/Monte_Carlo_method).
 
-**Introductory Video.** I made an intro video for this assignment while I was at Princeton. You might find it useful: [Link](https://www.youtube.com/watch?v=o60oHXesOuA). The video doesn't quite match our assignment perfectly, but it's close. I'm hoping to put together and updated version for our course soon. 
+**Introductory Video.** I made an intro video for this assignment while I was at Princeton. You might find it useful: [Link](https://www.youtube.com/watch?v=o60oHXesOuA). The video doesn't quite match our assignment perfectly, but it's close. I'm hoping to put together an updated version for our course on the evening of 3/10. 
 
 **HW2 Slides.** Slides for this HW can be found [here](https://docs.google.com/presentation/d/1AV5v-gTSIi5xUwtm-FtkReUmuTA3Mqry1eGjje7OgQo/edit?usp=sharing). Because this is a HW and not a project, I give spoilers for how to approach the HW. You may ignore them if you'd like a bigger challenge.
 
@@ -52,7 +52,7 @@ Percolation.java
     }
 
 
-**Corner cases.**  By convention, the row and column indices are integers between 0 and N − 1, where `(0, 0)` is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if any argument to `open()`, `isOpen()`, or `isFull()` is outside its prescribed range. The constructor should throw a `java.lang.IllegalArgumentException` if `N ≤ 0`.
+**Corner cases.**  By convention, the row and column indices are integers between 0 and N − 1, where (0, 0) is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if any argument to `open()`, `isOpen()`, or `isFull()` is outside its prescribed range. The constructor should throw a `java.lang.IllegalArgumentException` if N ≤ 0.
 
 **Performance requirements.**  The constructor should take time proportional to $N^2$; all methods should take constant time plus a constant number of calls to the union-find methods `union()`, `find()`, `connected()`, and `count()`. Meeting these requirements is somewhat tricky! You might consider creating a solution that simply works, before figuring out a way to make it faster. For tips on meeting the speed requirements, see the video at the beginning of this spec.
 
@@ -140,7 +140,7 @@ The program should behave as in this movie and the following snapshots when used
 Submission
 --------------------------------
 
-Submit a zip file containing Percolation.java (using the weighted quick-union algorithm from WeightedQuickUnionUF) and PercolationStats.java. You do not need to submit any other files.
+Submit a zip file containing `Percolation.java` (using the weighted quick-union algorithm from `WeightedQuickUnionUF`) and `PercolationStats.java`. You do not need to submit any other files.
 
 FAQ
 --------------------------------
