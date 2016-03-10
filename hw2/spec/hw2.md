@@ -41,15 +41,15 @@ Percolation.java
 
 **Percolation data type.** To model a percolation system, create a data type in the hw2 package named `Percolation` with the following API:
 
-        public class Percolation {
-           public Percolation(int N)                // create N-by-N grid, with all sites initially blocked
-           public void open(int row, int col)       // open the site (row, col) if it is not open already
-           public boolean isOpen(int row, int col)  // is the site (row, col) open?
-           public boolean isFull(int row, int col)  // is the site (row, col) full?
-           public int numberOfOpenSites()           // number of open sites
-           public boolean percolates()              // does the system percolate?
-           public static void main(String[] args)   // unit testing (required)
-        }
+    public class Percolation {
+       public Percolation(int N)                // create N-by-N grid, with all sites initially blocked
+       public void open(int row, int col)       // open the site (row, col) if it is not open already
+       public boolean isOpen(int row, int col)  // is the site (row, col) open?
+       public boolean isFull(int row, int col)  // is the site (row, col) full?
+       public int numberOfOpenSites()           // number of open sites
+       public boolean percolates()              // does the system percolate?
+       public static void main(String[] args)   // unit testing (required)
+    }
 
 
 **Corner cases.**  By convention, the row and column indices are integers between 0 and N − 1, where `(0, 0)` is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if any argument to `open()`, `isOpen()`, or `isFull()` is outside its prescribed range. The constructor should throw a `java.lang.IllegalArgumentException` if `N ≤ 0`.
