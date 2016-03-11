@@ -1,37 +1,37 @@
 /******************************************************************************
  *  Compilation:  javac InteractivePercolationVisualizer.java
  *  Execution:    java InteractivePercolationVisualizer N
- *  Dependencies: Percolation.java
+ *  Dependencies: PercolationVisualizer.java Percolation.java
+ *
+ *  This program takes the grid size N as a command-line argument.
+ *  Then, the user repeatedly clicks sites to open with the mouse.
+ *  After each site is opened, it draws full sites in light blue,
+ *  open sites (that aren't full) in white, and blocked sites in black.
  *
  ******************************************************************************/
 package hw2;                       
-import edu.princeton.cs.introcs.StdDraw;
-import edu.princeton.cs.introcs.StdOut;
-import java.awt.Font;
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
 
 public class InteractivePercolationVisualizer {
+    /*private static final int DELAY = 20;
 
-/*    public static void main(String[] args) {
-        // N-by-N percolation system
-        int N = Integer.parseInt(args[0]);
-        Percolation perc = new Percolation(N);
-        StdOut.println(N);
-
-        // number of sites opened
-        int opened = 0;
+    public static void main(String[] args) {
+        // N-by-N percolation system (read from command-line, default = 10)
+        int N = 10;          
+        if (args.length == 1) {
+            N = Integer.parseInt(args[0]);
+        }
 
         // turn on animation mode
         StdDraw.show(0);
 
-        // set background
-        StdDraw.setXscale(0, N);
-        StdDraw.setYscale(0, N);
-        StdDraw.clear();
-        StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.filledSquare(N / 2.0, N / 2.0, N / 2.0);
-        StdDraw.setFont(new Font("SansSerif", Font.PLAIN, 12));
-
         // repeatedly open site specified my mouse click and draw resulting system
+        StdOut.println(N);
+
+        Percolation perc = new Percolation(N);
+        PercolationVisualizer.draw(perc, N);
+        StdDraw.show(DELAY);
         while (true) {
 
             // detected mouse click
@@ -42,44 +42,21 @@ public class InteractivePercolationVisualizer {
                 double y = StdDraw.mouseY();
 
                 // convert to row i, column j
-                int i = (int) (N - Math.floor(y));
-                int j = (int) (1 + Math.floor(x));
-                if (i >= 1 && i <= N && j >= 1 && j <= N) {
+                int i = (int) (N - Math.floor(y) - 1);
+                int j = (int) (Math.floor(x));
+
+                // open site (i, j) provided it's in bounds
+                if (i >= 0 && i < N && j >= 0 && j < N) {
                     if (!perc.isOpen(i, j)) { 
                         StdOut.println(i + " " + j);
-                        opened++;
                     }
                     perc.open(i, j);
                 }
 
-                // draw percolation system
-                StdDraw.clear();
-                StdDraw.setPenColor(StdDraw.BLACK);
-                StdDraw.filledSquare(N / 2.0, N / 2.0, N / 2.0);
-                for (int row = 0; row < N; row++) {
-                    for (int col = 0; col < N; col++) {
-                        if (perc.isFull(row, col)) {
-                            StdDraw.setPenColor(StdDraw.BOOK_LIGHT_BLUE);
-                        } else if (perc.isOpen(row, col)) {
-                            StdDraw.setPenColor(StdDraw.WHITE);
-                        } else {
-                            StdDraw.setPenColor(StdDraw.BLACK);
-                        }
-                        StdDraw.filledSquare(col - 0.5, N - row + 0.5, 0.45);
-                    }
-                }
-
-                // write status text
-                StdDraw.setPenColor(StdDraw.BLACK);
-                StdDraw.text(.25 * N, -N * .025, "sites opened = " + opened);
-                if (perc.percolates()) {
-                    StdDraw.text(.75 * N, -N * .025, "percolates");
-                } else {
-                    StdDraw.text(.75 * N, -N * .025, "does not percolate");
-                }
+                // draw N-by-N percolation system
+                PercolationVisualizer.draw(perc, N);
             }
-            StdDraw.show(20);
+            StdDraw.show(DELAY);
         }
     }*/
 }
- 
