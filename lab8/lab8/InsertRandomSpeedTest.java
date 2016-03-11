@@ -17,7 +17,7 @@ public class InsertRandomSpeedTest {
         int N;
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n This program inserts lexicographically increasing "
+        System.out.println("\n This program inserts random "
                            + "Strings of length L\n"
                            + " Into different types of maps "
                            + "as <String, Integer> pairs.\n");
