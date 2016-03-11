@@ -20,7 +20,7 @@ Introduction
 --------------------------------
 In this program, we'll write a program to estimate the value of the percolation threshold via [Monte Carlo simulation](https://en.wikipedia.org/wiki/Monte_Carlo_method).
 
-**Introductory Video.** I made an intro video for this assignment while I was at Princeton. You might find it useful: [Link](https://www.youtube.com/watch?v=o60oHXesOuA). The video doesn't quite match our assignment perfectly, but it's close. I'm hoping to put together an updated version for our course on the evening of 3/10. 
+**Introductory Video.** An introductory video for this HW can be found at [this link](https://www.youtube.com/watch?v=kIYKCsvG6UI&list=PLNSdoiHk6ujjZs46s6XVXEbZUuF1MIO7g). It is broken into three parts: Intro, Implementation Spoilers, and Optimization Spoilers. Feel free to ignore these spoilers for a more difficult challenge. If you'd prefer to watch a two year old video I made when I was at Princeton, see [this link](https://www.youtube.com/watch?v=o60oHXesOuA).
 
 **HW2 Slides.** Slides for this HW can be found [here](https://docs.google.com/presentation/d/1AV5v-gTSIi5xUwtm-FtkReUmuTA3Mqry1eGjje7OgQo/edit?usp=sharing). Because this is a HW and not a project, I give spoilers for how to approach the HW. You may ignore them if you'd like a bigger challenge.
 
