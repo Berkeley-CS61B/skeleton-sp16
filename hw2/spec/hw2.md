@@ -48,7 +48,7 @@ Percolation.java
        public boolean isFull(int row, int col)  // is the site (row, col) full?
        public int numberOfOpenSites()           // number of open sites
        public boolean percolates()              // does the system percolate?
-       public static void main(String[] args)   // unit testing (required)
+       public static void main(String[] args)   // unit testing (not required)
     }
 
 
