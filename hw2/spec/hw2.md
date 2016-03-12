@@ -161,3 +161,7 @@ Pick a site at random (by using StdRandom or some other library to generate two 
 #### I don't get reliable timing information in PercolationStats when N = 200. What should I do? 
 
 Increase the size of N (say to 400, 800, and 1600), until the mean running time exceeds its standard deviation.
+
+Credits
+----------------
+This assignment originally developed by Kevin Wayne and Bob Sedgewick at Princeton University, with autograder built by Josh Hug for the Princeton Algorithms course.
