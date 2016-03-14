@@ -303,3 +303,6 @@ tramp
 # PowerPoint temporary
 ~$*.ppt*
 
+# Project 3 things
+proj3/img
+proj3/target
