@@ -140,7 +140,7 @@ The program should behave as in this movie and the following snapshots when used
 Submission
 --------------------------------
 
-Submit a zip file containing `Percolation.java` (using the weighted quick-union algorithm from `WeightedQuickUnionUF`) and `PercolationStats.java`. You do not need to submit any other files.
+Submit a zip file containing `hw2/Percolation.java` (using the weighted quick-union algorithm from `WeightedQuickUnionUF`) and `hw2/PercolationStats.java`. You do not need to submit any other files.
 
 FAQ
 --------------------------------
