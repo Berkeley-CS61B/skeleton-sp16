@@ -162,6 +162,12 @@ Pick a site at random (by using StdRandom or some other library to generate two 
 
 Increase the size of N (say to 400, 800, and 1600), until the mean running time exceeds its standard deviation.
 
+#### I'm failing the Chi Squared test but passing everything else.
+
+The issue is that you're using the same random seed for multiple simulations, and the statistical test is catching the fact that they are the same. 
+ 
+If you look at the code for StdRandom, you'll see that it sets the seed just once (the first time StdRandom is used), which prevents this issue of seed reset. In short, don't set the seed yourself.
+
 Credits
 ----------------
 This assignment originally developed by Kevin Wayne and Bob Sedgewick at Princeton University, with autograder built by Josh Hug for the Princeton Algorithms course.
