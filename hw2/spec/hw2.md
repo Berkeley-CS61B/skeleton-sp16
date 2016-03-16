@@ -168,6 +168,10 @@ The issue is that you're using the same random seed for multiple simulations, an
  
 If you look at the code for StdRandom, you'll see that it sets the seed just once (the first time StdRandom is used), which prevents this issue of seed reset. In short, don't set the seed yourself.
 
+#### It's telling me that my code reports "false" for percolates() but when I run the visualizer I'm getting true!
+
+The visualizer does a very specific sequence of isOpen/isFull/percolates() calls. Try creating your own test that only opens sites and then calls percolates(). Alternately, disable all isOpen and/or isFull calls in the visualizer so you can focus on the percolates() behavior. Alternately, pay close attention to the test labeled `Random Operation Order`.
+
 Credits
 ----------------
 This assignment originally developed by Kevin Wayne and Bob Sedgewick at Princeton University, with autograder built by Josh Hug for the Princeton Algorithms course.
