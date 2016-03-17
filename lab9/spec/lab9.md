@@ -37,7 +37,7 @@ The `InsertRandomSpeedTest` class performs tests on element-insertion speed of y
 
 Try it out and see how your data structure scales with `N` compared to the naive and industrial-strength implementations. Record your results in a file named `speedTestResults.txt`. There is no standard format required for your results, and there is no required number of data points.
 
-Now try running `InsertInOrderSpeedTest`, which behaves similarly to `InsertRandomSpeedTest`, except this time the Strings in `<String, Integer>` key-value pairs are inserted in [lexicographically-increasing order](http://en.wikipedia.org/wiki/Lexicographical_order). If you observed anything interesting (hopefully you did), you should discuss it with your fellow students and/or TA.
+Now try running `InsertInOrderSpeedTest`, which behaves similarly to `InsertRandomSpeedTest`, except this time the Strings in `<String, Integer>` key-value pairs are inserted in [lexicographically-increasing order](http://en.wikipedia.org/wiki/Lexicographical_order). Note that unlike lab8, your code should be in the rough ballpark of Java's built in solution -- say within a factor of 10 or so. What this tells us is that state-of-the-art HashMaps are relatively easy to implement compared to state-of-the-art TreeMaps.
 
 
 
