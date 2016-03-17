@@ -18,7 +18,7 @@ Additionally, you should implement the following constructors:
 
 You should increase the size of your HashMap when the loadFactor exceeds some number of your choice, unless the HashMap was instantiated with the loadFactor parameter, in which case you should use that number. Your Hashmap should initially have a number of buckets equal to initialSize. You are not required to resize down. When resizing, make sure to multiplicatively increase the size, not additively (e.g. multiply by 2, don't add 100 or something). Your HashMap operation should all be constant amortized time, assuming that the hashCode of any objects inserted spread things out nicely.
 
-You should handle collisions by chaining. You may not import any libraries other than `ArrayList`, `LinkedList`, `HashSet`, and `Set`. 
+You should handle collisions by chaining. You may not import any libraries other than `ArrayList`, `LinkedList`, `HashSet`, `iterator` and `Set`. 
 
 You can test your implementation using the `TestMyHashMap` class in the `lab9tester` package. 
 
