@@ -140,7 +140,11 @@ The program should behave as in this movie and the following snapshots when used
 Submission
 --------------------------------
 
-Submit a zip file containing `hw2/Percolation.java` (using the weighted quick-union algorithm from `WeightedQuickUnionUF`) and `hw2/PercolationStats.java`. You do not need to submit any other files.
+Submit a zip file containing just the folder for your hw2 package, similar to what you've done in previous labs, e.g. [lab 6](http://cs61b.ug/sp16/materials/lab/lab6/lab6.html). Your zip file must contain `hw2/Percolation.java` (using the weighted quick-union algorithm from `WeightedQuickUnionUF`) and `hw2/PercolationStats.java`. You do not need to submit any other files.
+
+For example:
+
+[submission](images/submission.png)
 
 FAQ
 --------------------------------
