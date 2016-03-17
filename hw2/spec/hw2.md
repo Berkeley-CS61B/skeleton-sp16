@@ -144,7 +144,7 @@ Submit a zip file containing just the folder for your hw2 package, similar to wh
 
 For example:
 
-[submission](images/submission.png)
+![submission](images/submission.png)
 
 FAQ
 --------------------------------
