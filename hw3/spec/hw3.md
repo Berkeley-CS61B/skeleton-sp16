@@ -37,7 +37,7 @@ Writing a proper `equals` method is a little tricker than it might sound at firs
  - Consistent: `x.equals(y)` must return the same result if called multiple times, so long as the object referenced by `x` and `y` do not change.
  - Not-equal-to-null: `x.equals(null)` should be false for any non-null `x`.
 
-One particularly vexing issue is that the argument passed to the equals method is of type `Object`, not of type `SimpleOomage`, so you will need to do a cast. However, doing a cast without verifying that the Object is a `SimpleOomage` wont' work, because you don't want your code to crash if someone calls `.equals` with an argument that is not a `SimpleOomage`. Thus, we'll need to use a new method of the Object class called `getClass`. For an example of a correct implementation of `equals`, see [http://algs4.cs.princeton.edu/12oop/Date.java.html](Date.java).
+One particularly vexing issue is that the argument passed to the equals method is of type `Object`, not of type `SimpleOomage`, so you will need to do a cast. However, doing a cast without verifying that the Object is a `SimpleOomage` wont' work, because you don't want your code to crash if someone calls `.equals` with an argument that is not a `SimpleOomage`. Thus, we'll need to use a new method of the Object class called `getClass`. For an example of a correct implementation of `equals`, see [http://algs4.cs.princeton.edu/12oop/Date.java.html](http://algs4.cs.princeton.edu/12oop/Date.java.html).
 
 Override the `equals` method so that it works properly. Make sure to test your `equals` method by running the test again. Your code should now pass the test. 
 
