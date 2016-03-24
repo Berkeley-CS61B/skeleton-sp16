@@ -53,8 +53,8 @@ public class ComplexOomage implements Oomage {
         int r = params.get(0);
         int g = 0;
         int b = 0;
-        double maxX = (x + WIDTH) * scalingFactor;
-        double maxY = (y + WIDTH) * scalingFactor;
+        double maxX = x + WIDTH * scalingFactor;
+        double maxY = y + WIDTH * scalingFactor;
         double incX = WIDTH / 5 * scalingFactor;
         double incY = WIDTH / 5 * scalingFactor;
         double subsquareWidth = WIDTH / 10 * scalingFactor;
@@ -83,10 +83,9 @@ public class ComplexOomage implements Oomage {
 
     public static void main(String[] args) {
         System.out.println("Drawing 4 random complex Oomages.");
-        StdDraw.setScale(0, 100);
-        randomComplexOomage().draw(25, 25);
-        randomComplexOomage().draw(75, 75);
-        randomComplexOomage().draw(25, 75);
-        randomComplexOomage().draw(75, 25);
+        randomComplexOomage().draw(0.25, 0.25, 1.5);
+        randomComplexOomage().draw(0.75, 0.75, 1.5);
+        randomComplexOomage().draw(0.25, 0.75, 1.5);
+        randomComplexOomage().draw(0.75, 0.25, 1.5);
     }
 } 
