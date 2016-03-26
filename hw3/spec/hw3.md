@@ -108,7 +108,7 @@ Where the methods work as follows:
     xCoord(bucketPos):    Returns the StdDraw X coodinate of an item at 
                           the given position in a bucket.
 
-For example, if we have a `SimpleOomage` called `someOomage`, and it is in position number 3 of bucket number 9 out of 16 buckets, then `xCoord(3, 16)` would give us the desired x coordinate and `yCoord(3)` would give us the desired y coordinate. Thus, we'd call `someOomage.draw(xCoord(3, 16), yCoord(3), scale)` to visualize the `SimpleOomage` as it appears in the hash table with the scaling factor `scale`.
+For example, if we have a `SimpleOomage` called `someOomage`, and it is in position number 3 of bucket number 9 out of 16 buckets, then `xCoord(3)` would give us the desired x coordinate and `yCoord(9, 16)` would give us the desired y coordinate. Thus, we'd call `someOomage.draw(xCoord(3), yCoord(9, 16), scale)` to visualize the `SimpleOomage` as it appears in the hash table with the scaling factor `scale`.
 
 Use these methods to fill in `visualize(Set<Oomage> set, int M)`. When you're done, your visualization should look something like the following:
 
