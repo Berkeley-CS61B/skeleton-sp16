@@ -176,3 +176,7 @@ For your code to pass the autograder test, you must map negative hashCodes as de
 #### Why can't I just use Math.abs?
 
 The only real reason is what happens when you do Math.abs(-2147483648). Try it out.
+
+#### I'm getting errors like file does not contain class hw3.hash.HashTableVisualizer in the autograder.
+
+Your code must be part of the hw3.hash package, with the appropriate declaration at the top of the file.
