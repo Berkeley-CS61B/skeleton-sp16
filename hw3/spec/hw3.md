@@ -150,3 +150,19 @@ Once you've written this test and `ComplexOomage` fails it, you're done with HW3
 #### Fix the hashCode (optional)
 
 Consider how you might change the `hashCode` method of `ComplexOomage` so that `testWithDeadlyParams` passes. Are there other deadly parameters that might strike your `hashCode` method?
+
+Submission
+--------------------------------
+
+Submit a zip file containing just the folder for your hw3 package (similar to hw2).
+
+FAQ
+--------------------------------
+
+#### My perfect hashCode test is running out of memory.
+
+Try increasing the amount of memory java is allowed to use. If you're running from the command line, you can do this with:
+
+    java -Xmx2048m hw3.hash.TestSimpleOomage
+
+This tells Java it may use up to 2,048 megabytes of memory. If you don't have this much, try using 1024m instead. It is possible your computer does not have enough memory to complete the perfect hash code test. In this case, don't worry, our grader machine is similarly constrained and thus we won't be testing your test!
