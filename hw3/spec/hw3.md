@@ -110,6 +110,8 @@ Where the methods work as follows:
 
 For example, if we have a `SimpleOomage` called `someOomage`, and it is in position number 3 of bucket number 9 out of 16 buckets, then `xCoord(3)` would give us the desired x coordinate and `yCoord(9, 16)` would give us the desired y coordinate. Thus, we'd call `someOomage.draw(xCoord(3), yCoord(9, 16), scale)` to visualize the `SimpleOomage` as it appears in the hash table with the scaling factor `scale`.
 
+For your code to pass the autograder test, you must map negative hashCodes as described in [this slide](https://docs.google.com/presentation/d/1H7253NmqEyb4rvwEQ6FQL_10tXNmAf6qBh8YTqNIvM4/edit#slide=id.g11e6c89e47_1_423). That is, -1 should map to bucket M-1, not bucket 1. To do this, use `(hashCode & 0x7FFFFFF) % M` instead of `Math.abs(hashCode) % M`. `& 0x7FFFFFF` throws away the top bit of a number. We'll discuss this briefly in a later lecture in 61B.
+
 Use these methods to fill in `visualize(Set<Oomage> set, int M)`. When you're done, your visualization should look something like the following:
 
 ![visualizer](images/visualizer.png)
@@ -166,3 +168,11 @@ Try increasing the amount of memory java is allowed to use. If you're running fr
     java -Xmx2048m hw3.hash.TestSimpleOomage
 
 This tells Java it may use up to 2,048 megabytes of memory. If you don't have this much, try using 1024m instead. It is possible your computer does not have enough memory to complete the perfect hash code test. In this case, don't worry, our grader machine is similarly constrained and thus we won't be testing your test!
+
+#### I'm failing the HashTableVisualizer test!
+
+For your code to pass the autograder test, you must map negative hashCodes as described in [this slide](https://docs.google.com/presentation/d/1H7253NmqEyb4rvwEQ6FQL_10tXNmAf6qBh8YTqNIvM4/edit#slide=id.g11e6c89e47_1_423). That is, -1 should map to bucket M-1, not bucket 1. To do this, use `(hashCode & 0x7FFFFFF) % M` instead of `Math.abs(hashCode) % M`. `& 0x7FFFFFF` throws away the top bit of a number. We'll discuss this briefly in a later lecture in 61B.
+
+#### Why can't I just use Math.abs?
+
+The only real reason is what happens when you do Math.abs(-2147483648). Try it out.
