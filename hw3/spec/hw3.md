@@ -141,6 +141,8 @@ Since a visual inspection of random `ComplexOomage` objects did not show the fla
 
 Then run `TestComplexOomage`. The code should pass, since the `testRandomItemsHashCodeSpread` method that uses `haveNiceHashCodeSpread` is not smart enough to expose the flaw.
 
+Note that `haveNiceHashCodeSpread` only really makes sense for large N (e.g. the test will trivially fail if N = 1, as 1 > 1 / 2.5).
+
 #### testWithDeadlyParams and binary representations
 
 Now finally we'll unveil the flaw. By carefully inspecting the given `hashCode` function, devise a test `testWithDeadlyParams` that this `hashCode` function fails due to poor distribution of `ComplexOomage` objects. 
@@ -159,6 +161,8 @@ Submission
 --------------------------------
 
 Submit a zip file containing just the folder for your hw3 package (similar to hw2).
+
+To give you some small amount of flexibility in the problems you want to focus on, we've set up the AG to give you full credit so long as you pass all but one test. Thus if you're having trouble with any particular part of the HW, feel free to skip it at no penalty.
 
 FAQ
 --------------------------------
