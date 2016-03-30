@@ -58,3 +58,11 @@ The class `ArrayHeap` implements a binary max heap using an `ArrayList` instead 
 Respect the abstraction! -- `insert`, `removeMin`, and `changePriority` may use the methods `bubbleUp` and `bubbleDown`. `bubbleUp` and `bubbleDown` may use `getLeft`, `getRight`, and `getParent`. 
 
 You may find the [Princeton implementation of a heap](http://algs4.cs.princeton.edu/24pq/MinPQ.java.html) useful. Unlike the Princeton implementation, we store items in the heap as an `ArrayList` of `Nodes`, instead of an array of `Key`. This is because we want to avoid manual resizing, and also because we want to support priority changing operations.
+
+
+FAQ
+--------------------------------
+
+#### What should setLeft and setRight do if a node already exists?
+
+In this case, it's OK to just overwrite the old left or right node.
