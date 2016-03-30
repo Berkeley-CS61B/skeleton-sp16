@@ -66,10 +66,7 @@ FAQ
 #### What should setLeft and setRight do if a node already exists?
 
 In this case, it's OK to just overwrite the old left or right node.
-<<<<<<< 2b8e5d00f4930acd2b7cfa01279d56c1a5bef896
-=======
 
 #### The toString method is causing a stack overflow and/or the debugger seems super slow.
 
 The debugger wants to print everything out nicely as it runs, which means it is constantly calling the toString method. If something about your code causes an infinite recursion, this will cause a stack overflow, which will also make the debugger really slow. The most common culprit seems to be an incorrect `getLeftOf` and/or `getRightOf`.
->>>>>>> stack overflow note
