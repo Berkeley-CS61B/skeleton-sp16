@@ -59,6 +59,10 @@ Respect the abstraction! -- `insert`, `removeMin`, and `changePriority` may use 
 
 You may find the [Princeton implementation of a heap](http://algs4.cs.princeton.edu/24pq/MinPQ.java.html) useful. Unlike the Princeton implementation, we store items in the heap as an `ArrayList` of `Nodes`, instead of an array of `Key`. This is because we want to avoid manual resizing, and also because we want to support priority changing operations.
 
+Submission
+--------------------------------
+
+To submit, you don't need a zip file this time, just `ArrayHeap.java` and `MagicWord10.java`.
 
 FAQ
 --------------------------------
