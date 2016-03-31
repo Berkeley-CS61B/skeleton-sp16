@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="styles/map.css">
+
+    <title>BearMaps</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="scripts/map.js"></script>
+<div id="mapbody"><img id="map"></div>
+
+<img id="dest" src="marker.gif">
+<div id="markers"></div>
+<div class="ui-widget">
+    <label for="tags">Search for: </label>
+    <input id="tags">
+</div>
+<div id="clear">
+    Clear Route
+</div>
+<div id="footer">
+    Navigate using arrow keys and -/= to zoom, or use the mouse drag and scroll wheel.<br>
+    Double click to begin routing & double click again to end and show route.
+</div>
+</body>
+</html>
