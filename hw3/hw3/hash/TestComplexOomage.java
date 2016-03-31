@@ -53,7 +53,7 @@ public class TestComplexOomage {
         assertTrue(haveNiceHashCodeSpread(oomages));
     }
 
-    /** Calls tests for SimpleOomage. */
+    /** Calls tests for ComplexOomage. */
     public static void main(String[] args) {
         jh61b.junit.textui.runClasses(TestComplexOomage.class);
     }
