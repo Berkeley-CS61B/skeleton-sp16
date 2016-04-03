@@ -57,7 +57,7 @@ One way to view the computation is as a game tree, where each search node is a n
 
 #### Board
 
-Organize your program by creating an [immutable](https://en.wikipedia.org/wiki/Immutable_object) Board class with the following API:
+Organize your program by creating an [immutable](http://cs61b.ug/sp16/materials/discussion/discussion6sol.pdf) Board class with the following API:
 
     public class Board {
       public Board(int[][] tiles) 
@@ -156,6 +156,21 @@ Submit a zip file containing just the folder for your hw4 package (similar to hw
 
 FAQ
 --------------------------------
+#### Why am I getting cannot resolve symbol 'BoardUtils'?
+You are probably compiling from the wrong folder. Compile from the "login/hw4" directory, not "login/hw4/hw4/puzzle".
+
+    javac hw4/puzzle/*.java
+
+#### What if I'm using Intellij?
+
+File -> Project Structure -> Libraries -> (+) sign to add new Java Library -> Select your **login/hw4** directory **DO NOT USE** login/hw4/hw4/puzzle -> OK -> OK -> OK.
+
+These are the steps needed for Macs. I suspect there won't be big differences for other operating systems.
+
+#### Is BoardUtils.neighbors working? It looks like it only returns the initial board.
+
+It works, but it does depend on the board being [immutable](http://cs61b.ug/sp16/materials/discussion/discussion6sol.pdf).
+
 #### How do I know if my Solver is optimal?
 
 The shortest solution to puzzle4x4-hard1.txt and puzzle4x4-hard2.txt are 38 and 47, respectively. The shortest solution to "puzzle\*[T].txt" requires exactly T moves. Warning: *puzzle36.txt*, *puzzle47.txt*, and *puzzle49.txt*, and *puzzle50.txt* are relatively difficult.
@@ -173,3 +188,12 @@ You should not expect to solve many of the larger puzzles with the Hamming prior
 #### What size puzzles are we expected to solve?
 
 We are still looking into this. If you can solve some in reasonable time, you shouldn't have to worry too much.
+
+#### How do I ensure my Board class immutable?
+
+The most common situation where a Board is not immutable is as follows:
+ - Step 1: Create a 2D array called cowmoo.
+ - Step 2: Pass cowmoo as an argument to the Board constructor. 
+ - Step 3: Change one or more values of cowmoo.
+
+If you just copy the reference in the Board constructor, someone can change the state of your Board by changing the array. You should instead make a copy of the 2D array that is passed to your board constructor.
