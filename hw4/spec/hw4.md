@@ -15,13 +15,15 @@ Getting the Skeleton Files
 
 As usual, run `git pull skeleton master` to get the skeleton files.
 
-Introduction
+Video Introduction
 --------------------------------
-
 A video that I produced a couple of years ago for this assignment can be found at [this link](https://www.youtube.com/watch?v=d6aRjJKDfpY&feature=youtu.be). Some notable differences for our semester:
  - You do not have to write `Board.neighbors`.
  - `Board.toString` is provided.
  - You do not have to write `Board.isSolvable`.
+
+Introduction
+--------------------------------
 
 In this assignment, we'll be making our own puzzle solver! The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square tiles labeled 1 through 8 and a blank square. Your goal is to rearrange the tiles so that they are in order, using as few moves as possible. You are permitted to slide tiles horizontally or vertically into the blank square. The following shows a sequence of legal moves from an initial board (left) to the goal board (right).
 
