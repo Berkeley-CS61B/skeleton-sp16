@@ -164,6 +164,10 @@ Submit a zip file containing just the folder for your hw4 package (similar to hw
 
 FAQ
 --------------------------------
+#### The autograder is complaining that graderhw4.Board objects can't be converted to Board or something like that.
+
+The first step of the AG swaps out any usage of `Board` with `graderhw4.Board` in your `Solver.java`. However, it is not smart enough to find other classes (yet). For now, move your `SearchNode.java` class inside of `Solver.java`.
+
 #### Why am I getting cannot resolve symbol 'BoardUtils'?
 You are probably compiling from the wrong folder. Compile from the "login/hw4" directory, not "login/hw4/hw4/puzzle".
 
