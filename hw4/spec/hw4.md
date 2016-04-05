@@ -193,6 +193,10 @@ You should expect to run out of memory when using the Hamming priority function.
 
 You should not expect to solve many of the larger puzzles with the Hamming priority function. However, you should be able to solve most (but not all) of the larger puzzles with the Manhattan priority function.
 
+#### Even with the critical optimization, the priority queue may contain two or more search nodes corresponding to the same board. Should I try to eliminate these? 
+
+In principle, you could do so with a set data type such as java.util.TreeSet or java.util.HashSet (provided that the Board data type were either Comparable or had a hashCode() method). However, almost all of the benefit from avoiding duplicate boards is already extracted from the critical optimization and the cost of identifying other duplicate boards will be more than the remaining benefit from doing so. In short, you're spending tremendous amounts of memory for a relatively small runtime optimization.
+
 #### What size puzzles are we expected to solve?
 
 <!--- We are still looking into this. If you can solve some in reasonable time, you shouldn't have to worry too much. --->
