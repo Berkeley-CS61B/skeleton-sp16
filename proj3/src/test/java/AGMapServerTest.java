@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class AGMapServerTest {
     static List<TestParams> params;
+    private static boolean initialized = false;
+    static final double doubleThreshhold = 0.0000000000001;
 
     /**
      * Initializes the student MapServer statically.
@@ -19,13 +21,26 @@ public class AGMapServerTest {
      */
     @Before
     public void setUp() throws Exception {
-        long ytime = 50000;
+        if (initialized) return;
         MapServer.initialize();
         FileInputStream fis = new FileInputStream("test_ser_data");
         ObjectInputStream ois = new ObjectInputStream(fis);
         params = (List<TestParams>) ois.readObject();
         ois.close();
-        Thread.sleep(ytime);
+        initialized = true;
+    }
+
+    private void checkParamsMap(String err, Map<String, Object> m1, Map<String, Object> m2) {
+        for (String key : m1.keySet()) {
+            assertTrue(m2.containsKey(key));
+            Object o1 = m1.get(key);
+            Object o2 = m2.get(key);
+            if (o1 instanceof Double) {
+                assertTrue(err, Math.abs((Double)o1 - (Double)o2) < doubleThreshhold);
+            } else {
+                assertEquals(err, o1, o2);
+            }
+        }
     }
 
     /**
@@ -55,7 +70,7 @@ public class AGMapServerTest {
         for (TestParams p : params) {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             Map<String, Object> student_raster_result = MapServer.getMapRaster(p.raster_params, os);
-            assertEquals("Returned parameters differed for input: " + p.raster_params + ".\n"
+            checkParamsMap("Returned parameters differed for input: " + p.raster_params + ".\n"
                     , p.raster_result, student_raster_result);
         }
     }
