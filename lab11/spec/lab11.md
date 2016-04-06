@@ -1,6 +1,8 @@
 ~ number: 11
 ~ title: Graphs
 
+Due to late release of this lab, the magic word is given to you for free. It is "bean".
+
 A. Compiling Project 3
 ----
 
