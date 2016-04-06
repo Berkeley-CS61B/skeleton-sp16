@@ -220,6 +220,7 @@ Your computer is probably more powerful than the autograder. Notably, the AG has
 
     java -Xmx128M hw4.puzzle.Solver ./input/puzzle30.txt
     java -Xmx128M hw4.puzzle.Solver ./input/puzzle31.txt
+    java -Xmx128M hw4.puzzle.Solver ./input/puzzle4x4-30.txt
 
 If your code is taking longer, by far the **most likely issue is that you are not implementing the first critical optimization properly**. Another possiblity is that you are creating a hash table of every board ever seen, which may cause the AG computer to run out of memory.
 
