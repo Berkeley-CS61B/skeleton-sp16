@@ -37,11 +37,13 @@ I don't mind if you copy it or do something similar.
 Getting the Skeleton Files
 ----------------
 
+For this project we **very strongly** recommend using IntelliJ. If IntelliJ doesn't work on your computer (either because it won't open or it's very slow), please fill out [this form](http://goo.gl/forms/QmLFwGtYmG) and we will attempt to provide alternative solutions ASAP.
+
 If you are using a Mac or Ubuntu, ensure you are not using OpenJDK8. If you are, you may follow the instructions in lab 1b to download Oracle's JDK 8. When you configure IntelliJ's SDK, just make sure it's the Oracle JDK path given.
 
 Pull the skeleton using the command `git pull skeleton master`.  Then, please download [this zip file](https://inst.eecs.berkeley.edu/~cs61b/sp16/img.zip); it is the image tile dataset. Unzip it into your proj3/ folder such that there is an img/ directory, with all the png files in it.
 
-Project 3 uses [Apache Maven](https://maven.apache.org/) as its build system; it integrates with IntelliJ. For this reason, I will not be officially supporting command-line users, but you are free to run your web server through a terminal if you wish.
+Project 3 uses [Apache Maven](https://maven.apache.org/) as its build system; it integrates with IntelliJ. For this reason, we will probably not be officially supporting command-line users, but you are free to run your web server through a terminal if you wish.
 
 You will want to create a new IntelliJ project for project 3. In IntelliJ, go to New -> Project from Existing Sources. Then:
 1. Select your proj3 folder, press next, and make sure to select "Import project from external model" and select Maven. Press next. 
