@@ -240,3 +240,8 @@ If you just copy the reference in the Board constructor, someone can change the 
 #### Why can't Gradescope compile my files even though I can compile them locally?
 
 Due to the nature of the autograder, you cannot use any public Board and Solver methods that were not mentioned in the spec. Consider moving the logic into one file.
+
+Credits
+--------------------------------
+
+This assignment originally developed by Kevin Wayne and Bob Sedgewick at Princeton University.
