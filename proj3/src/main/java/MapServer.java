@@ -194,9 +194,9 @@ public class MapServer {
      * "raster_ul_lat" -> Double, the bounding upper left latitude of the rastered image <br>
      * "raster_lr_lon" -> Double, the bounding lower right longitude of the rastered image <br>
      * "raster_lr_lat" -> Double, the bounding lower right latitude of the rastered image <br>
-     * "raster_width"  -> Double, the width of the rastered image <br>
-     * "raster_height" -> Double, the height of the rastered image <br>
-     * "depth"         -> Double, the 1-indexed quadtree depth of the nodes of the rastered image.
+     * "raster_width"  -> Integer, the width of the rastered image <br>
+     * "raster_height" -> Integer, the height of the rastered image <br>
+     * "depth"         -> Integer, the 1-indexed quadtree depth of the nodes of the rastered image.
      * Can also be interpreted as the length of the numbers in the image string. <br>
      * "query_success" -> Boolean, whether an image was successfully rastered. <br>
      * @see #REQUIRED_RASTER_REQUEST_PARAMS
