@@ -37,22 +37,20 @@ I don't mind if you copy it or do something similar.
 Getting the Skeleton Files
 ----------------
 
-For this project we **very strongly** recommend using IntelliJ. If IntelliJ doesn't work on your computer (either because it won't open or it's very slow), please fill out [this form](http://goo.gl/forms/QmLFwGtYmG) and we will attempt to provide alternative solutions ASAP.
+For this project we **very strongly** recommend using IntelliJ. If IntelliJ doesn't work on your computer, or is too slow, consider using IntelliJ on the lab machines. If you insist, you can also use the command-line / terminal on your personal machine as further described in `Addendum for Terminal users`.
 
-If you are using a Mac or Ubuntu, ensure you are not using OpenJDK8. If you are, you may follow the instructions in lab 1b to download Oracle's JDK 8. When you configure IntelliJ's SDK, just make sure it's the Oracle JDK path given.
+If you are using a Mac or Ubuntu, ensure you are Not using OpenJDK8. If you are, you may follow the instructions in lab 1b to download Oracle's JDK 8. When you configure IntelliJ's SDK, just make sure it's the Oracle JDK path given.
 
-Pull the skeleton using the command `git pull skeleton master`.  Then, please download [this zip file](https://inst.eecs.berkeley.edu/~cs61b/sp16/img.zip); it is the image tile dataset. Unzip it into your proj3/ folder such that there is an img/ directory, with all the png files in it.
+Pull the skeleton using the command `git pull skeleton master`.  Then, please download [this zip file](https://inst.eecs.berkeley.edu/~cs61b/sp16/img.zip); it is the image tile dataset. Unzip it into your proj3/ folder such that there is an img/ directory, with all the png files in it. There are around 50,000 files in this folder, so it might take a bit to unzip.
 
-Project 3 uses [Apache Maven](https://maven.apache.org/) as its build system; it integrates with IntelliJ. For this reason, we will probably not be officially supporting command-line users, but you are free to run your web server through a terminal if you wish.
-
-You will want to create a new IntelliJ project for project 3. In IntelliJ, go to New -> Project from Existing Sources. Then:
+Project 3 uses [Apache Maven](https://maven.apache.org/) as its build system; it integrates with IntelliJ. You will want to create a new IntelliJ project for project 3. In IntelliJ, go to New -> Project from Existing Sources. Then:
 1. Select your proj3 folder, press next, and make sure to select "Import project from external model" and select Maven. Press next. 
 2. At the Import Project window, check: "Import Maven projects automatically".
 3. Press next until the end.
 4. It is possible that IntelliJ will not "mark" your folders correctly: Make sure to mark, if not done so already, the` src/main/java` directory as a sources root, the `src/static` directory as a sources root, and the `src/test/java` directory as a test sources root. To do this, right click on the folder in the explorer window (the tab on the left), and towards the bottom of the options you'll see "Mark Directory As".
 5. **Do not** add the course javalib to your IntelliJ library. You will not need it and it will cause conflicts. This also means that **you cannot use any libraries outside the Java standard library and the ones already included in the project**. Doing so will immediately cause a compilation error on the autograder. Notably, we are not accommodating usage of the Princeton libraries as they are unnecessary.
 
-Build the project, run `MapServer.java` and navigate your browser (Chrome preferred; errors in other browsers will not be supported) to `localhost:4567`. This should load up `map.html`; by default, there should be a blank map. You can also run `MapServer.java` and then open up `src/static/page/map.html` manually by right clicking and going to Open In Browser in IntelliJ. <!--This is because the page when run on your localhost is not tied to the domain and will default to querying port `4567`.-->
+Build the project, run `MapServer.java` and navigate your browser (Chrome preferred; errors in other browsers will not be supported) to `localhost:4567`. This should load up `map.html`; by default, there should be a blank map. You can also run `MapServer.java` and then open up `src/static/page/map.html` manually by right clicking and going to Open In Browser in IntelliJ.
 
 ![localhost](localhost.png)
 
@@ -67,7 +65,7 @@ Windows users: Follow the instructions [here](https://maven.apache.org/guides/ge
 Mac users: `brew install maven`
 Ubuntu users: `sudo apt-get install maven`.
 
-You can then use the `mvn compile` and `mvn exec:java -Dexec.mainClass="MapServer"` targets to run `MapServer`, after patching your pom.xml to include `src/static` as a sources root.
+You can then use the `mvn compile` and `mvn exec:java -Dexec.mainClass="MapServer"` targets to run `MapServer`, after patching your pom.xml to include `src/static` as a sources root. Do so by renaming `pom_alternate.xml` to `pom.xml`. You can also run the tests with `mvn test`.
 Choosing to work through terminal may slow down your development cycle considerably as you will not have access to the debugger. 
 
 Overview
@@ -94,9 +92,11 @@ We are also providing you with a file, `map.html`, in `src/static/page`, which i
 There is also a file, `test.html`, that you can use to test your project without using the front-end. It makes a /raster API call and draws the result. You can modify the query parameters in the file. It is not the only way you should test your project, but is there to prevent you from having to learn Javascript to test your server, and allows you to make a specific call easily. You will also find your browser's Javascript console handy, especially when opened on `map.html`: for example, on Windows, in Chrome you can press F12 to open up the developer tools, click console, and enter in params to get the value of the current query parameters for the map, and `route_params` to get the value of the current query parameters for your route. It should look something like this:
 ![Console](js_console.JPG)
 
+Additionally you can use [Postman Interceptor](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en). It's a Chrome extension with a good visual interface for setting up queries, tracking requests made by your browser, and modifying params and examining responses. It's an industry standard and I highly recommend it.
+
 ###API Documentation
 
-We support four GET endpoints. The request handler processes the HTTP GET request, pulling out the requests' required attributes and values into a `Map<String, Double>` and dispatches the work to methods that you implement. See the `MapServer::main` method and read the code: these are the various request handlers that dispatch work to the methods below. These methods must satisfy the requirements given in the Javadoc.
+We support four GET endpoints. The request handlers defined in `MapServer.java` process the HTTP GET request, pulling out the requests' required attributes and values into a `Map<String, Double>` and dispatches the work to methods that you implement. See the `MapServer::main` method and read the code: these are the various request handlers that dispatch work to the methods below and are called every time the HTTP endpoints are requested. These methods must satisfy the requirements given in the Javadoc.
 
 You will want to **read through the [Javadoc](doc/index.html)**. It describes all the requirements for implementation, and defines the inputs and outputs of each method. Additionally, you will want to read through the comments in the skeleton code. They explain how the server handlers invoke your methods and encode the responses. You may also find the Javadoc in the skeleton code.
 
@@ -129,7 +129,7 @@ Implement `getMapRaster` as described in the Javadoc. You do not need to worry a
 
 Let us define a metric, the distance per pixel. Treat the (lon, lat) of some point on the map the same as an (x, y) point. Then the longitudinal distance per pixel covered on a tile is just (lower right longitude - upper left longitude) / (width of the image). This defines how fine or coarse the resolution of a tile is. If we cover a lot of distance per pixel on a tile, then that means the tile is more zoomed out and closer to the quadtree root; if we cover less distance per pixel, then that means the tile is more zoomed in (corresponding to being lower in the quadtree).
 
-If you've represented your tile hierarchy as a quadtree, you are looking to collect all tiles that intersect (overlap) the query window that have a depth that is as close to the root as possible, but still satisfy the condition that the tiles should have a distance per pixel less than or equal to the distance per pixel in the query box. This enforces that one pixel in the query box is covered by at least one pixel in the rastered image - we want to be as zoomed out as possible, but don't want to give an image smaller than the width and height given in the query box, but we don't want our image to be the maximum resolution either. Essentially, you should be able to recursively traverse your quadtree until you find the tiles that both intersect and satisfy the distance per pixel requirement, and collect each of these full tiles with no need to crop. Take a moment to think about how this method satisfies our requirements. 
+If you've represented your tile hierarchy as a quadtree, you are looking to collect all tiles that intersect (overlap) the query window that have a depth that is as close to the root as possible, but still satisfy the condition that the tiles should have a distance per pixel less than or equal to the distance per pixel in the query box. This enforces that one pixel in the query box is covered by at least one pixel in the rastered image - we want to be as zoomed out as possible, but don't want to give an image smaller than the width and height given in the query box, but we don't want our image to be the maximum resolution either. Essentially, you should be able to recursively traverse your quadtree until you find the tiles that both intersect and satisfy the distance per pixel requirement, and collect each of these full tiles with no need to crop. Take a while to think about how this method satisfies our requirements before asking a friend - it's very confusing the first time around. 
 
 ![Query example](query.png)
 
@@ -137,13 +137,13 @@ The query window shown above corresponds to the viewing window in the client. Al
 
 You will also need to arrange these tiles. Once all the tiles are collected, they should be arranged by their order in the plane - that is, they should be placed next to each other if their corner points intersect.
 
-You may find the first google search result for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` instead of a file using `ImageIO.write(im, "png", os)`, for this project.
+You may find the google search results for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` instead of a file using `ImageIO.write(im, "png", os)`, for this project. When getting started, you can just write an image to the `OutputStream os` and set `query_success` to true, and it will show up on `test.html`; after setting the remaining return parameters, it should show up on `map.html` too.
 
 #### Runtime
 
 Your constructor should take time linear in the number of tiles given.
 
-You may not iterate through / explore all tiles to search for intersections. Suppose there are `k` tiles intersecting a query box, and `n` tiles total. Your entire query must run in `O(k log k + log n)` time (theoretically, on a tree of unbounded depth and size), including constructing the image. This can be broken up into two parts: `O(log n)` time to traverse the quadtree to where we begin collecting, and `O(k log k)` time to collect and arrange the intersected tiles. This should correspond to the standard quadtree traversal.
+You may not iterate through / explore all tiles to search for intersections. Suppose there are `k` tiles intersecting a query box, and `n` tiles total. Your entire query must run in `O(k log k + log n)` time (theoretically, on a tree of unbounded depth and size), including constructing the image. This can be broken up into two parts: `O(log n)` time to traverse the quadtree to where we begin collecting, and `O(k log k)` time to collect and arrange the intersected tiles. This should correspond to the standard quadtree traversal. It can be done faster than this, but remember that big-O is an upper bound.
 
 #### Addendum
 
