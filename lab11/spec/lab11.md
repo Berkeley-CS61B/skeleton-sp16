@@ -64,7 +64,7 @@ You'll now write a class `MazeBreadthFirstPaths.java` that extends `MazeExplorer
 
 You should use [BreadthFirstPaths](http://algs4.cs.princeton.edu/41undirected/BreadthFirstPaths.java.html) as inspiration.
 
-Given the lack of autograder, I've put together [a quick video showcasing the expected behavior of each class](http://youtu.be/nCg1qsqIVPY).
+I've put together [a quick video showcasing the expected behavior of each class](http://youtu.be/nCg1qsqIVPY), though there's a small bug in my `MazeBreadthFirstPaths` that I point out during the video. 
 
 
 D. Cycles (optional)
@@ -83,3 +83,7 @@ For your heuristic h(v), I recommend that you use the [Manhattan distance](http:
 
 Experiment with different graph types and heuristics to see how they behave.
 
+Submission
+--------------------------------
+
+To submit, you don't need a zip file this time, just `MazeBreadthFirstPaths.java` and `MagicWord11.java`.
