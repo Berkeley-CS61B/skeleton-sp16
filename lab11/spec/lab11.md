@@ -4,9 +4,7 @@
 A. Compiling Project 3
 ----
 
-To ensure that your computer can run Project 3, complete the section entitled ["Getting the Skeleton Files"](http://cs61b.ug/sp16/materials/proj/proj3/proj3.html#getting-the-skeleton-files). We **very strongly** recommend using IntelliJ for this project. Make sure you are able to open `localhost:4567` in your web browser. Once you've done this, you're done with this part of lab.
-
-If your computer does not run IntelliJ well (or at all), please fill out [this form](http://goo.gl/forms/QmLFwGtYmG). 
+To ensure that your computer can run Project 3, complete the section entitled ["Getting the Skeleton Files"](http://cs61b.ug/sp16/materials/proj/proj3/proj3.html#getting-the-skeleton-files). We **very strongly** recommend using IntelliJ for this project, though it is not required. Make sure you are able to open `localhost:4567` in your web browser. Once you've done this, you're done with this part of lab.
 
 Do not start reading the project 3 spec or start work on the project during this lab. If you're having setup issues and nobody is available to help out, move on to part B of this lab until someone is available. If you can't quite get this working by the end of your lab section, that's fine. However, we strongly recommend being able to complete this section in either another lab or in Piazza by the end of Friday.
 
