@@ -168,6 +168,16 @@ FAQ
 
 The first step of the AG swaps out any usage of `Board` with `graderhw4.Board` in your `Solver.java`. However, it is not smart enough to find other classes (yet). For now, move your `SearchNode.java` class inside of `Solver.java`.
 
+Likewise, if you have style errors, it will also fail. For example, if your code says 
+
+    `neighbors=BoardUtils.`
+
+instead of
+
+    `neighbors = BoardUtils`
+
+My string matching code will fail.
+
 #### Why am I getting cannot resolve symbol 'BoardUtils'?
 You are probably compiling from the wrong folder. Compile from the "login/hw4" directory, not "login/hw4/hw4/puzzle".
 
