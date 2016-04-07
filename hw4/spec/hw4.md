@@ -160,7 +160,7 @@ I should get the following output:
 Submission
 --------------------------------
 
-Submit a zip file containing just the folder for your hw4 package (similar to hw3). It should contain **Board.java**, and **Solver.java**. Due to technical limitations of this autograder, it should contain no other .java files. If you have auxiliary classes (e.g. SearchNode), please move these into `Board` or `Solver`.
+Submit a zip file containing just the folder for your hw4 package (similar to hw3). It should contain **Board.java**, and **Solver.java**. Due to technical limitations of this autograder, it should contain no other .java files. If you have auxiliary java files (e.g. SearchNode.java), please move these classes into `Board` or `Solver`. It's OK if you also include `BoardUtils.class`.
 
 FAQ
 --------------------------------
@@ -236,7 +236,7 @@ If your code is taking longer, by far the **most likely issue is that you are no
 
 It is not enough to simply look at your code for the optimization and declare that it is correct. Many students have indicated confidence in their optimization implementation, only to discover a subtle bug. Use print statements or the debugger to ensure that a board never enqueues the board it came from.
 
-Hints: Recall that there is a difference between `==` and `equals`. Recall also that the optimization is that you will not re-enqueue the PREVIOUS board, not the current board. These two situations cover 95% of the bugs I've seen.
+Hints: Recall that there is a difference between `==` and `equals`. Recall also that the optimization is that you should not "enqueue a neighbor if its board is the same as the board of the **previous** search node". Many students mistakenly check for equality with the current board in place of the previous node's board. These two situations cover 95% of the bugs I've seen.
 
 #### How do I ensure my Board class immutable?
 
