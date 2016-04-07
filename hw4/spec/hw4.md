@@ -160,7 +160,7 @@ I should get the following output:
 Submission
 --------------------------------
 
-Submit a zip file containing just the folder for your hw4 package (similar to hw3). It should contain **Board.java**, and **Solver.java**.
+Submit a zip file containing just the folder for your hw4 package (similar to hw3). It should contain **Board.java**, and **Solver.java**. Due to technical limitations of this autograder, it should contain no other .java files. If you have auxiliary classes (e.g. SearchNode), please move these into `Board` or `Solver`.
 
 FAQ
 --------------------------------
