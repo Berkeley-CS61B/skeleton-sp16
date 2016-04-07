@@ -214,7 +214,7 @@ Here are the puzzles you are explicitly expected to solve:
     input/puzzle4x4-[00-30].txt
     input/puzzle[00-31].txt
 
-#### The puzzles work fine on my computer, but not on the AG / I'm getting a GC overhead limit exceeded error.
+#### The puzzles work fine on my computer, but not on the AG. I'm getting a GC overhead limit exceeded error, or just a message that the "The autograder failed to execute correctly."
 
 Your computer is probably more powerful than the autograder. Notably, the AG has much less memory. You should be able to complete puzzles 30 and 31 in less than a second, and they should also work if you use only 128 megabytes of memory. To run your code with only 128 megabytes, try running your code with the following command:
 
@@ -226,7 +226,7 @@ If your code is taking longer, by far the **most likely issue is that you are no
 
 It is not enough to simply look at your code for the optimization and declare that it is correct. Many students have indicated confidence in their optimization implementation, only to discover a subtle bug. Use print statements or the debugger to ensure that a board never enqueues the board it came from.
 
-Recall that there is a difference between `==` and `equals`.
+Hints: Recall that there is a difference between `==` and `equals`. Recall also that the optimization is that you will not re-enqueue the PREVIOUS board, not the current board. These two situations cover 95% of the bugs I've seen.
 
 #### How do I ensure my Board class immutable?
 
