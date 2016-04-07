@@ -241,6 +241,10 @@ If you just copy the reference in the Board constructor, someone can change the 
 
 Due to the nature of the autograder, you cannot use any public Board and Solver methods that were not mentioned in the spec. Consider moving the logic into one file.
 
+#### The AG is reporting a bug involving access$ or some kind of null pointer exception. What's going on?
+
+It's important that your `moves` and `solutions` methods work no matter the order in which they are called, and no matter how many times they are called. Failing the mutability test, or failing only `moves` but not `solutions` tests are sure signs of this issue.
+
 Credits
 --------------------------------
 
