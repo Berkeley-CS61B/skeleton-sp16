@@ -236,7 +236,11 @@ If your code is taking longer, by far the **most likely issue is that you are no
 
 It is not enough to simply look at your code for the optimization and declare that it is correct. Many students have indicated confidence in their optimization implementation, only to discover a subtle bug. Use print statements or the debugger to ensure that a board never enqueues the board it came from.
 
-Hints: Recall that there is a difference between `==` and `equals`. Recall also that the optimization is that you should not "enqueue a neighbor if its board is the same as the board of the **previous** search node". Many students mistakenly check for equality with the current board in place of the previous node's board. These two situations cover 95% of the bugs I've seen.
+Situations that cover 98% of student performance bugs:
+ - Recall that there is a difference between `==` and `equals`.
+ - Recall also that the optimization is that you should not "enqueue a neighbor if its board is the same as the board of the **previous** search node". Checking vs. the current board does nothing. In other words, no Node should ever enqueue its parent.
+ - Recall that the optimization is that a board should not enqueue its own parent! This is different than checking that it is different from the board that was dequeued two iterations of A* ago.
+ 
 
 #### How do I ensure my Board class immutable?
 
