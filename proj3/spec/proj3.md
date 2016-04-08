@@ -133,11 +133,15 @@ If you've represented your tile hierarchy as a quadtree, you are looking to coll
 
 ![Query example](query.png)
 
-The query window shown above corresponds to the viewing window in the client. Although you are returning a full image, it will be translated (with parts off the window) appropriately by the client.
+The query window shown above corresponds to the viewing window in the client. Although you are returning a full image, it will be translated (with parts off the window) appropriately by the client. There is one edge case that you may want to consider (although if you write your code naturally, it may not need to be explicitly handled): your query window in pixels may not be perfectly proportional to your query window in world-space distance (lat and lon). However, you only care about the pixels for dpp and lat and lon for intersection. You may end up with an image, for some queries, that ends up not filling the query box and that is okay - this arises when your latitude and longitude query do not intersect enough tiles to fit the query box. You can imagine this happening with a query very near the edge (in which case you just don't collect tiles that go off the edge); a query window that is very large, larger than the entire dataset itself; or a query window in lat and lon that is not proportional to its size in pixels.
 
 You will also need to arrange these tiles. Once all the tiles are collected, they should be arranged by their order in the plane - that is, they should be placed next to each other if their corner points intersect.
 
 You may find the google search results for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` instead of a file using `ImageIO.write(im, "png", os)`, for this project. When getting started, you can just write an image to the `OutputStream os` and set `query_success` to true, and it will show up on `test.html`; after setting the remaining return parameters, it should show up on `map.html` too.
+
+After you've implemented this successfully, try moving around and zooming on the map - it should work. You can also try running the map raster tests in `AGMapServerTest` and your `test.html` should show:
+
+![test image](testhtml.png)
 
 #### Runtime
 
@@ -343,13 +347,6 @@ Submission
 You need only submit the `src` folder. It should retain the structure given in the skeleton. **DO NOT submit or upload to git your img/ folder**, or your osm or test files. Attempting to do so will eat your internet bandwidth and hang your computer, and will waste a submission. 
 
 Do not make your program have any maven dependencies other than the ones already provided. Doing so may fail the autograder.
-
-FAQ
-------------
-
-#### I'm carefully plaI'm getting errors that package com.google.gson and spark do not exist.
-
-
 
 Acknowledgements
 ------------
