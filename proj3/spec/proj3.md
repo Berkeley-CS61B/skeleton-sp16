@@ -73,7 +73,7 @@ Overview
 
 There is a [Getting Started video](https://youtu.be/J4QNk3hwcR8) that accompanies the spec. This video is completely optional, but it gives some tips and visual motivation for some of the things you're doing in this assignment.
 
-Firstly, we make one simplifying assumption: the world is flat. We will be working with longitudes (x-axis) and latitudes (y-axis); because these metrics are defined using the [Mercator projection](https://en.wikipedia.org/wiki/Mercator_projection), the latitudes will be slightly distorted over long distances. We will instead only work inside a small world-region, the area surrounding Berkeley; this makes latitude distortions largely trivial and prevents you from having to deal with more complex math in your calculations. Essentially, this allows you to interpret lon and lat as x and y coordinates, and distances as linear, which is good for linear interpolation.
+Firstly, we make one simplifying assumption: the world is almost flat. We will be working with longitudes (x-axis) and latitudes (y-axis); because these metrics are defined using the [Mercator projection](https://en.wikipedia.org/wiki/Mercator_projection), the latitudes will be slightly distorted over long distances. We will instead only work inside a small world-region, the area surrounding Berkeley; this makes latitude distortions largely trivial and prevents you from having to deal with more complex math in your calculations. Essentially, this allows you to interpret lon and lat as x and y coordinates, and distances as linear, which is good for linear interpolation.
 
 ###Application Structure
 
@@ -83,7 +83,7 @@ Your job is to implement a web API. You will write a web server that hosts some 
 
 It is the job of the web server to parse the URL and generate the output. The web server listens on a port and runs a loop that handles each of the incoming connections / requests. Fortunately, we don't have to write any of the interfacing code; we will be using [Java Spark](http://sparkjava.com/documentation.html#getting-started) as the server framework; you don't need to worry about the internals of this as we are providing the skeleton code to handle the endpoints. 
 
-We are also providing you with a file, `map.html`, in `src/static/page`, which implements a basic front-end user interface. This basic Javascript application makes the necessary API calls to render a map that can be navigated around and can show routes and locations. It's also accessible as a static resource through your webserver, but does not have to be loaded as such for running locally.
+We are also providing you with a file, `map.html`, in `src/static/page`, which implements a basic front-end user interface. This basic Javascript application makes the necessary API calls to render a map that can be navigated around and can show routes and locations. 
 
 ### Testing
 
@@ -115,7 +115,7 @@ A *quadtree* is a tree data structure typically used to represent spatial data. 
 
 You are provided map data in the `img` directory as a large set of 256x256 png image files, which I will call tiles. The filename determines the relationship between one tile and another, as shown above. Each quad-tree node corresponds to an image tile. `11.png,  12.png, 13.png, 14.png` are the four quadrant subdivisions of `1.png` and so on. The longitudes and latitudes of the root node, which is to be subdivided, are given to you as constants `ROOT_ULLAT, ROOT_ULLON, ROOT_LRLAT, ROOT_LRLON`. 
 
-For example, the upper left child of the root, represented by `11.png`, shares an upper left longitude and latitude with the root, but has a lower right longitude and latitude that is at the center of the root tile, and so on - the structure is defined recursively. If a tile has no children, for example `4444444.png`, there are no valid files `44444441.png` and so on.
+For example, the upper left child of the root, represented by `1.png`, shares an upper left longitude and latitude with the root, but has a lower right longitude and latitude that is at the center of the root tile, and so on - the structure is defined recursively. If a tile has no children, for example `4444444.png`, there are no valid files `44444441.png` and so on.
 
 This helps construct the map since all tiles are the same resolution; you might think of traversing to a child of a node as "zooming in" on that quadrant.
 
@@ -127,7 +127,7 @@ To ensure that your program does not gobble up excessive amounts of memory, do n
 
 Implement `getMapRaster` as described in the Javadoc. You do not need to worry about routing until the next part. When the client makes a call to `/raster` with the required parameters, the request handler will validate that all the required parameters are present (as declared in `REQUIRED_RASTER_REQUEST_PARAMS`. Then, in the Map `params`, those parameters are keys that you will be able to get the value of: for example, if I wanted to know the upper left point's longitude of the query rectangle, I could call `params.get("ullon")`.
 
-Let us define a metric, the distance per pixel. Treat the (lon, lat) of some point on the map the same as an (x, y) point. Then the longitudinal distance per pixel covered on a tile is just (lower right longitude - upper left longitude) / (width of the image). This defines how fine or coarse the resolution of a tile is. If we cover a lot of distance per pixel on a tile, then that means the tile is more zoomed out and closer to the quadtree root; if we cover less distance per pixel, then that means the tile is more zoomed in (corresponding to being lower in the quadtree).
+Let us define a metric, the distance per pixel. Treat the (lon, lat) of some point on the map the same as an (x, y) point. Then the longitudinal distance per pixel covered on a tile is just (lower right longitude - upper left longitude) / (width of the image). This defines how fine or coarse the resolution of a tile is. If we cover a lot of distance per pixel on a tile, then that means the tile is more zoomed out and closer to the quadtree root; if we cover less distance per pixel, then that means the tile is more zoomed in (corresponding to being lower in the quadtree). Note that the longitudinal (horizontal) distance per pixel is not the same as the latidudinal (vertical) distance per pixel. This is because the earth is curved. If you use the wrong one, or use them interchangably, you will have incorrect results. 
 
 If you've represented your tile hierarchy as a quadtree, you are looking to collect all tiles that intersect (overlap) the query window that have a depth that is as close to the root as possible, but still satisfy the condition that the tiles should have a distance per pixel less than or equal to the distance per pixel in the query box. This enforces that one pixel in the query box is covered by at least one pixel in the rastered image - we want to be as zoomed out as possible, but don't want to give an image smaller than the width and height given in the query box, but we don't want our image to be the maximum resolution either. Essentially, you should be able to recursively traverse your quadtree until you find the tiles that both intersect and satisfy the distance per pixel requirement, and collect each of these full tiles with no need to crop. Take a while to think about how this method satisfies our requirements before asking a friend - it's very confusing the first time around. 
 
@@ -184,7 +184,7 @@ The `/route` endpoint receives four values for input: the start point's longitud
 
 Your route should be the shortest path that starts from the closest connected node to the start point and ends at the closest connected node to the endpoint. Distance between two nodes is defined as the Euclidean distance between their two points (lon1, lat1) and (lon2, lat2). The length of a path is the sum of the distances between the ordered nodes on the path. After making a request to `/route`, on any subsequent `/raster` requests before a new route or `/clear_route` is requested, lines of width `ROUTE_STROKE_WIDTH_PX` and of color     `ROUTE_STROKE_COLOR` are drawn between all nodes on the route in the rastered photo. Each connecting line should be drawn with the Stroke set to `new BasicStroke(MapServer.ROUTE_STROKE_WIDTH_PX,BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND)`. See the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html#setStroke-java.awt.Stroke-) on Graphics2D::setStroke. See the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html#drawLine-int-int-int-int-) on `Graphics::drawLine`. Recall that if you are using a `BufferedImage`, it has a `getGraphics()` method to get the `Graphics` object you can use to draw to that `BufferedImage`; this object has dynamic type `Graphics2D` (for setting the stroke).
 
-Make sure you are using Oracle's JDK. The OpenJDK implementation is buggy.
+If a line goes off the bounds of the BufferedImage, keep drawing and do not truncate it. Otherwise it will appear to end at the end of the image instead of continuing off of it. Also, I choose to round down when computing the pixels to draw from and to; you should do the same. This is an arbitrary choice. Make sure you're using Oracle's JDK since OpenJDK8's drawing is different.
 
 Implement `clearRoute` in `MapServer.java`. After calling `clearRoute`, calls to `/raster` before another `/route` call should not have a route drawn.
 
@@ -219,7 +219,7 @@ The user may type a partial query string such as "Sushi". Implement `getLocation
 
 ![Autocomplete](autocomplete.png)
 
-I recommend using a [Trie](http://www.wikiwand.com/en/Trie). You can traverse to the node that matches the prefix (if it exists) and then collect all valid words that are a descendant of that node.
+I recommend using a [Trie](http://www.wikiwand.com/en/Trie). You can traverse to the node that matches the prefix (if it exists) and then collect all valid words that are a descendant of that node. 
 
 #### Runtime
 
@@ -342,18 +342,23 @@ If all goes well, you should be able to navigate to your heroku app site and see
 
 Note: These instructions have only been tested for me on my own Windows machine. Your mileage may vary, especially if you use a Mac.
 
+FAQ
+--------------------
+ Q: Do I construct my quadtree in one pass or do I insert into it?
+ A: Construct it recursively in one pass. Inserting into it is much slower.
+
+Q: I wrote something to my output stream but it doesn't show up!
+A: In order for something to show up on test.html, you need to set query_success to true, and in order for something to show up on map.html all the parameters must be set.
+
+Q: What's a quadtree intersection query?
+A: Think about a range query on a binary search tree. Given some binary search tree on integers, I want you to return me all integers of depth 4 in between 8 and 69 - how do you do that?  Now, if you can do that, can you do that in two dimensions? Instead of integers, now we have squares that span certain ranges. There are many approaches to solving this.
+
+
 Submission
 ---------------------
 You need only submit the `src` folder. It should retain the structure given in the skeleton. **DO NOT submit or upload to git your img/ folder**, or your osm or test files. Attempting to do so will eat your internet bandwidth and hang your computer, and will waste a submission. 
 
 Do not make your program have any maven dependencies other than the ones already provided. Doing so may fail the autograder.
-
-FAQ
-------------
-
-#### I'm carefully plaI'm getting errors that package com.google.gson and spark do not exist.
-
-
 
 Acknowledgements
 ------------
