@@ -12,12 +12,12 @@
         $.get({
             async: false,
             url: query_url,
-            data: { h: 875,
-                    lrlat: 37.87548268822065,
-                    lrlon: -122.24053369025242,
-                    ullat: 37.87655856892288,
-                    ullon: -122.24163047377972,
-                    w: 892
+            data: { h: 561,
+                    lrlat: 37.8653288695721,
+                    lrlon: -122.25637084514699,
+                    ullat: 37.865587432460345,
+                    ullon: -122.26290194957653,
+                    w: 688
                    },
             success: function(data) {
                 map.src = "data:image/png;base64," + data.b64_encoded_image_data;

@@ -137,7 +137,7 @@ The query window shown above corresponds to the viewing window in the client. Al
 
 You will also need to arrange these tiles. Once all the tiles are collected, they should be arranged by their order in the plane - that is, they should be placed next to each other if their corner points intersect.
 
-You may find the google search results for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` instead of a file using `ImageIO.write(im, "png", os)`, for this project. When getting started, you can just write an image to the `OutputStream os` and set `query_success` to true, and it will show up on `test.html`; after setting the remaining return parameters, it should show up on `map.html` too.
+You may find the google search results for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` (instead of a file) using `ImageIO.write(im, "png", os)`, for this project. When getting started, you can just write an image to the `OutputStream os` and set `query_success` to true, and it will show up on `test.html`; after setting the remaining return parameters, it should show up on `map.html` too.
 
 After you've implemented this successfully, try moving around and zooming on the map - it should work. You can also try running the map raster tests in `AGMapServerTest` and your `test.html` should show:
 
@@ -347,6 +347,13 @@ Submission
 You need only submit the `src` folder. It should retain the structure given in the skeleton. **DO NOT submit or upload to git your img/ folder**, or your osm or test files. Attempting to do so will eat your internet bandwidth and hang your computer, and will waste a submission. 
 
 Do not make your program have any maven dependencies other than the ones already provided. Doing so may fail the autograder.
+
+FAQ
+------------
+
+#### I'm carefully plaI'm getting errors that package com.google.gson and spark do not exist.
+
+
 
 Acknowledgements
 ------------
