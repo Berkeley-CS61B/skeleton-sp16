@@ -117,6 +117,8 @@ You are provided map data in the `img` directory as a large set of 256x256 png i
 
 For example, the upper left child of the root, represented by `1.png`, shares an upper left longitude and latitude with the root, but has a lower right longitude and latitude that is at the center of the root tile, and so on - the structure is defined recursively. If a tile has no children, for example `4444444.png`, there are no valid files `44444441.png` and so on.
 
+For a demo of how all this works, see this [FileDisplayDemo](FileDisplayDemo.html). Try typing in a filename, and it will show what region of the map this file corresponds to, as well as the exact coordinates of its corners, in addition to the distance per pixel.
+
 This helps construct the map since all tiles are the same resolution; you might think of traversing to a child of a node as "zooming in" on that quadrant.
 
 ##### Lazy Loading

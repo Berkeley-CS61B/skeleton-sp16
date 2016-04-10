@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p><canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var ROOT_ULLAT = 37.892195547244356;
+var ROOT_ULLON = -122.2998046875;
+var ROOT_LRLAT = 37.82280243352756; 
+var ROOT_LRLON = -122.2119140625;
+var FEET_PER_DEGREE = 288200.0;
+
+function render() {
+	var filename = document.getElementById("filename").value;
+	var sansPng = filename.beforeLastIndex(".");
+	drawRegion(sansPng);
+}
+
+function ullon(filename) {
+    if (filename == "root.png") {
+        return ROOT_ULLON;
+    }
+    var lonDelta = (ROOT_LRLON - ROOT_ULLON) / 2;
+    var lon = ROOT_ULLON;
+
+    for (i = 0; i < filename.length; i += 1) {
+        var c = filename.charAt(i);
+        /* Right half. */
+        if (c == "2" || c == "4") {
+            lon = lon + lonDelta;
+        }
+        /* Quit once you reach the extension. */
+        if (c == ".") {
+            break;
+        }
+        lonDelta = lonDelta / 2;
+    }
+    return lon;
+}
+
+function lrlon(filename) {
+    if (filename == "root.png") {
+        return ROOT_ULLON;
+    }
+    var lonDelta = (ROOT_LRLON - ROOT_ULLON) / 2;
+    var lon = ROOT_LRLON;
+
+    for (i = 0; i < filename.length; i += 1) {
+        var c = filename.charAt(i);
+        /* Left half. */
+        if (c == "1" || c == "3") {
+            lon = lon - lonDelta;
+        }
+        /* Quit once you reach the extension. */
+        if (c == ".") {
+            break;
+        }
+        lonDelta = lonDelta / 2;
+    }
+    return lon;
+}
+
+function ullat(filename) {
+    if (filename == "root.png") {
+        return ROOT_ULLAT;
+    }
+    var latDelta = (ROOT_ULLAT - ROOT_LRLAT) / 2;
+    var lat = ROOT_ULLAT;
+
+    for (i = 0; i < filename.length; i += 1) {
+        var c = filename.charAt(i);
+        /* Bottom half. */
+        if (c == "3" || c == "4") {
+            lat = lat - latDelta;
+        }
+        /* Quit once you reach the extension. */
+        if (c == ".") {
+            break;
+        }
+        latDelta = latDelta / 2;
+    }
+    return lat;
+}
+
+function lrlat(filename) {
+    if (filename == "root.png") {
+        return ROOT_ULLAT;
+    }
+    var latDelta = (ROOT_ULLAT - ROOT_LRLAT) / 2;
+    var lat = ROOT_LRLAT;
+
+    for (i = 0; i < filename.length; i += 1) {
+        var c = filename.charAt(i);
+        /* Top half. */
+        if (c == "1" || c == "2") {
+            lat = lat + latDelta;
+        }
+        /* Quit once you reach the extension. */
+        if (c == ".") {
+            break;
+        }
+        latDelta = latDelta / 2;
+    }
+    return lat;
+}
+
+/* Returns X pixel coordinate assuming window starts at x = 0 and is 400 pixels wide. */
+function lonToX(lon) {
+	var lonSpan = ROOT_LRLON - ROOT_ULLON
+	var pixelsPerLon = 400 / lonSpan
+	var lonDelta = lon - ROOT_ULLON
+	var x = pixelsPerLon * lonDelta
+	return x
+}
+
+function latToY(lat) {
+	var latSpan = ROOT_ULLAT - ROOT_LRLAT
+	var pixelsPerLat = 400 / latSpan
+	var distanceFromTop = ROOT_ULLAT - lat
+	var y = pixelsPerLat * distanceFromTop
+	return y
+}
+
+function drawRegion(filename) {
+	var ullonVal = ullon(filename)
+	var lrlonVal = lrlon(filename)
+	var ullatVal = ullat(filename)
+	var lrlatVal = lrlat(filename)
+
+    var topLeftX = lonToX(ullonVal);
+    var botRightX = lonToX(lrlonVal);
+    var topLeftY = latToY(ullatVal);
+    var botRightY = latToY(lrlatVal);
+
+	drawRectangle(topLeftX, botRightX, topLeftY, botRightY, filename);
+
+    displayCalculations(ullonVal, lrlonVal, ullatVal, lrlatVal);
+}
+
+function displayCalculations(ullonVal, lrlonVal, ullatVal, lrlatVal) {
+
+        var totalLon = lrlonVal - ullonVal;
+        var lonPerPixel = totalLon / 400;
+        var feetPerPixel = lonPerPixel * FEET_PER_DEGREE;
+        document.getElementById('tileUllon').value = ullonVal;  
+        document.getElementById('tileLrlon').value = lrlonVal;  
+        document.getElementById('tileUllat').value = ullatVal;  
+        document.getElementById('tileLrlat').value = lrlatVal;
+        document.getElementById('dpp').value = lonPerPixel;
+        document.getElementById('dppFeet').value = feetPerPixel;
+
+}
+
+
+/* from http://stackoverflow.com/questions/4250364/how-to-trim-a-file-extension-from-a-string-in-javascript*/
+String.prototype.beforeLastIndex = function (delimiter) {
+    return this.split(delimiter).slice(0,-1).join(delimiter) || this + "";
+}
+
+function drawRectangle(topLeftX, botRightX, topLeftY, botRightY, text) {
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	var width = Math.abs(botRightX - topLeftX);
+	var height = Math.abs(topLeftY - botRightY);
+	ctx.rect(topLeftX, topLeftY, width, height);
+	ctx.stroke();
+	if (text.length <= 4) {
+		ctx.textAlign="center";
+		ctx.textBaseline="middle";
+		ctx.strokeText(text, topLeftX + width / 2, topLeftY + height / 2)		
+	}
+}
+
+
+</script> 
+
+          <table>
+          <tr>
+          <td rowspan="7">
+          <form>
+	          Filename<br>
+	          <input type="text" id="filename"><br>
+	          <div onclick="render()" style="width:100px;height:20px;background-color:lightgrey;cursor:pointer;padding:10px;text-align:center">Calculate</div>
+          </form>
+
+          </td>
+          <td align="left", colspan="2">
+          <b>Distance per pixel calculations assume w=400, h=400</b>
+          </td> 
+          </tr>
+          <tr>         
+          <td> tile_ullon</td><td> <input type="text" id="tileUllon"></td>
+          </tr>
+          <tr><td>tile_ullat</td><td> <input type="text" id="tileUllat"></td></tr>
+          <tr><td>tile_lrlon</td><td> <input type="text" id="tileLrlon"></td></tr>
+          <tr><td>tile_lrlat</td><td> <input type="text" id="tileLrlat"></td></tr>
+          <tr><td>distance per pixel (in longitude/pixel)</td><td> <input type="text" id="dpp"></td></tr>
+          <tr><td>distance per pixel (in feet/pixel)</td><td> <input type="text" id="dppFeet"></td></tr>          
+          </table>
+
+
+
+</body>
+</html>
