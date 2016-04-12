@@ -142,7 +142,7 @@ function drawRegion(filename) {
 function displayCalculations(ullonVal, lrlonVal, ullatVal, lrlatVal) {
 
         var totalLon = lrlonVal - ullonVal;
-        var lonPerPixel = totalLon / 400;
+        var lonPerPixel = totalLon / 256;
         var feetPerPixel = lonPerPixel * FEET_PER_DEGREE;
         document.getElementById('tileUllon').value = ullonVal;  
         document.getElementById('tileLrlon').value = lrlonVal;  
@@ -187,7 +187,7 @@ function drawRectangle(topLeftX, botRightX, topLeftY, botRightY, text) {
 
           </td>
           <td align="left", colspan="2">
-          <b>Distance per pixel calculations assume w=400, h=400</b>
+          <b>Distance per pixel calculations assume .png is 256x256</b>
           </td> 
           </tr>
           <tr>         
