@@ -66,3 +66,8 @@ In this week's lab, many of the functions have syntax that looks something like:
     }
 
 Recall from [lecture 13](https://docs.google.com/presentation/d/1RfguNPWCGdRKnbH8t74nnhfRWR4Pcj4FyHsLLFrWc4Y) that if a method operates on generic types, the generic type should be defined before the return type of the method.  In the example above, the part of the function declaration that says `<Item extends Comparable>` means that the `mergeSort` function operates on generic type `Item`, which must extend `Comparable` (we need `Item` to extend `Comparable` so that we can use the `compareTo` method to compare items).  In other words, you can interpret the declaration above as saying "the `mergeSort` function takes a `Queue` of things that implement the `Comparable` interface, and returns a `Queue` of those things in sorted order."  If you're unsure how to write code in functions like this, take a look at the helper functions that we provided, which may be helpful examples.
+
+
+#### My code works fine but the autograder fails with some sort of JSON error.
+
+The issue is probably that your code is quadratic time instead of linearithmic. Your code should be able to easily handle collections of 10,000 items, even if there are lots of duplicates and/or the collection is in sorted order already. 
