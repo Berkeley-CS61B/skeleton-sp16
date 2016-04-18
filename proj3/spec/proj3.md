@@ -15,6 +15,7 @@ Table of Contents
 * [Routing](#routing)
 * [Autocompletion and Search](#autocompletion-and-search)
 * [Frequently Asked Questions](#frequently-asked-questions)
+* [Common Bugs](#common-bugs)
 * [Acknowledgements](#acknowledgements)
 
 Introduction
@@ -135,9 +136,11 @@ If you've represented your tile hierarchy as a quadtree, you are looking to coll
 
 ![Query example](query.png)
 
-The query window shown above corresponds to the viewing window in the client. Although you are returning a full image, it will be translated (with parts off the window) appropriately by the client. There is one edge case that you may want to consider (although if you write your code naturally, it may not need to be explicitly handled): your query window in pixels may not be perfectly proportional to your query window in world-space distance (lat and lon). However, you only care about the pixels for dpp and lat and lon for intersection. You may end up with an image, for some queries, that ends up not filling the query box and that is okay - this arises when your latitude and longitude query do not intersect enough tiles to fit the query box. You can imagine this happening with a query very near the edge (in which case you just don't collect tiles that go off the edge); a query window that is very large, larger than the entire dataset itself; or a query window in lat and lon that is not proportional to its size in pixels. For example, if you are extremely zoomed in, you have no choice but to collect the leaf tiles and cannot traverse deeper.
+The query window shown above corresponds to the viewing window in the client. Although you are returning a full image, it will be translated (with parts off the window) appropriately by the client. There is one edge case that you may want to consider (although if you write your code naturally, it may not need to be explicitly handled): your query window in pixels may not be perfectly proportional to your query window in world-space distance (lat and lon). However, you only care about the pixels for dpp and lat and lon for intersection. 
 
-You will also need to arrange these tiles. Once all the tiles are collected, they should be arranged by their order in the plane - that is, they should be placed next to each other if their corner points intersect.
+You may end up with an image, for some queries, that ends up not filling the query box and that is okay - this arises when your latitude and longitude query do not intersect enough tiles to fit the query box. You can imagine this happening with a query very near the edge (in which case you just don't collect tiles that go off the edge); a query window that is very large, larger than the entire dataset itself; or a query window in lat and lon that is not proportional to its size in pixels. For example, if you are extremely zoomed in, you have no choice but to collect the leaf tiles and cannot traverse deeper.
+
+You will also need to arrange these tiles. Once all the tiles are collected, they should be arranged by their order in the plane - that is, they should be placed next to each other if their corner points intersect. For example, in the shown query above, we collect a set of 4x4 tiles; this corresponds to an image of size (4 x 256) x (4 x 256) pixels.
 
 You may find the google search results for "[combine png files java](https://www.google.com/search?btnG=1&pws=0&q=combine%20png%20files%20java)" useful as a reference on how to concatenate png files together into a `BufferedImage`. You should write your `BufferedImage im` to the `OutputStream os` (instead of a file) using `ImageIO.write(im, "png", os)`, for this project. When getting started, you can just write an image to the `OutputStream os` and set `query_success` to true, and it will show up on `test.html`; after setting the remaining return parameters, it should show up on `map.html` too.
 
@@ -186,7 +189,7 @@ The `/route` endpoint receives four values for input: the start point's longitud
 
 Your route should be the shortest path that starts from the closest connected node to the start point and ends at the closest connected node to the endpoint. Distance between two nodes is defined as the Euclidean distance between their two points (lon1, lat1) and (lon2, lat2). The length of a path is the sum of the distances between the ordered nodes on the path. After making a request to `/route`, on any subsequent `/raster` requests before a new route or `/clear_route` is requested, lines of width `ROUTE_STROKE_WIDTH_PX` and of color     `ROUTE_STROKE_COLOR` are drawn between all nodes on the route in the rastered photo. Each connecting line should be drawn with the Stroke set to `new BasicStroke(MapServer.ROUTE_STROKE_WIDTH_PX,BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND)`. See the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html#setStroke-java.awt.Stroke-) on Graphics2D::setStroke. See the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html#drawLine-int-int-int-int-) on `Graphics::drawLine`. Recall that if you are using a `BufferedImage`, it has a `getGraphics()` method to get the `Graphics` object you can use to draw to that `BufferedImage`; this object has dynamic type `Graphics2D` (for setting the stroke).
 
-If a line goes off the bounds of the BufferedImage, keep drawing and do not truncate it. Otherwise it will appear to end at the end of the image instead of continuing off of it. Also, I choose to round down when computing the pixels to draw from and to; you should do the same. This is an arbitrary choice. Make sure you're using Oracle's JDK since OpenJDK8's drawing is different.
+If a line goes off the bounds of the BufferedImage, keep drawing and do not truncate it. Otherwise it will appear to end at the end of the image instead of continuing off of it. When computing the pixels to draw from and to (by converting from longitude and latitude), you should round down, either explicitly or by casting to int. This is an arbitrary choice. Make sure you're using Oracle's JDK since OpenJDK8's drawing is different.
 
 Implement `clearRoute` in `MapServer.java`. After calling `clearRoute`, calls to `/raster` before another `/route` call should not have a route drawn.
 
@@ -346,15 +349,53 @@ Note: These instructions have only been tested for me on my own Windows machine.
 
 FAQ
 --------------------
- Q: Do I construct my quadtree in one pass or do I insert into it?
- A: Construct it recursively in one pass. Inserting into it is much slower.
 
-Q: I wrote something to my output stream but it doesn't show up!
-A: In order for something to show up on test.html, you need to set query_success to true, and in order for something to show up on map.html all the parameters must be set.
+#### I wrote something to my output stream but it doesn't show up!
 
-Q: What's a quadtree intersection query?
-A: Think about a range query on a binary search tree. Given some binary search tree on integers, I want you to return me all integers of depth 4 in between 8 and 69 - how do you do that?  Now, if you can do that, can you do that in two dimensions? Instead of integers, now we have squares that span certain ranges. There are many approaches to solving this.
+In order for something to show up on test.html, you need to set query_success to true, and in order for something to show up on map.html all the parameters must be set.
 
+#### My initial map doesn't fill up the screen!
+
+If your monitor resolution is high & the window is fullscreen, this can happen. Refer to the reference solution to see if it is okay.
+
+#### I don't fill up the query box on some inputs because I don't intersect enough tiles.
+
+That's fine, and that happens when you would need a depth higher than what we can achieve in our quadtree.
+
+#### Do I construct my quadtree in one pass or do I insert into it?
+
+Construct it recursively in one pass. Inserting into it is much slower.
+
+#### What's a quadtree intersection query?
+
+Think about a range query on a binary search tree. Given some binary search tree on integers, I want you to return me all integers of depth 4 in between 8 and 69 - how do you do that?  Now, if you can do that, can you do that in two dimensions? Instead of integers, now we have squares that span certain ranges. There are many approaches to solving this.
+
+#### How do I keep my Quadtree code simple when calculating rectangle intersections? This feels insane.
+
+Rectangle intersection can be done with simple logic, but it takes some cleverness. See [this stack overflow post](http://stackoverflow.com/questions/306316/determine-if-two-rectangles-overlap-each-other) for a simple example.
+
+#### I'm getting funky behavior with moving the map around, my image isn't large enough at initial load, after the initial load, I can't move the map, or after the initial load, I start getting NaN as input params.
+
+These all have to do with your returned parameters being incorrect. Make sure you're returning the exact parameters as given in the project 2 slides or the test html files.
+
+#### I sometimes pass the timing tests when I submit, but not consistently.
+
+If you have a efficient solution: it will always pass. I have yet to fail the timing test with either my solution or any of the other staff's solutions over a lot of attempts to check for timing volatility.
+
+If you have a borderline-efficient solution:  it will sometimes pass. That's just how it is, and there really isn't any way around this if we want the autograder to run in a reasonable amount of time.
+
+#### I don't pass the route raster test, and I'm really close on the length of the array! Like, really, really close! And it looks okay!
+
+You should actually be always really close, because not many pixels change. If it looks very close to what the expected output is, you can first check over your calculations. It's highly likely you don't match the specified requirements: 
+
+"If a line goes off the bounds of the BufferedImage, keep drawing and do not truncate it. Otherwise it will appear to end at the end of the image instead of continuing off of it. When computing the pixels to draw from and to (by converting from longitude and latitude), you should round down, either explicitly or by casting to int. This is an arbitrary choice. Make sure you're using Oracle's JDK since OpenJDK8's drawing is different."
+
+If you do, you are not calculating the right pixels to draw the lines from and to correctly. Your math may be slightly off and could have loss of double precision somewhere. You may also have a bug somewhere before drawing the lines.
+
+Common Bugs
+--------------------
+
+We've created a list of common bugs [at this link](https://docs.google.com/document/d/1rQfdunoIhJjPy6HCg2jWMfjH8trqXOu56XE6OO3GnJk/edit). These are far from comprehensive.
 
 Submission
 ---------------------
