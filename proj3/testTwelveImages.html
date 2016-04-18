@@ -12,12 +12,12 @@
         $.get({
             async: false,
             url: query_url,
-            data: { h: 875,
-                    lrlat: 37.87548268822065,
-                    lrlon: -122.24053369025242,
-                    ullat: 37.87655856892288,
-                    ullon: -122.24163047377972,
-                    w: 892
+            data: { h: 566.0,
+                    lrlat: 37.8318576119893,
+                    lrlon: -122.2104604264636,
+                    ullat: 37.870213571328854,
+                    ullon: -122.30410170759153,
+                    w: 1091.0
                    },
             success: function(data) {
                 map.src = "data:image/png;base64," + data.b64_encoded_image_data;
@@ -27,7 +27,6 @@
     </script>
 </head>
 <body>
-<p>The picture above should correspond to [img/2143411.png, img/2143412.png, img/2143413.png, img/2143414.png, img/2143421.png, img/2143423.png, img/2143431.png, img/2143432.png, img/2143441.png], and should return {raster_ul_lon=-122.24212646484375, raster_height=768, depth=7, raster_lr_lon=-122.24006652832031, raster_lr_lat=37.87538940251607, raster_ul_lat=37.87701580361881, query_success=true, raster_width=768}
-
+<p>The picture above should correspond to [img/13.png, img/14.png, img/23.png, img/24.png, img/31.png, img/32.png, img/33.png, img/34.png, img/41.png, img/42.png, img/43.png, img/44.png], and should return {raster_ul_lon=-122.2998046875, raster_height=768, depth=2, raster_lr_lon=-122.2119140625, raster_lr_lat=37.82280243352756, raster_ul_lat=37.87484726881516, query_success=true, raster_width=1024}
 </body>
 </html>
