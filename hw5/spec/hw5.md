@@ -365,6 +365,13 @@ Example:
 
         java SeamCarverVisualizer images/HJoceanSmall.png 50 y
 
+Extra Fun
+--------------------------------
+
+Fun #1: Try out your SeamCarver on various real world images. I recommend human faces.
+
+Fun #2: Try to implement a version of the `SeamCarver` class that avoids the need to recompute the entire energy matrix every time a seam is removed. This will require getting fancy with your data structures. If you do this, email Josh and let him know. This should make your SeamCarver class extremely fast.
+
 Submission
 --------------------------------
 This section will be updated once the Gradescope autograder is up (ETA: April 22nd). In the meantime, compare your code's output to the provided printSeams files by using PrintSeams.java.
