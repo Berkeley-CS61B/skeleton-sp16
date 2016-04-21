@@ -49,7 +49,7 @@ public class CountingSort {
      * than 2 billion.
      *  does not touch original array (non-destructive method)
      * 
-     * @param arr int array that will be sorted
+     * @param toSort int array that will be sorted
     **/
     public static int[] betterCountingSort(int[] toSort) {
         //TODO make it work with arrays containing negative numbers.

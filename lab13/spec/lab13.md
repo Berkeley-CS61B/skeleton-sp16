@@ -1,17 +1,10 @@
 ~ number: 13
 ~ title: Linear Sorting (It's possible!)
 
-Navigation
------------------
-
-- [Counting Sort](#counting)
-- [Radix Sort](#radix)
-- [Submission](#Submission)
-
 This week in lab you're going to be writing Counting sort and Radix sort. 
 
-<a name="counting"></a> Counting Sort
---------------------------------
+Counting Sort
+----
 
 #### CountingSort.java
 
@@ -25,9 +18,8 @@ Fill in the `betterCountingSort` method so that it still does a counting based s
 
 For fun (optional): Add a test to `CountingSortTester` that causes your `betterCountingSort` to fail.
 
-
-<a name="radix"></a> Radix Sort
-------------------------------
+Radix Sort
+----
 
 #### RadixSort.java
 
@@ -41,8 +33,8 @@ Keep in mind that Radix Sort on Strings runs in `O(N*M)` time where `N` is the n
 
 Extra for experts (optional): Compare the runtime of your Radix sort compared to `Arrays.sort`. Which is faster for short arrays? Long arrays? Do the values in the array matter?
 
-<a name="submission"></a> Submission
---------------------------------
+Submission
+----
 
 Submit zip file with `CountingSort.java`, `CountingSortTester.java`, `RadixSort.java`, and `MagicWord13.java`.
 
