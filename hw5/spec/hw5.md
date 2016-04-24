@@ -372,7 +372,7 @@ Fun #2: Try to implement a version of the `SeamCarver` class that avoids the nee
 
 Submission
 --------------------------------
-This section will be updated once the Gradescope autograder is up (ETA: April 22nd). In the meantime, compare your code's output to the provided printSeams files by using PrintSeams.java.
+Submit `SeamCarver.java` and any supporting classes that you created, if applicable. You do not need to submit `SeamRemover.jar`.
 
 FAQ
 --------------------------------
