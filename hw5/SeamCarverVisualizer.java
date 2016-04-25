@@ -38,8 +38,9 @@ public class SeamCarverVisualizer {
     public void visualizeHorizontalCarve(SeamCarver sc, int N) {
         for (int i = 0; i < N; i++) {
             int[] minSeam = sc.findHorizontalSeam();
-            paintHorizontalSeam(sc, minSeam);
-            show(sc.picture());
+            Picture p = sc.picture();            
+            paintHorizontalSeam(p, minSeam);
+            show(p);
             sc.removeHorizontalSeam(minSeam);
         }
 
@@ -49,8 +50,9 @@ public class SeamCarverVisualizer {
     public void visualizeVerticalCarve(SeamCarver sc, int N) {
         for (int i = 0; i < N; i++) {
             int[] minSeam = sc.findVerticalSeam();
-            paintVerticalSeam(sc, minSeam);
-            show(sc.picture());
+            Picture p = sc.picture();
+            paintVerticalSeam(p, minSeam);
+            show(p);
             sc.removeVerticalSeam(minSeam);
         }
 
@@ -58,15 +60,16 @@ public class SeamCarverVisualizer {
         sc.picture().save("output.png");
     }
 
-    private void paintHorizontalSeam(SeamCarver sc, int[] seam) {
+    private void paintHorizontalSeam(Picture p, int[] seam) {
+
         for (int i = 0; i < seam.length; i++) {
-            sc.picture().set(i, seam[i], new Color(255, 0, 0));
+            p.set(i, seam[i], new Color(255, 0, 0));
         }
     }
 
-    private void paintVerticalSeam(SeamCarver sc, int[] seam) {
+    private void paintVerticalSeam(Picture p, int[] seam) {
         for (int i = 0; i < seam.length; i++) {
-            sc.picture().set(seam[i], i, new Color(255, 0, 0));
+            p.set(seam[i], i, new Color(255, 0, 0));
         }
     }
 
