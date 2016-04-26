@@ -106,11 +106,12 @@ Specifically, this waveform should start at -1.0 and linearly increase towards 1
 For this task, you should create `SawToothGenerator` so that it behave as above. 
 
 Hints: 
- - You should use the % operator, with the period as the right argument. 
+ - This should be relatively straightforward. Don't overthink it.
+ - You should use the % operator, with the period as the argument to the right of the %. 
  - Your `SawToothGenerator` should have two instance variables of type int: period and state.
  - The argument for the `SawToothGenerator` should be an integer, not a double.
  - The argument for the `SawToothGenerator` constructor is the period, not the frequency.
- - There should not be any usage of `Math.PI` in your code.
+ - There should not be any usage of `Math.PI` or `Math.sin` in your code.
  - The state of your generator should still be an integer that increments by 1 each time.
 
 For extra fun, use the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
