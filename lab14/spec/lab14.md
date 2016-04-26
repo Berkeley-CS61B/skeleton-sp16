@@ -136,7 +136,6 @@ Experiment with different period factors to see how the sound changes. Anything 
 
 Task 3: Generating a Fractal Sound
 ---
-
 One feature of Java that we haven't discussed in 61B this semester are bitwise operations. These include `&`, `|`, `>>`, `>>>`, and `<<`. These operations take two integers and perform operations on those integers in a bitwise manner.
 
 
@@ -146,33 +145,33 @@ As an example of a bitwise operation, consider the following expression:
 
         int x = 231 & 62;
 
-After this expression executes, the integer x will be 38. The reason is that the & operation generates a new integer where the ith bit is 1 if the ith bit of 231 is 1 AND the ith bit of 62 is 1, and 0 otherwise. Or written out:
+After this expression executes, the integer x will be 38. The reason is that the `&` operation generates a new integer where the ith bit is 1 if the ith bit of 231 is 1 AND the ith bit of 62 is 1, and 0 otherwise. Or written out:
 
         231: 11100111
         62:  00111110
 
         x:   00100110
 
-Note that x has a 1 only in positions where 231 and 62 have a 1. If we convert `00100110` from binary into decimal, we get 38.
+Note that x has a 1 only in positions where 231 and 62 have a 1. If we convert `00100110` from binary into decimal, we get 38, since 32 + 4 + 2 = 38.
 
 #### The >> Operation
 
-As another example, consider the expressioN:
+As another example, consider the expression:
 
         int x = 231 >>> 3;
 
-After this expression executes, the integer x will be 28. The reason is that the >>> operation moves all bits in the number 3 bits to the right, filling in any top digits with zeros. Or written out:
+After this expression executes, the integer x will be 28. The reason is that the `>>>` operation moves all bits in the number 3 bits to the right, filling in any top digits with zeros. Or written out:
 
         231:       11100111
         231 >>> 1: 01110011
         231 >>> 2: 00111001
         231 >>> 3: 00011100
 
-If we convert `00011100` from binary into decimal, we get 28.
+If we convert `00011100` from binary into decimal, we get 16 + 8 + 4 = 28.
 
 #### Generating a Fractal Sound Using Bitwise Operations
 
-Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.java`. This time, before taking the modulus with the period as the right argument, you should & the current time with a copy of time right shifted by 3 places.
+Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.java`. This time, before taking the modulus with the period as the right argument, you should `&` the current time with a copy of time right shifted by 3 places.
 
 For example (your instance variables may be differently named):
 
