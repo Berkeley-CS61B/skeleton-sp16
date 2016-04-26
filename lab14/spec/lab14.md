@@ -18,7 +18,8 @@ After you pull from the skeleton repo, you'll have a few key files:
 
 Generator is an interface that defines the expected behavior of any Generator class. Each Generator simply needs a method `next` that returns the next `double`. `GeneratePlayer` plays the samples returned by the generator as sound. `GeneratorDrawer` draws the samples returned by the generator as a graph. `GeneratorAudioVisualizer` both plays and draws the samples.
 
-### Playing with the Sine Wave Generator
+Playing with the Sine Wave Generator
+-----
 
 #### Creating and Using a Simple Generator
 
@@ -85,7 +86,8 @@ As a last exercise in using the existing Generators, try the following out in `S
 
 You should hear a neat sound -- if you have better speakers, I recommend trying out 60 and 61 hz tones instead. This phenomenon of pulsing volume is known as a [beat](https://en.wikipedia.org/wiki/Beat_(acoustics).
 
-### Task 1: Generating a SawTooth
+Task 1: Generating a SawTooth
+---
 
 Your first major goal is to generate a `SawToothGenerator` class. Given the method below:
 
@@ -113,7 +115,8 @@ Hints:
 
 For extra fun, use the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
 
-### Task 2: Generating an AcceleratingSawTooth
+Task 2: Generating an AcceleratingSawTooth
+---
 
 Next, we'll generate an `AcceleratingSawToothGenerator`. Given the method below:
 
@@ -131,7 +134,8 @@ Specifically, this waveform should start at -1.0 and linearly increase towards 1
 
 Experiment with different period factors to see how the sound changes. Anything outside the range 0.9 to 1.1 isn't going to sound particularly interesting since the period will change too quickly.
 
-### Task 3: Generating a Fractal Sound
+Task 3: Generating a Fractal Sound
+---
 
 One feature of Java that we haven't discussed in 61B this semester are bitwise operations. These include `&`, `|`, `>>`, `>>>`, and `<<`. These operations take two integers and perform operations on those integers in a bitwise manner.
 
