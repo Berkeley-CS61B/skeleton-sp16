@@ -175,7 +175,7 @@ Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.jav
 
 For example (your instance variables may be differently named):
 
-        time & (time >> 3) % period;
+        state & (state >> 3) % period;
 
 Try playing/drawing this sound, and you should see something like the following:
 
@@ -185,6 +185,6 @@ Try playing/drawing this sound, and you should see something like the following:
 
 Now try bitwise-ANDing the current time with a copy of the time right shifted by 3 places AND a copy of the time right shifted by 8 places.
 
-        time & (time >> 3) & (time >> 8) % period;
+        state & (state >> 3) & (state >> 8) % period;
 
 You should hear something pretty amazing. Try experimenting by adding more shifted versions of the time, other bitwise operations, or even multigenerators. Feel free to post your favorite Generators on Piazza.
