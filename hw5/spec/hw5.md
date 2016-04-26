@@ -324,7 +324,9 @@ In short, we start from one side of the 2D image array and process row-by-row or
 	![Seam Carving Cumulative Energy](images/seamCarvingDP.png)
 	![Seam Carving Final Paths](images/seamCarvingPath.png)
 
-An equivalent (but slower approach) is to build an explicit Graph object and run the DAGSPT algorithm. You are welcome to try this, but be warned it is slower.
+**Addendum: The Java language does not deal well with deep recursion, and thus a recursive approach will almost certainly not be able to handle images of largish size (say 500x500).** We recommend writing your code iteratively.
+
+An equivalent (but slower approach) is to build an explicit Graph object and run the DAGSPT algorithm. You are welcome to try this approach, but be warned it is slower, and it may not be possible to sufficiently optimize your code so that it passes the autograder timing tests.
 
 ### findHorizontalSeam(): Avoiding Redundancy
 
@@ -376,7 +378,13 @@ Submit `SeamCarver.java` and any supporting classes that you created, if applica
 
 FAQ
 --------------------------------
-To be updated with commonly seen questions/issues.
+#### My code is slow, what can I do to speed it up?
+
+Some possible optimizations include:
+ - Not using `Math.pow`.
+ - Avoiding recalcuation of energies for the same pixel over and over (through creation of an explicit energy matrix of type `double[][]`).
+ - Using a more clever approach than transposing your images (though this is not required to pass the autograder).
+ - Not storing an explicit `edgeTo` data structure. It is possible to rebuild the seam ONLY from the values for `M(i, j)`! That is, you don't need to actually record the predecessor like you did in the 8puzzle assignment. 
 
 Credits
 --------------------------------
