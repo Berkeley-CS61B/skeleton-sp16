@@ -48,7 +48,7 @@ We can also visualize the output of a generator. Replace the main method of `Sou
 
 What this does is:
 
- - Creates a SineWaveGenerator that outputs samples corresponding to a 440 Hz sine wave.
+ - Creates a SineWaveGenerator that outputs samples corresponding to a 200 Hz sine wave.
  - Creates a GeneratorDrawer that will draw the GeneratorDrawer.
  - Tells the GeneratorDrawer to draw the first 4096 samples from the generator as a graph.
 
