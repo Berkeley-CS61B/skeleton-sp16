@@ -378,6 +378,11 @@ Submit `SeamCarver.java` and any supporting classes that you created, if applica
 
 FAQ
 --------------------------------
+
+#### How do I debug this?
+
+Make sure to try out the "Useful Files" above, especially the PrintEnergy and PrintSeams classes.
+
 #### My code is slow, what can I do to speed it up?
 
 Some possible optimizations include:
