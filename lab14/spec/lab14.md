@@ -36,14 +36,14 @@ What this does is:
 
 Try compiling and running GeneratorPlayer, and you should hear a high pitched beep sound. 
 
-Try changing the 440 to a 200 Hz, and you should hear a lower sound. Note that your laptop speakers are likely too small to generate low tones (say 60 Hz), but if you use headphones or real speakers, you'll be able to hear such low frequencies.
+Try changing the 440 to a 200 Hz, and you should hear a lower sound. Note that if you try even lower frequencies, your laptop speakers are likely too small to generate anything lower than ~60 Hz. However, if you use headphones or real speakers, you'll be able to hear such low frequencies.
 
 #### Using the Generator Visualizer
 
 We can also visualize the output of a generator. Replace the main method of `Soundulate.java` with the following:
 
         Generator generator = new SineWaveGenerator(200);
-        GeneratorDrawer gp = new GeneratorDrawer(generator);
+        GeneratorDrawer gd = new GeneratorDrawer(generator);
         gd.draw(4096);
 
 What this does is:
