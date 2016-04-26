@@ -66,7 +66,7 @@ Finally, we can do both playing and drawing using `GeneratorAudioVisualizer.java
         GeneratorAudioVisualizer gav = new GeneratorAudioVisualizer(generator);
         gav.drawAndPlay(4096, 1000000);
 
-Try this out, and you should see the first 4096 samples being drawn and the first 1,000,000 samples being played. The reason that we make these numbers different is that if we draw 1,000,000 samples, we won't be able to see anything useful.
+Try this out, and you should see the first 4096 samples being drawn and the first 1,000,000 samples being played. The reason that we make these parameters different is that if we draw 1,000,000 samples, we won't be able to see anything useful.
 
 #### Using the MultiGenerator
 
@@ -83,7 +83,7 @@ As a last exercise in using the existing Generators, try the following out in `S
         GeneratorAudioVisualizer gav = new GeneratorAudioVisualizer(mg);
         gav.drawAndPlay(500000, 1000000);
 
-You should hear a neat sound -- if you have better speakers, I recommend trying out 60 and 61 hz tones instead. This phemenon is known as a [beat](https://en.wikipedia.org/wiki/Beat_(acoustics)).
+You should hear a neat sound -- if you have better speakers, I recommend trying out 60 and 61 hz tones instead. This phenomenon of pulsing volume is known as a [beat](https://en.wikipedia.org/wiki/Beat_(acoustics).
 
 ### Task 1: Generating a SawTooth
 
@@ -99,9 +99,17 @@ It should draw the waveform below:
 ![SawTooth](images/SawToothVisualization.png)
 </center>
 
-Specifically, this waveform should start at -1.0 and linearly increase towards 1.0, before resetting back to -1.0. The argument to SawToothGenerator describes the period of the waveform, i.e. the number of samples before it resets back down to -1.0. Hint: You should use the % operator, with the period as the right argument.
+Specifically, this waveform should start at -1.0 and linearly increase towards 1.0, before resetting back to -1.0. The argument to SawToothGenerator describes the period of the waveform, i.e. the number of samples before it resets back down to -1.0. 
 
-For extra fun, draw using the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
+For this task, you should create `SawToothGenerator` so that it behave as above. 
+
+Hints: 
+ - You should use the % operator, with the period as the right argument. 
+ - The argument for the `SawToothGenerator` should be an integer, not a double.
+ - The argument for the `SawToothGenerator` constructor is the period, not the frequency.
+ - There should not be any usage of `Math.PI` in your code.
+
+For extra fun, use the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
 
 ### Task 2: Generating an AcceleratingSawTooth
 
