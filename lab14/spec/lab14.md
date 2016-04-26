@@ -34,7 +34,7 @@ What this does is:
  - Creates a GeneratorPlayer that will play the SineWaveGenerator.
  - Tells the GeneratorPlayer to play the first one million samples from the generator as sound.
 
-Try compiling and running GeneratorPlayer, and you should hear a high pitched beep sound. 
+Try compiling and running GeneratorPlayer, and you should hear a high pitched beep sound. If working from the command line, you can press Control-C to halt execution.
 
 Try changing the 440 to a 200 Hz, and you should hear a lower sound. Note that if you try even lower frequencies, your laptop speakers are likely too small to generate anything lower than ~60 Hz. However, if you use headphones or real speakers, you'll be able to hear such low frequencies.
 
@@ -105,6 +105,7 @@ For this task, you should create `SawToothGenerator` so that it behave as above.
 
 Hints: 
  - You should use the % operator, with the period as the right argument. 
+ - Your `SawToothGenerator` should have two instance variables of type int: period and state.
  - The argument for the `SawToothGenerator` should be an integer, not a double.
  - The argument for the `SawToothGenerator` constructor is the period, not the frequency.
  - There should not be any usage of `Math.PI` in your code.
@@ -128,11 +129,12 @@ This code should draw the waveform below:
 
 Specifically, this waveform should start at -1.0 and linearly increase towards 1.0, before resetting back to -1.0. The first argument to SawToothGenerator describes the period of the waveform, i.e. the number of samples before it resets back down to -1.0. After resetting, the period should change by a factor of the second argument, rounded down. So, in the example above, the period of the second sawtooth should be 220 samples, the 3rd should be 242 samples, the 4th should 266 (which is 266.2 with the 0.2 truncated off). 
 
-Experiment with different period factors to see how the sound chnages. Anything outside the range 0.9 to 1.1 isn't going to sound particularly interesting since the period will change too quickly.
+Experiment with different period factors to see how the sound changes. Anything outside the range 0.9 to 1.1 isn't going to sound particularly interesting since the period will change too quickly.
 
 ### Task 3: Generating a Fractal Sound
 
-One feature of Java that we haven't discussed in 61B this semester are bitwise operations. These include &, |, >>, >>>, and <<. These operations take two integers and perform operations on those integers in a bitwise manner.
+One feature of Java that we haven't discussed in 61B this semester are bitwise operations. These include `&`, `|`, `>>`, `>>>`, and `<<`. These operations take two integers and perform operations on those integers in a bitwise manner.
+
 
 #### The & Operation
 
