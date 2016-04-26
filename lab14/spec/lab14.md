@@ -108,6 +108,7 @@ Hints:
  - The argument for the `SawToothGenerator` should be an integer, not a double.
  - The argument for the `SawToothGenerator` constructor is the period, not the frequency.
  - There should not be any usage of `Math.PI` in your code.
+ - The state of your generator should still be an integer that increments by 1 each time.
 
 For extra fun, use the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
 
