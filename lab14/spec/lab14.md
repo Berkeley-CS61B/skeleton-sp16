@@ -188,3 +188,5 @@ Now try bitwise-ANDing the current time with a copy of the time right shifted by
         state & (state >> 3) & (state >> 8) % period;
 
 You should hear something pretty amazing. Try experimenting by adding more shifted versions of the time, other bitwise operations, or even multigenerators. Feel free to post your favorite Generators on Piazza.
+
+Note that the period of this new audio signal is longer given by the period variable. Instead, the period is somehow much longer. We will not explore the features of these strange fractal sounds, but you're welcome to explore on your own if you'd like.
