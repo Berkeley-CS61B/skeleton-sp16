@@ -175,12 +175,12 @@ If we convert `00011100` from binary into decimal, we get 16 + 8 + 4 = 28.
 
 Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.java`. This time, create a temporary variable that is the modulus of the state `&` a copy of the the state right shifted by 3 places.
 
-For example (your instance variables may be differently named):
+For example (your instance variables may be differently named, and the order of your lines may be different):
 
         state = state + 1;
         int weirdState = state & (state >>> 3) % period;
 
-Try playing/drawing the sound (but normalized so that it fits in the range -1.0 to 1.0, as you did in `SawToothGenerator`), and you should see something like the following:
+Important: Make sure you aren't assigning the result of your bitwise operations back to state! Try playing/drawing weirdState (but normalized so that it fits in the range -1.0 to 1.0, as you did in `SawToothGenerator`), and you should see something like the following:
 
 <center>
 ![StrangeBitwise](images/StrangeBitwiseVisualization.png)
@@ -192,9 +192,22 @@ Now try bitwise-ANDing the current time with a copy of the time right shifted by
 
 Try playing a normalized version of `weirdState`. You should hear something pretty amazing. Try experimenting by adding more shifted versions of the time, other bitwise operations, or even multigenerators. Feel free to post your favorite Generators on Piazza.
 
-Note that the period of this new audio signal is longer given by the period variable. Instead, the period is somehow much longer. We will not explore the features of these strange fractal sounds, but you're welcome to explore on your own if you'd like.
+Note that the period of this new audio signal is no longer given by the period variable. Instead, the period is somehow much longer. We will not explore the features of these strange fractal sounds, but you're welcome to explore on your own if you'd like.
 
 Submission
 ---
 
-Submit a zip file containing `SawToothGenerator.java`, `AcceleratingSawToothGenerator.java`, `StrangeBitwiseGenerator.java`, and `MagicWord14.java` to Gradescope. 
+Submit a zip file containing `SawToothGenerator.java`, `AcceleratingSawToothGenerator.java`, `StrangeBitwiseGenerator.java`, and `MagicWord14.java` to Gradescope. The specifics of your `StrangeBitwiseGenerator` are not important (its output will not be tested), since its behavior is ill-defined. 
+
+P.S.
+---
+
+P.S. For an Illuminati time, try running:
+
+        Generator generator = new StrangeBitwiseGenerator(1024);
+        GeneratorAudioVisualizer gav = new GeneratorAudioVisualizer(generator);
+        gav.drawAndPlay(128000, 1000000);
+
+with 
+
+        weirdState = state & (state >> 7) % period;
