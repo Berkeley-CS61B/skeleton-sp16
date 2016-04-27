@@ -383,10 +383,10 @@ FAQ
 
 Make sure to try out the "Useful Files" above, especially the PrintEnergy and PrintSeams classes.
 
-#### My code is slow, what can I do to speed it up?
+#### My code is slow (failing timing tests), what can I do to speed it up?
 
-Some possible optimizations include:
- - Avoiding recalcuation of energies for the same pixel over and over (e.g. through creation of an explicit energy matrix of type `double[][]`). Essentially you want to memoize energy calculations.
+Some possible optimizations include (in decreasing order of likely impact):
+ - **Avoiding recalculation of energies for the same pixel over and over** (e.g. through creation of an explicit energy matrix of type `double[][]`). Essentially you want to memoize energy calculations. 
  - Don't use a HashMap for looking up data by row and column. Instead, use a 2D array. They are much faster. HashMaps are constant time, but the constant factor is significant.
  - Not using `Math.pow` or `Math.abs`.
  - Not storing an explicit `edgeTo` data structure. It is possible to rebuild the seam ONLY from the values for `M(i, j)`! That is, you don't need to actually record the predecessor like you did in the 8puzzle assignment. 
