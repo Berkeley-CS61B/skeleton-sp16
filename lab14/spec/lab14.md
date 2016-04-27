@@ -113,6 +113,7 @@ Hints:
  - The argument for the `SawToothGenerator` constructor is the period, not the frequency.
  - There should not be any usage of `Math.PI` or `Math.sin` in your code.
  - The state of your generator should still be an integer that increments by 1 each time.
+ - Create a state variable that varies between 0 and period - 1, and write a helper function called `normalize` that converts values between 0 and period - 1 to values between -1.0 and 1.0.
 
 For extra fun, use the MultiGenerator to play multiple sawtooth or sine waves in combination with each other.
 
@@ -172,13 +173,14 @@ If we convert `00011100` from binary into decimal, we get 16 + 8 + 4 = 28.
 
 #### Generating a Fractal Sound Using Bitwise Operations
 
-Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.java`. This time, before taking the modulus with the period as the right argument, you should `&` the current time with a copy of time right shifted by 3 places.
+Make a copy of your `SawToothGenerator.java` called `StrangeBitwiseGenerator.java`. This time, create a temporary variable that is the modulus of the state `&` a copy of the the state right shifted by 3 places.
 
 For example (your instance variables may be differently named):
 
-        state & (state >> 3) % period;
+        state = state + 1;
+        int weirdState = state & (state >>> 3) % period;
 
-Try playing/drawing this sound, and you should see something like the following:
+Try playing/drawing the sound (but normalized so that it fits in the range -1.0 to 1.0, as you did in `SawToothGenerator`), and you should see something like the following:
 
 <center>
 ![StrangeBitwise](images/StrangeBitwiseVisualization.png)
@@ -186,9 +188,9 @@ Try playing/drawing this sound, and you should see something like the following:
 
 Now try bitwise-ANDing the current time with a copy of the time right shifted by 3 places AND a copy of the time right shifted by 8 places.
 
-        state & (state >> 3) & (state >> 8) % period;
+        weirdState = state & (state >> 3) & (state >> 8) % period;
 
-You should hear something pretty amazing. Try experimenting by adding more shifted versions of the time, other bitwise operations, or even multigenerators. Feel free to post your favorite Generators on Piazza.
+Try playing a normalized version of `weirdState`. You should hear something pretty amazing. Try experimenting by adding more shifted versions of the time, other bitwise operations, or even multigenerators. Feel free to post your favorite Generators on Piazza.
 
 Note that the period of this new audio signal is longer given by the period variable. Instead, the period is somehow much longer. We will not explore the features of these strange fractal sounds, but you're welcome to explore on your own if you'd like.
 
