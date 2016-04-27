@@ -386,11 +386,11 @@ Make sure to try out the "Useful Files" above, especially the PrintEnergy and Pr
 #### My code is slow, what can I do to speed it up?
 
 Some possible optimizations include:
- - Not using `Math.pow`.
  - Avoiding recalcuation of energies for the same pixel over and over (e.g. through creation of an explicit energy matrix of type `double[][]`). Essentially you want to memoize energy calculations.
- - Using a more clever approach than transposing your images (though this is not required to pass the autograder).
- - Not storing an explicit `edgeTo` data structure. It is possible to rebuild the seam ONLY from the values for `M(i, j)`! That is, you don't need to actually record the predecessor like you did in the 8puzzle assignment. 
  - Don't use a HashMap for looking up data by row and column. Instead, use a 2D array. They are much faster. HashMaps are constant time, but the constant factor is significant.
+ - Not using `Math.pow` or `Math.abs`.
+ - Not storing an explicit `edgeTo` data structure. It is possible to rebuild the seam ONLY from the values for `M(i, j)`! That is, you don't need to actually record the predecessor like you did in the 8puzzle assignment. 
+ - Using a more clever approach than transposing your images (though this is not required to pass the autograder).
 
 Credits
 --------------------------------
