@@ -26,7 +26,11 @@ For example, suppose we have the file below:
 
 		abbccccdddddeeeeee
 
-This file has 1 a, 2 bs, 4 cs, 5 ds, and 6 es. The unique Huffman decoding trie for this file is as shown below. 
+This file has 1 a, 2 bs, 4 cs, 5 ds, and 6 es. The unique Huffman decoding trie for this file is as shown below. For example, the letter b corresponds to the binary seqeuence `001`.
+
+<center>
+![BinaryTrie](BinaryTrie.png)
+</center>
 
 BinaryTrie
 --------------------------------
