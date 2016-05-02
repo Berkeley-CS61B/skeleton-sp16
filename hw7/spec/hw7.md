@@ -28,21 +28,21 @@ BinaryTrie
 
 Create a class BinaryTrie that obeys the API below. The vast majority of the work for this homework is in creating this class.
 
-	public class BinaryTrie implements Serializable {
-		public BinaryTrie(Map<Character, Integer> frequencyTable)
-		public Match longestPrefixMatch(BitSequence querySequence)
-		public Map<Character, BitSequence> buildLookupTable()
-	}
+    public class BinaryTrie implements Serializable {
+        public BinaryTrie(Map<Character, Integer> frequencyTable)
+        public Match longestPrefixMatch(BitSequence querySequence)
+        public Map<Character, BitSequence> buildLookupTable()
+    }
 
 **Constructor.** Given a frequency table which maps symbols of type V to their relative frequencies, the constructor should build a Huffman decoding trie according to the procedure discussed in class. You may find implementations of Huffman codes on the web useful for inspiration, e.g. [http://algs4.cs.princeton.edu/55compression/Huffman.java.html](this implementation).
 
 **longestPrefixMatch.** The `longestPrefixMatch` method finds the longest prefix that matches the given `querySequence` and returns a Match object for that Match. The Match class is a simple container class with the following API:
 
-	public class Match {        
-		public Match(BitSequence sequence, char symbol)
-		public char getSymbol()
-		public BitSequence getSequence()
-	}
+    public class Match {        
+        public Match(BitSequence sequence, char symbol)
+        public char getSymbol()
+        public BitSequence getSequence()
+    }
 
 The `longestPrefixMatch` class takes as an argument objects of type `BitSequence`, described in more detail below. 
 
@@ -114,7 +114,7 @@ Once you've written HuffmanEncoder and verified that it is able to generate file
 **The main method.** The main method should open the file given as the 0th command line argument (`args[0]`), decode it, and and write a new file with the name given as `args[1]`. For example `java HuffmanDecoder watermelonsugar.txt.huf originalwatermelon.txt` should decode the contents of `watermelonsugar.txt.huf` and write them into `originalwatermelon.txt`.
 
 Pseudocode for the Huffman decoding process is given below:
-	
+    
     1: Read the Huffman coding trie.
     2: If applicable, read the number of symbols.
     3: Read the massive bit sequence corresponding to the original txt.
