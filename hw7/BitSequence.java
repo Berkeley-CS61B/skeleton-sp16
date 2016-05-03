@@ -30,9 +30,8 @@ public class BitSequence implements Serializable {
         lastBitNum = 0;
     }
 
-    /* Makes a memory efficient copy of a bit sequence. Unlikely to be useful for hW7. */
+    /* Makes a memory efficient copy of a bit sequence. Unlikely to be useful for HW7. */
     public BitSequence(BitSequence b) {
-        numBits = b.numBits;
         bits = new BitSet();
         for (int i = 0; i < b.length(); i += 1) {
             append(b.bitAt(i));
@@ -128,9 +127,9 @@ public class BitSequence implements Serializable {
                                                + "requested " + N + ", but have " + numBits + ".");
         }
 
-        BitSequence firstN = new BitSequence(this);
+        BitSequence firstN = new BitSequence();
         firstN.bits = this.bits;
-        firstN.numBits = this.numBits;
+        firstN.numBits = N;
         firstN.firstBitNum = this.firstBitNum;
         firstN.lastBitNum = this.firstBitNum + N;
         return firstN;
@@ -148,7 +147,7 @@ public class BitSequence implements Serializable {
 
         BitSequence allButFirstN = new BitSequence();
         allButFirstN.bits = this.bits;
-        allButFirstN.numBits = this.numBits;
+        allButFirstN.numBits = this.numBits - N;
         allButFirstN.firstBitNum = this.firstBitNum + N;
         allButFirstN.lastBitNum = this.lastBitNum;
         return allButFirstN;
@@ -166,7 +165,7 @@ public class BitSequence implements Serializable {
 
         BitSequence lastN = new BitSequence();
         lastN.bits = this.bits;
-        lastN.numBits = this.numBits;       
+        lastN.numBits = N;      
         lastN.lastBitNum = this.lastBitNum;
         lastN.firstBitNum = this.lastBitNum - N;
 
@@ -185,8 +184,7 @@ public class BitSequence implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-        for (int i = firstBitNum; i < lastBitNum; i += 1) {
+        for (int i = 0; i < length(); i += 1) {
             sb.append(String.valueOf(bitAt(i)));
         }
         return sb.toString();
@@ -208,5 +206,13 @@ public class BitSequence implements Serializable {
         for (int i = 0; i < bs.numBits; i += 1) {
             append(bs.bitAt(i));
         }
+    }    
+
+    public static void main(String[] args) {
+        BitSequence bs = new BitSequence();
+        bs = bs.appended(1);
+        System.out.println(bs.toString());
+        bs = bs.appended(1);
+        System.out.println(bs.toString());
     }    
 } 
